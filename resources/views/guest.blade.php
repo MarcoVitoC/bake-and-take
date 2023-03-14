@@ -7,7 +7,7 @@
       <p>Bread is the basic ingredient for making cakes, sometimes bread is only considered <br/>a cheap and difficult food to make, but with bake and take it will be easy to do</p>
     </div>
     <div class="start">
-      <a href=""><button class="start-btn">Let's Start <img src="{{ asset('assets/telegram.png') }}" alt="" width="33px" height="33px"></button></a>
+      <a href="/login"><button class="start-btn">Let's Start <img src="{{ asset('assets/telegram.png') }}" alt="" width="33px" height="33px"></button></a>
     </div>
     <div class="home-first-img">
       <img src="{{ asset('assets/Home/Kue1.jpg') }}" alt="Kue 1" width="320px" height="365px">
