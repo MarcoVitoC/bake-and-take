@@ -28,11 +28,6 @@ nav {
   cursor: pointer;
 }
 
-.menu:hover {
-  color: #CB1CDA;
-  transition-duration: 0.3s;
-}
-
 .login-btn {
   margin-right: 30px;
   padding: 15px 30px;

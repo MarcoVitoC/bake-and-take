@@ -5,5 +5,5 @@
     <a class="menu gallery" href="#gallery">Gallery</a>
     <a class="menu about-us" href="#about-us">About Us</a>
   </div>
-  <a href=""><button class="login-btn">Login</button></a>
+  <a href="/login"><button class="login-btn">Login</button></a>
 </nav>

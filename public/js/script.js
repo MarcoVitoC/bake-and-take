@@ -1,4 +1,41 @@
 $('document').ready(function() {
+  $('.home').css({
+    "color": "#CB1CDA"
+  })
+  $('.home').on('click', () => {
+    $('.home').css({
+      "color": "#CB1CDA"
+    })
+    $('.gallery').css({
+      "color": "#FFFFFF"
+    })
+    $('.about-us').css({
+      "color": "#FFFFFF"
+    })
+  })
+  $('.gallery').on('click', () => {
+    $('.home').css({
+      "color": "#FFFFFF"
+    })
+    $('.gallery').css({
+      "color": "#CB1CDA"
+    })
+    $('.about-us').css({
+      "color": "#FFFFFF"
+    })
+  })
+  $('.about-us').on('click', () => {
+    $('.home').css({
+      "color": "#FFFFFF"
+    })
+    $('.gallery').css({
+      "color": "#FFFFFF"
+    })
+    $('.about-us').css({
+      "color": "#CB1CDA"
+    })
+  })
+
   $('.dot2022').show()
   $('.cake-year2022-img').show()
   $('.cake-year2021-img').hide()
