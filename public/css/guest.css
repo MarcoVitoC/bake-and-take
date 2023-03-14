@@ -1,0 +1,237 @@
+html, body {
+  scroll-behavior: smooth;
+}
+
+.home-first {
+  padding-top: 170px;
+  background-color: #3FCED7;
+}
+
+.home-first-text h3, p {
+  text-align: center;
+  padding-bottom: 30px;
+}
+
+.home-first-text h3 {
+  color: #FFFFFF;
+  font-family: "Lora Medium";
+  font-size: 35px;
+}
+
+.home-first-text p {
+  color: #898888;
+  font-family: "Poppins", sans-serif;
+  font-size: 18px;
+}
+
+.start-btn button {
+  display: flex;
+  align-items: center;
+}
+
+.start {
+  display: flex;
+  justify-content: center;
+}
+
+.start-btn {
+  display: flex;
+  align-items: center;
+  padding: 20px 40px;
+  background-color: #F364FF;
+  border: none;
+  font-size: 20px;
+  font-weight: bold;
+  color: #211E18;
+  cursor: pointer;
+  margin-bottom: 36px
+}
+
+.start-btn:hover {
+  background-color: #CB3BD9;
+  transition-duration: 0.3s;
+}
+
+.start-btn img {
+  margin-left: 10px;
+}
+
+.home-first-img {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.home-second {
+  padding-top: 120px;
+}
+
+.home-second-text h3, 
+.home-second-text p,
+.home-footer-text h3, 
+.home-footer-text p {
+  text-align: center;
+  padding-bottom: 30px;
+}
+
+.home-second-text h3 {
+  color: #211E18;
+  font-family: "Lora Medium";
+  font-size: 50px;
+}
+
+.home-second-text p {
+  color: #7B7B7B;
+  font-family: "Poppins", sans-serif;
+  font-size: 20px;
+}
+
+.cake-year-container {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 30px;
+}
+
+.cake-year-container button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-family: "Poppins", sans-serif;
+  font-weight: bold;
+}
+
+.cake-year2022,
+.cake-year2021,
+.cake-year2020,
+.cake-year2019 {
+  font-size: 20px;
+  margin: 0px 40px;
+}
+
+.dot2022,
+.dot2021,
+.dot2020,
+.dot2019 {
+  display: none;
+}
+
+.cake-year2022-img,
+.cake-year2021-img,
+.cake-year2020-img,
+.cake-year2019-img {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: 250px 250px 250px;
+  gap: 30px 80px;
+}
+
+/* .cake3 {
+  grid-row-start: 2;
+}
+
+.cake4 {
+  grid-row-start: 2;
+}
+
+.cake5 {
+  grid-column-start: 1;
+}
+
+.cake6 {
+  grid-row-start: 2;
+} */
+
+.home-third {
+  padding-top: 120px;
+  margin-bottom: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-third-text {
+  margin-left: 35px;
+  color: #211E18;
+}
+
+.home-third-text h3, 
+.home-third-text h5 {
+  font-family: "Lora Medium";
+}
+
+.home-third-text h3 {
+  font-size: 35px;
+  margin-bottom: 10px;
+}
+
+.home-third-text h5 {
+  font-size: 25px;
+  margin: 0px 0px 30px 12px;
+}
+
+.home-third-text p {
+  font-family: "Poppins", sans-serif;
+  text-align: left;
+  line-height: 30px;
+  margin-bottom: 12px;
+}
+
+.homethird-exp-text {
+  display: flex;
+  justify-content: space-between;
+}
+
+.homethird-exp-text .years-exp-text h3,
+.homethird-exp-text .become-sweet-text h3 {
+  color: #FF7817;
+}
+
+.homethird-exp-text .years-exp-text h5,
+.homethird-exp-text .become-sweet-text h5 {
+  margin: 0px;
+  font-family: "Poppins", sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.home-footer {
+  margin-top: 30px;
+  padding-top: 70px;
+  padding-bottom: 30px;
+  background-color: #211E18;
+}
+
+.home-footer-text h3, 
+.home-footer-text p {
+  color: #FFFFFF;
+}
+
+.home-footer-text h3 {
+  font-family: "Lora";
+  font-weight: 100;
+  font-size: 50px;
+}
+
+.home-footer-text p {
+  font-family: "Poppins", sans-serif;
+  font-size: 17px;
+  margin-bottom: 70px;
+}
+
+.social-media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+
+.social-media-icon {
+  margin: 0px 15px;
+}
+
+.home-footer h5 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  text-align: center;
+  color: #FFFFFF;
+}
