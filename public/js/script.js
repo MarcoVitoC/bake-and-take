@@ -1,37 +1,37 @@
 $('document').ready(function() {
-  $('.home').css({
+  $('.guest').css({
     "color": "#CB1CDA"
   })
-  $('.home').on('click', () => {
-    $('.home').css({
+  $('.guest').on('click', () => {
+    $('.guest').css({
       "color": "#CB1CDA"
     })
     $('.gallery').css({
       "color": "#FFFFFF"
     })
-    $('.about-us').css({
+    $('.guest-about-us').css({
       "color": "#FFFFFF"
     })
   })
   $('.gallery').on('click', () => {
-    $('.home').css({
+    $('.guest').css({
       "color": "#FFFFFF"
     })
     $('.gallery').css({
       "color": "#CB1CDA"
     })
-    $('.about-us').css({
+    $('.guest-about-us').css({
       "color": "#FFFFFF"
     })
   })
-  $('.about-us').on('click', () => {
-    $('.home').css({
+  $('.guest-about-us').on('click', () => {
+    $('.guest').css({
       "color": "#FFFFFF"
     })
     $('.gallery').css({
       "color": "#FFFFFF"
     })
-    $('.about-us').css({
+    $('.guest-about-us').css({
       "color": "#CB1CDA"
     })
   })

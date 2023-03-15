@@ -2,23 +2,23 @@ html, body {
   scroll-behavior: smooth;
 }
 
-.home-first {
+.guest-first {
   padding-top: 170px;
   background-color: #3FCED7;
 }
 
-.home-first-text h3, p {
+.guest-first-text h3, p {
   text-align: center;
   padding-bottom: 30px;
 }
 
-.home-first-text h3 {
+.guest-first-text h3 {
   color: #FFFFFF;
   font-family: "Lora Medium";
   font-size: 35px;
 }
 
-.home-first-text p {
+.guest-first-text p {
   color: #898888;
   font-family: "Poppins", sans-serif;
   font-size: 18px;
@@ -56,31 +56,31 @@ html, body {
   margin-left: 10px;
 }
 
-.home-first-img {
+.guest-first-img {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
 }
 
-.home-second {
+.guest-second {
   padding-top: 120px;
 }
 
-.home-second-text h3, 
-.home-second-text p,
-.home-footer-text h3, 
-.home-footer-text p {
+.guest-second-text h3, 
+.guest-second-text p,
+.guest-footer-text h3, 
+.guest-footer-text p {
   text-align: center;
   padding-bottom: 30px;
 }
 
-.home-second-text h3 {
+.guest-second-text h3 {
   color: #211E18;
   font-family: "Lora Medium";
   font-size: 50px;
 }
 
-.home-second-text p {
+.guest-second-text p {
   color: #7B7B7B;
   font-family: "Poppins", sans-serif;
   font-size: 20px;
@@ -141,7 +141,7 @@ html, body {
   grid-row-start: 2;
 } */
 
-.home-third {
+.guest-third {
   padding-top: 120px;
   margin-bottom: 120px;
   display: flex;
@@ -149,70 +149,72 @@ html, body {
   align-items: center;
 }
 
-.home-third-text {
+.guest-third-text {
   margin-left: 35px;
   color: #211E18;
 }
 
-.home-third-text h3, 
-.home-third-text h5 {
+.guest-third-text h3, 
+.guest-third-text h5 {
   font-family: "Lora Medium";
 }
 
-.home-third-text h3 {
+.guest-third-text h3 {
   font-size: 35px;
   margin-bottom: 10px;
 }
 
-.home-third-text h5 {
+.guest-third-text h5 {
   font-size: 25px;
   margin: 0px 0px 30px 12px;
 }
 
-.home-third-text p {
+.guest-third-text p {
   font-family: "Poppins", sans-serif;
   text-align: left;
   line-height: 30px;
   margin-bottom: 12px;
 }
 
-.homethird-exp-text {
+.guestthird-exp-text {
   display: flex;
   justify-content: space-between;
 }
 
-.homethird-exp-text .years-exp-text h3,
-.homethird-exp-text .become-sweet-text h3 {
+.guestthird-exp-text .years-exp-text h3,
+.guestthird-exp-text .become-sweet-text h3 {
   color: #FF7817;
 }
 
-.homethird-exp-text .years-exp-text h5,
-.homethird-exp-text .become-sweet-text h5 {
+.guestthird-exp-text .years-exp-text h5,
+.guestthird-exp-text .become-sweet-text h5 {
   margin: 0px;
   font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 500;
 }
 
-.home-footer {
+.footer {
   margin-top: 30px;
   padding-top: 70px;
   padding-bottom: 30px;
   background-color: #211E18;
 }
 
-.home-footer-text h3, 
-.home-footer-text p {
+.footer-text h3, 
+.footer-text p {
   color: #FFFFFF;
+  text-align: center;
 }
 
-.home-footer-text h3 {
+.footer-text h3 {
   font-family: "Lora";
   font-weight: 100;
   font-size: 50px;
+  margin-bottom: 20px;
 }
 
-.home-footer-text p {
+.footer-text p {
   font-family: "Poppins", sans-serif;
   font-size: 17px;
   margin-bottom: 70px;
@@ -229,7 +231,7 @@ html, body {
   margin: 0px 15px;
 }
 
-.home-footer h5 {
+.footer h5 {
   font-family: "Poppins", sans-serif;
   font-weight: 500;
   text-align: center;
