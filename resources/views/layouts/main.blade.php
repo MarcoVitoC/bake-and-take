@@ -10,10 +10,11 @@
   <title>Bake & Take | Home</title>
 </head>
 <body>
-  @include('components.__navbar')
+  @include('components.guest-navbar')
   <div>
     @yield('container')
   </div>
+  @include('components.footer')
 </body>
 <script src="{{ asset('jquery.js') }}"></script>
 <script src="{{ asset('js/script.js') }}"></script>
