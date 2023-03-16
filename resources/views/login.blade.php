@@ -12,9 +12,9 @@
 </head>
 <body>
     <div class="icon-back">
-        <i class="fa fa-chevron-left fa-lg">  Back</i>
+        <a href="/"><i class="fa fa-chevron-left fa-lg">  Back</i></a>
     </div>
-    <form action="" method="post">
+    
         <div class="body-container">
             <div class="login-container"></div>
             <div class="login-box"></div>
@@ -36,7 +36,7 @@
                     <input type="checkbox" id="remember" name="remember" value="remember">
                     <label for="remember">Remember me</label>
                 </div>
-                <div class="forget-password"><a href="">Forget Password?</a></div>
+                <div class="forget-password"><a href="/login/forget-password" style="text-decoration: none">Forget Password?</a></div>
 
                 <div class="form-group">
                     <div class="password-icon-box">
@@ -48,11 +48,11 @@
                     </div>
                 </div>
                 <button class="login-button" type="submit">LOGIN</button>
-                <button class="register-button" type="submit">REGISTER</button>
+                <button class="register-button" type="submit"><a href="/register" style="text-decoration: none"><div class="warna-text">REGISTER</div></a></button>
             </div>
         </div>
         
-    </form>
+    
 </body>
 </html>
 

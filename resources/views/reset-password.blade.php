@@ -14,7 +14,7 @@
     <div class="icon-back">
         <i class="fa fa-chevron-left fa-lg">  Back</i>
     </div>
-    <form action="" method="post">
+    
         <div class="body-container">
             <div class="reset-container"></div>
             <div class="reset-box"></div>
@@ -44,12 +44,14 @@
                             <span class="text-danger">@error('confirm-password'){{$message}}@enderror</span>
                     </div>
                 </div>
-                <button class="reset-button" type="submit">RESET</button>
-                
+                <form action="reset-password/berhasil" method="get">
+                    <textarea name="message"></textarea>
+                    <button class="reset-button" type="submit">RESET</button>
+                </form>
             </div>
         </div>
         
-    </form>
+    
 </body>
 </html>
 
