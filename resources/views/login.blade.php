@@ -11,46 +11,31 @@
     
 </head>
 <body>
-    <div class="icon-back">
-        <a href="/"><i class="fa fa-chevron-left fa-lg">  Back</i></a>
-    </div>
-    
-        <div class="body-container">
-            <div class="login-container"></div>
-            <div class="login-box"></div>
-            <div class="login-text">LOGIN</div>
-            <div class="inside-login-box">
-                
-
-                <div class="form-group">
-                    <div class="email-icon-box">
-                        <div class="email-icon"><i class="fa fa-user-circle fa-lg" ></i></div>
-                    </div>
-                    <div class="email">
-                        <input type="text" class="email-box" placeholder="Email/Username" name="email" value="">
-                        <span class="text-danger">@error('email'){{$message}}@enderror</span>
-                    </div>
-                </div>
-                
+    <div class="container">
+        <div class="login-box">LOGIN</div>
+        <div class="inside-container">
+            <div class="box">
+                <div class="icon"><i class="fa fa-user-circle fa-lg" ></i></div>
+                <input class="text" type="text" placeholder="Email/Username" >
+            </div>
+            <div style="height: 10px;"></div>
+            <div class="box">
+                <div class="icon"><i class="fa fa-key fa-lg" ></i></div>
+                <input class="text" type="text" placeholder="Password" >
+            </div>
+            <div class="remember-forget">    
                 <div class="remember-box">
                     <input type="checkbox" id="remember" name="remember" value="remember">
                     <label for="remember">Remember me</label>
                 </div>
-                <div class="forget-password"><a href="/login/forget-password" style="text-decoration: none">Forget Password?</a></div>
-
-                <div class="form-group">
-                    <div class="password-icon-box">
-                        <div class="password-icon"><i class="fa fa-key fa-lg" ></i></div>
-                    </div>
-                    <div class="password">
-                            <input type="password" class="password-box" placeholder="Password" name="email" value="">
-                            <span class="text-danger">@error('email'){{$message}}@enderror</span>
-                    </div>
-                </div>
-                <button class="login-button" type="submit">LOGIN</button>
-                <button class="register-button" type="submit"><a href="/register" style="text-decoration: none"><div class="warna-text">REGISTER</div></a></button>
+                <a href="">Forget Password</a>
             </div>
+                
+            <div class="box"><div class="button-login">LOGIN</div></div>
+            <div style="height: 10px"></div>
+            <div class="box"><div class="button-register">REGISTER</div></div>
         </div>
+    </div>
         
     
 </body>

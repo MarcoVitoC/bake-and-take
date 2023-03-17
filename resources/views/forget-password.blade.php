@@ -28,7 +28,7 @@
             
         </div>
         <div class="forget-password-container"></div>
-        <div class="forget-password-text">Forget Password</div>
+        <div class="forget-password-text">Forget Password</div>l
     </div>
 </body>
 </html>
