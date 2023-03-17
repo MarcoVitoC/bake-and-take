@@ -20,3 +20,7 @@ Route::get('/', function () {
 Route::get('/otp', function () {
     return view('otp');
 });
+
+Route::get('/transaction', function () {
+    return view('transaction');
+});

@@ -1,0 +1,179 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    text-decoration: none;
+    font-family: 'Poppins';
+}
+
+.nav-welcome-user{
+    color: white;
+}
+
+.product-information-container{
+    display:flex;
+    justify-content: center;
+    padding-top: 186px;
+}
+
+.brand-title{
+    font-size: 30px;
+    margin-top: 5px;
+    font-weight: 700;
+    margin-left: 31px;
+}
+
+.sold{
+    margin-left: 31px;
+}
+
+.harga{
+    margin: 39px 0px 18px 50px;
+    font-size: 36px;
+    color: rgba(203, 28, 218, 1);
+}
+
+.detail-container{
+    display: flex;
+    margin-left: 50px;
+    margin-top: 18px;
+}
+
+.detail-lists, .detail-isi{
+    display: flex;
+    flex-direction: column;
+    row-gap: 30px;
+    margin-right: 31px;
+}
+
+.list-pengiriman{
+    margin-bottom: 78px;
+}
+
+.alamat-pengiriman{
+    margin: 12px 0px;
+}
+
+.list-ukuran, .detail-ukuran{
+    margin-bottom: 6px;
+}
+
+.button-ukuran{
+    background-color: white;
+    font-weight: 300;
+    color: rgba(0, 0, 0, 0.65);
+    border: solid 1px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding: 2px;
+    margin-right: 12px;
+    font-size: 16px;
+}
+
+.share-button{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 34px;
+    margin-right: 15px;
+    align-items: center;
+}
+
+.share-text{
+    margin-right: 5px;
+}
+
+.buy-fav-button, .fav-button{
+    display: flex;
+    align-items: center;
+}
+
+.fav-button{
+    padding: 9px 37px;
+    border: solid 1px rgba(0, 0, 0, 0.5)
+}
+
+.fav-text{
+    padding-left: 8px;
+    font-size: 18px;
+    font-weight: 600;
+    color:rgba(123, 123, 123, 1);
+}
+
+.buy-button{
+    width:max-content;
+    padding: 9px 23px;
+    font-size: 18px;
+    font-weight: 600;
+    background-color: #F364FF;
+}
+
+.proteksi-info{
+    color: red;
+    background-color: white;
+    border: none;
+}
+
+
+.container-info-toko{
+    display: flex;
+    margin: 25px 0px 47px 106px;
+    align-items: center;
+    column-gap: 10px;
+}
+
+.nama-toko{
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.jumlah-terjual{
+    font-size: 11px;
+    font-weight: 300;
+}
+
+.lihat-toko{
+    font-size: 12px;
+    padding: 4px 12px;
+    background-color: #F364FF;
+}
+
+.teks-deskripsi{
+    color: rgba(0, 0, 0, 0.5);
+    font-weight: 500;
+}
+
+.deskripsi-produk{
+    margin: 0px 0px 14px 106px;
+}
+
+.paragraf-deskripsi{
+    margin-top: 21px;
+    margin-bottom: 50px;
+    max-width: 1300px;
+}
+
+.quantity{
+    display: flex;
+}
+
+.quantity-button, .quantity-text{
+    padding: 0px 5px;
+    background-color: white;
+    border: 0.5px solid rgba(0, 0, 0, 0.2);
+}
+
+.quantity-text{
+    border-right: 1px;
+    border-left: 1px;
+    padding: 0px 10px;
+}
+
+.show-dropdown{
+    background-color: white;
+    border: none;
+}
+
+.lihat-toko:hover, .fav-button:hover, .buy-button:hover, .button-ukuran:hover,
+.proteksi-info:hover, .quantity-button:hover, .share-button, .show-dropdown:hover{
+    cursor: pointer;
+}
+
+
