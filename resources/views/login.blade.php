@@ -13,10 +13,13 @@
 <body>
     <div class="container">
         <div class="login-box">LOGIN</div>
-        <div class="inside-container">
-            <div class="box">
+        <form action="" method="post">
+
+            <div class="inside-container">
+                <div class="box">
                 <div class="icon"><i class="fa fa-user-circle fa-lg" ></i></div>
                 <input class="text" type="text" placeholder="Email/Username" >
+                
             </div>
             <div style="height: 10px;"></div>
             <div class="box">
@@ -30,10 +33,11 @@
                 </div>
                 <a href="/login/forget-password" style="text-decoration: none; color: #1E9CD2">Forget Password?</a>
             </div>
-                
-            <div class="box"><div class="button-login">LOGIN</div></div>
+            
+            <div class="box"><input type="submit" value="LOGIN" class="button-login"></div>
+        </form>
             <div style="height: 10px"></div>
-            <div class="box"><div class="button-register">REGISTER</div></div>
+            <div class="box"><a href="" class="button-register" style="text-decoration: none">REGISTER</a></div>
         </div>
     </div>
         

@@ -30,6 +30,7 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	 	
 	
 }
 
@@ -59,22 +60,24 @@
 
 .button-login{
 	margin-top: 100px;
-	padding: 10px 122px 10px 122px;
+	padding: 10px 124px 10px 124px;
 	background-color: #F364FF;
+	border: none;
 }
 
 .button-login:hover{
 	background: #CB3BD9;
-	
+	border: none;
 	transition-duration: 300ms;
 	cursor: pointer;
 }
 
 .button-register{
-	padding: 10px 109px 10px 109px;
+	padding: 7px 105px 7px 105px;
 	margin-bottom: 150px;
 	border-style: groove;
 	cursor: pointer;
+	transition-duration: 300ms;
 }
 
 
