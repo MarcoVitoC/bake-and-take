@@ -19,13 +19,13 @@ Route::get('/', function () {
 Route::get('/login', function(){
     return view('login');
 });
-Route::get('/forget-password', function(){
+Route::get('/login/forget-password', function(){
     return view('forget-password');
 });
-Route::get('/reset-password', function(){
+Route::get('reset-password', function(){
     return view('reset-password');
 });
-Route::get('/reset-password/berhasil', function(){
+Route::get('reset-password/berhasil', function(){
     return view('ubah-password');
 });
 Route::get('/reset-password/req-send', function(){

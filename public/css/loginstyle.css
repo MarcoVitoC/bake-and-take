@@ -1,187 +1,88 @@
-*{
-	font-family: 'Poppins',sans-serif;
-}
-.icon-back{
-	padding: 10px;
-}
-
-.body-container{
-	position: relative;
-	
-	bottom: 150px;
-	right: 0px;
-	
-}
-
-.login-container{
-	box-sizing: border-box;
-margin-right: 100px;
-	position: absolute;
-	width: 512px;
-	height: 599px;
-	left: 464px;
-	top: 274px;
-
-	background: #FFFFFF;
-	border: 1px solid #000000;
-	border-radius: 40px;
-}
-.login-text{
-	position: absolute;
-	width: 55px;
-	height: 27px;
-	left: 684px;
-	top: 261px;
-
-	
-	font-style: normal;
-	font-weight: 600;
-	font-size: 18px;
-	line-height: 27px;
-	text-align: center;
-
-	color: #000000;
-}
 .login-box{
-	box-sizing: border-box;
-
-	position: absolute;
-	width: 200px;
-	height: 64px;
-	left: 612px;
-	top: 242px;
-
-	background: #FFFFFF;
-	border: 1px solid #000000;
-	border-radius: 40px;
-}
-.inside-login-box{
-	display: absolute;
-	flex-direction: column;
+	display: flex;
 	justify-content: center;
 	align-items: center;
-	padding: 0px;
-	gap: 100px;
-
-	position: absolute;
-	width: 340px;
-	height: 338px;
-	left: 552px;
-	top: 364px;
-}
-.email-icon-box{
-	position: absolute;
-	width: 50px;
-	height: 48px;
-	left: 0px;
-	top: 0px;
-	border: 1px;
-
-	background: #E9E9E9;
-}
-.email-icon{
+	/* position: absolute; */
+	/* border-collapse: collapse; */
 	
-	margin: 30%;
+	margin-top: 10%;
+	margin-left: 45%;
+	margin-right: 45%;
+	padding: 10px;
+	border-style: groove;
+	border-color: black;
+	border-radius: 50px;
+}
+
+
+.inside-container{
+	margin-top: -20px;
+	margin-left: 35%;
+	margin-right: 35%;
+	padding-top: 60px;
+	
+	border-style: groove;
+	border-radius: 50px;
+}
+.box{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	 	
 	
 }
-.email-box{
-	position: absolute;
-	width: 290px;
-	height: 46px;
-	left: 50px;
-	top: 0px;
-	border: 1px;
 
-	background: #D9D9D9;
-}
-
-.password-icon-box{
-	position: absolute;
-	width: 50px;
-	height: 48px;
-	left: 0px;
-	top: 60px;
-	border: 1px;
-
-	background: #E9E9E9;
-}
-.password-icon{
-	margin: 30%;
-}
-.password-box{
-	position: absolute;
-	width: 290px;
-	height: 46px;
+.icon{
 	
-	top: 60px;
-	left: 50px;	
-
-	border: 1px;
-
-	background: #D9D9D9;
-}
-.login-logo{
-	position: absolute;
-	width: 47.47px;
-	height: 48px;
-	left: 0px;
-	top: 0px;
-
-background: #E9E9E9;
-}
-
-.remember-box{
-	position: absolute;
-	top: 120px;
-}
-.forget-password{
-	position: absolute;
-	top: 123px;
-	left: 234px;
+	align-items: center;
+	justify-content: center;
+	display: flex;
+	width: 42px;
+	height: 42px;
+	border-style: groove;
+	background-color: #E9E9E9;
+	border: 0px solid;
 	
-	font-style: normal;
-	font-weight: 300;
-	font-size: 13px;
-	line-height: 15px;
-	text-align: center;
-	/* text-decoration: none; */
-	/* color: #1E9CD2; */
 }
 
-.login-button{
-	width: 340px;
-	height: 46px;
-	margin-top: 300px;
-	font-family: 'Lucida Console';
-	font-style: normal;
-	font-weight: 400;
-	font-size: 24px;
-	line-height: 24px;
-	background: #F364FF;
-	cursor: pointer;
+
+
+.text{
+	width: 250px;
+	height: 40px;
+	border: 0px solid;
+	padding-left: 5px;
+	background-color: #D9D9D9;
 }
 
-.login-button:hover{
+
+.button-login{
+	margin-top: 100px;
+	padding: 10px 124px 10px 124px;
+	background-color: #F364FF;
+	border: none;
+}
+
+.button-login:hover{
 	background: #CB3BD9;
-	
+	border: none;
 	transition-duration: 300ms;
-}
-
-.register-button{
-	width: 340px;
-	height: 46px;
-	margin-top: 10px;
-	font-family: 'Lucida Console';
-	font-style: normal;
-	font-weight: 400;
-	font-size: 24px;
-	line-height: 24px;
-	background: #FfffFF;
 	cursor: pointer;
 }
 
-.register-button:hover{
-	background: #F364FF;
-	
+.button-register{
+	padding: 7px 105px 7px 105px;
+	margin-bottom: 150px;
+	border-style: groove;
+	cursor: pointer;
 	transition-duration: 300ms;
+}
+
+
+.remember-forget{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	/* padding: 10px 122px 10px 122px; */
+	margin: 0% 15% 0% 15%;
 }

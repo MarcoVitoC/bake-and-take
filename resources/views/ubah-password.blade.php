@@ -10,11 +10,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css" /> 
 </head>
 <body>
+
+
     <div class="container">
         <div class="text">Password berhasil di ubah</div>
-        <div class="circle">
-            <div class="checkmark"></div>
-        </div>
+        <img src="{{ asset('assets/Icon/Check.jpg') }}" alt="check" class="img">
         <form action="" method="POST">
                 <button type="submit" class="button">Tutup</button>
         </form>
