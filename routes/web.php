@@ -24,3 +24,32 @@ Route::get('/otp', function () {
 Route::get('/transaction', function () {
     return view('transaction');
 });
+
+Route::get('/transaction/konfirmasi-pembayaran', function(){
+    return view('konfirmasi-pembayaran');
+});
+
+Route::get('/transaction/pembayaran-berhasil', function(){
+    return view('pembayaran-berhasil');
+});
+
+Route::get('/login', function(){
+    return view('login');
+});
+
+Route::get('/login/forget-password', function(){
+    return view('forget-password');
+});
+
+Route::get('/reset-password', function(){
+    return view('reset-password');
+});
+
+Route::get('/reset-password/berhasil', function(){
+    return view('ubah-password');
+});
+
+Route::get('/reset-password/req-send', function(){
+    return view('request-password');
+});
+
