@@ -51,8 +51,8 @@ Route::get('/transaction/pembayaran-berhasil', function(){
     ]);
 });
 
-Route::get('/fav', function(){
-    return view('fav',  [
+Route::get('/favorite', function(){
+    return view('favorite',  [
         "title" => "Favorit"
     ]);
 });
