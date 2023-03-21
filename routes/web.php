@@ -27,7 +27,23 @@ Route::post('/register', [RegisterController::class, 'register']);
 
 Route::get('/user', [UserController::class, 'index']);
 
-Route::get('/forget-password', function(){
+Route::get('/otp', function () {
+    return view('otp');
+});
+
+Route::get('/transaction', function () {
+    return view('transaction');
+});
+
+Route::get('/transaction/konfirmasi-pembayaran', function(){
+    return view('konfirmasi-pembayaran');
+});
+
+Route::get('/transaction/pembayaran-berhasil', function(){
+    return view('pembayaran-berhasil');
+});
+
+Route::get('/login/forget-password', function(){
     return view('forget-password');
 });
 
@@ -42,3 +58,4 @@ Route::get('/reset-password/berhasil', function(){
 Route::get('/reset-password/req-send', function(){
     return view('request-password');
 });
+

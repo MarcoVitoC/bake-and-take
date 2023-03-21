@@ -30,6 +30,15 @@
                 </div>
                 <button class="reset-button" type="submit">RESET</button>
             </div>
+            <div style="height: 10px;"></div>
+            <div class="box">
+                <div class="icon"><i class="fa fa-key fa-lg" ></i></div>
+                <input class="text" type="text" placeholder="Confirm Password" >
+            </div>
+                
+            <div class="box"><div class="button-reset">RESET</div></div>
+            
+            
         </div>
     </form>
 @endsection
