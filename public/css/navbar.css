@@ -44,3 +44,40 @@ nav {
   border: solid 2px #CB1CDA;
   transition-duration: 0.3s;
 }
+
+.fav-transaction,
+.user {
+  display: flex;
+  align-items: center;
+}
+
+.fav-transaction {
+  margin-right: -250px;
+}
+
+.favorite-btn,
+.transaction-btn,
+.user {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.favorite-btn,
+.transaction-btn {
+  margin: 0px 10px;
+}
+
+.user {
+  margin-right: 30px;
+}
+
+.user img,
+.user h4 {
+  margin: 5px;
+}
+
+.user h4 {
+  color: #FFFFFF;
+  font-family: "Poppins", sans-serif;
+}

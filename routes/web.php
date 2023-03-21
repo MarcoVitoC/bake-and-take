@@ -1,6 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\GuestController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,9 +17,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('guest');
-});
+Route::get('/', [GuestController::class, 'index']);
+
+Route::get('/login', [LoginController::class, 'index']);
+Route::post('/login', [LoginController::class, 'authentication']);
+
+Route::get('/register', [RegisterController::class, 'index']);
+Route::post('/register', [RegisterController::class, 'register']);
+
+Route::get('/user', [UserController::class, 'index']);
 
 Route::get('/otp', function () {
     return view('otp', [
@@ -51,10 +61,6 @@ Route::get('/notif', function(){
     return view('notif',  [
         "title" => "Notifikasi & History"
     ]);
-});
-
-Route::get('/login', function(){
-    return view('login');
 });
 
 Route::get('/login/forget-password', function(){
