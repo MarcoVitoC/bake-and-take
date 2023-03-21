@@ -9,7 +9,7 @@
             <form action="" method="post">
 
                 <div class="inside-container-forget-box">
-                    <label for="name" class="name">Name: <span class="req">*</span></label>
+                    <label for="name" class="name">Email: <span class="req">*</span></label>
                     <input class="text-forget-box" name="name" type="text" placeholder="Masukan Email Terdaftar...." required>
 
                     <div class="box"><input type="submit" value="Send" class="button-send-box"></div>
