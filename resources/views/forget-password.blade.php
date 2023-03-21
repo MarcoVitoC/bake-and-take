@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,6 +14,17 @@
 <body>
     <div class="container">
         <div class="forget-box">Forget Password</div>
+=======
+@extends('layouts.main')
+
+@section('container')
+    <div class="icon-back">
+        <i class="fa fa-chevron-left fa-lg">  Back</i>
+    </div>
+    <div class="body-container">
+        <div class="inside-forget-password-box">
+
+>>>>>>> 241685df386d3a5356d33137f16384036be6aea0
             <form action="" method="post">
 
                 <div class="inside-container">
@@ -26,9 +38,4 @@
 
         </div>
     </div>
-        
-    
-</body>
-</html>
-
-
+@endsection

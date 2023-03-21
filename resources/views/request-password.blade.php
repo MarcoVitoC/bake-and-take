@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +9,11 @@
     <title>Bake & Take | {{ $title }}</title>
 </head>
 <body>
+=======
+@extends('layouts.main')
+
+@section('container')
+>>>>>>> 241685df386d3a5356d33137f16384036be6aea0
     <div class="container">
         <div class="req-text">Request Reset Password</div>
         <img src="{{ asset('assets/Icon/mail-out(2).jpg') }}" alt="Mail-Out" class="img">
@@ -16,5 +22,4 @@
             <button type="submit" class="button"><a href="/reset-password" style="text-decoration: none">Tutup</a></button>
         
     </div>
-</body>
-</html>
+@endsection

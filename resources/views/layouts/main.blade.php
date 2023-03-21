@@ -5,12 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/fontawesome.min.css" />  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css" /> 
   <link rel="stylesheet" href="{{ asset('/css/navbar.css') }}">
   <link rel="stylesheet" href="{{ asset('/css/guest.css') }}">
+<<<<<<< HEAD
+=======
+  <link rel="stylesheet" href="{{ asset('/css/footer.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/loginstyle.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/home.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/forget-password.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/request-password.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/reset-password.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/ubah-password.css') }}">
+>>>>>>> 241685df386d3a5356d33137f16384036be6aea0
   <title>Bake & Take | {{ $title }}</title>
 </head>
 <body>
-  @include('components.__navbar')
   <div>
     @yield('container')
   </div>

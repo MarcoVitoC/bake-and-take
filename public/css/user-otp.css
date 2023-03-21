@@ -1,0 +1,111 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button{
+    border:none;
+    background-color: white;
+    font-size: 16px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+p{
+    color: red;
+    font-size: 14px;
+    padding-top: 8px;
+}
+
+.back{
+    text-decoration: none;
+    color: initial;
+    position: absolute;
+    top: 19px;
+    left: 14px;
+    font-weight: 600;
+    font-size: 22px;
+    transition: 0.45s;
+}
+
+.back:hover{
+    color: rgba(243, 100, 255, 1);
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1067px;
+    width: 100%;
+    height: 555px;
+    max-height: 100%;
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    border-radius: 20px;
+    margin: 65px;
+}
+
+.container h3 {
+    font-size: 24px;
+    font-weight: 600;
+    font-style: poppins;
+    padding-top: 43px;
+}
+
+.txt-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 39px;
+}
+
+.input-field{
+    display: flex;
+    column-gap: 20px;
+    padding-top: 59px;
+}
+
+input{
+    height: 59px;
+    width: 47px;
+    font-size: 1.125rem;
+    text-align: center;
+    border: 1px solid;
+}
+
+.input-field input::-webkit-inner-spin-button{
+    display: none;
+}
+
+.btn-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 74px;
+    row-gap: 43px;
+}
+
+.submit {
+    max-width: 340px;
+    width: 100%;
+    max-height: 45px;
+    height: 100%;
+    font-size: 24px;
+    font-weight: 400;
+    font-family: 'Lucida Console';
+    border: none;
+    padding: 9px 0;
+    background: rgba(243, 100, 255, 1);
+}
+

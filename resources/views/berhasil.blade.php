@@ -1,3 +1,4 @@
+<<<<<<< HEAD:resources/views/berhasil.blade.php
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +12,11 @@
 </head>
 <body>
 
+=======
+@extends('layouts.main')
+>>>>>>> 241685df386d3a5356d33137f16384036be6aea0:resources/views/ubah-password.blade.php
 
+@section('container')
     <div class="container">
         <div class="text">{{ $ubah_password }}</div>
         
@@ -20,8 +25,5 @@
         <form action="" method="POST">
                 <button type="submit" class="button">Tutup</button>
         </form>
-    </div>
-
-    
-</body>
-</html>
+    </div> 
+@endsection
