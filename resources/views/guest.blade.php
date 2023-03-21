@@ -1,6 +1,7 @@
 @extends('layouts.main')
 
 @section('container')
+  @include('components.guest-navbar')
   <div class="guest-first" id="guest">
     <div class="guest-first-text">
       <h3>ALL THE DIFFERENCE IN ONE TASTE CAN BE FOUND <br/>IN BAKE & TAKE</h3>
@@ -78,4 +79,5 @@
       </div>
     </div>
   </div>
+  @include('components.footer')
 @endsection

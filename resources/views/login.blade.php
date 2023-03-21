@@ -4,56 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Login</title>
+    <title>Bake & Take | {{ $title }}</title>
     <link rel="stylesheet" href="{{ asset('css/loginstyle.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/fontawesome.min.css" />  
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css" /> 
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css" />
 </head>
 <body>
-    <div class="icon-back">
-        <i class="fa fa-chevron-left fa-lg">  Back</i>
-    </div>
-    <form action="" method="post">
-        <div class="body-container">
-            <div class="login-container"></div>
-            <div class="login-box"></div>
-            <div class="login-text">LOGIN</div>
-            <div class="inside-login-box">
-                
-
-                <div class="form-group">
-                    <div class="email-icon-box">
-                        <div class="email-icon"><i class="fa fa-user-circle fa-lg" ></i></div>
+    <div class="container">
+        <div class="login-box">LOGIN</div>
+        <div class="inside-container">
+            @csrf
+            <form action="/login" method="post">
+                <div class="box">
+                    <div class="icon"><i class="fa fa-user-circle fa-lg" ></i></div>
+                    <input class="text" type="email" name="email" placeholder="Email" autofocus required value="{{ old('email') }}">
+                    {{-- @error('email')
+                        <div class="error-msg">
+                            <h6>Invalid</h6>
+                        </div>
+                    @enderror --}}
+                </div>
+                <div class="box">
+                    <div class="icon"><i class="fa fa-key fa-lg" ></i></div>
+                    <input class="text" type="password" name="password" placeholder="Password" required>
+                </div>
+                <div class="remember-forget">
+                    <div class="remember-box">
+                        <input type="checkbox" id="remember" name="remember" value="remember">
+                        <label for="remember" class="remember-text">Remember Me</label>
                     </div>
-                    <div class="email">
-                        <input type="text" class="email-box" placeholder="Email/Username" name="email" value="">
-                        <span class="text-danger">@error('email'){{$message}}@enderror</span>
-                    </div>
+                    <a href="/login/forget-password" class="forget-password">Forget Password?</a>
                 </div>
                 
-                <div class="remember-box">
-                    <input type="checkbox" id="remember" name="remember" value="remember">
-                    <label for="remember">Remember me</label>
-                </div>
-                <div class="forget-password"><a href="">Forget Password?</a></div>
-
-                <div class="form-group">
-                    <div class="password-icon-box">
-                        <div class="password-icon"><i class="fa fa-key fa-lg" ></i></div>
-                    </div>
-                    <div class="password">
-                            <input type="password" class="password-box" placeholder="Password" name="email" value="">
-                            <span class="text-danger">@error('email'){{$message}}@enderror</span>
-                    </div>
-                </div>
-                <button class="login-button" type="submit">LOGIN</button>
-                <button class="register-button" type="submit">REGISTER</button>
-            </div>
+                <div class="box"><button type="submit" class="button-login">LOGIN</button></div>
+            </form>
+            <div style="height: 10px"></div>
+            <div class="box"><a href="/register" class="button-register">REGISTER</a></div>
         </div>
-        
-    </form>
+    </div>
 </body>
 </html>
-
-
