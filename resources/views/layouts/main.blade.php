@@ -9,8 +9,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css" /> 
   <link rel="stylesheet" href="{{ asset('/css/navbar.css') }}">
   <link rel="stylesheet" href="{{ asset('/css/guest.css') }}">
-<<<<<<< HEAD
-=======
   <link rel="stylesheet" href="{{ asset('/css/footer.css') }}">
   <link rel="stylesheet" href="{{ asset('css/loginstyle.css') }}">
   <link rel="stylesheet" href="{{ asset('css/home.css') }}">
@@ -18,7 +16,6 @@
   <link rel="stylesheet" href="{{ asset('css/request-password.css') }}">
   <link rel="stylesheet" href="{{ asset('css/reset-password.css') }}">
   <link rel="stylesheet" href="{{ asset('css/ubah-password.css') }}">
->>>>>>> 241685df386d3a5356d33137f16384036be6aea0
   <title>Bake & Take | {{ $title }}</title>
 </head>
 <body>

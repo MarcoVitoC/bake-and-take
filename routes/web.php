@@ -17,17 +17,6 @@ use App\Http\Controllers\RegisterController;
 |
 */
 
-<<<<<<< HEAD
-Route::get('/', function () {
-    return view('guest',[
-        "title" => "Home"
-    ]);
-});
-Route::get('/login', function(){
-    return view('login', [
-        "title" => "Login"
-    ]);
-=======
 Route::get('/', [GuestController::class, 'index']);
 
 Route::get('/login', [LoginController::class, 'index']);
@@ -44,7 +33,6 @@ Route::get('/otp', function () {
 
 Route::get('/transaction', function () {
     return view('transaction');
->>>>>>> 241685df386d3a5356d33137f16384036be6aea0
 });
 
 Route::get('/transaction/konfirmasi-pembayaran', function(){
@@ -60,7 +48,6 @@ Route::get('/login/forget-password', function(){
         "title" => "Forget Password"
     ]);
 });
-<<<<<<< HEAD
 Route::get('reset-password', function(){
     return view('reset-password',[
         "title" => "Reset Password"
@@ -73,15 +60,6 @@ Route::get('reset-password/berhasil', function(){
         "order_selesai" => "Orderan Telah Selesai ",
         "pembayaran_berhasil" => "Pembayaran Telah Berhasil "
     ]);
-=======
-
-Route::get('/reset-password', function(){
-    return view('reset-password');
-});
-
-Route::get('/reset-password/berhasil', function(){
-    return view('ubah-password');
->>>>>>> 241685df386d3a5356d33137f16384036be6aea0
 });
 
 Route::get('/reset-password/req-send', function(){
