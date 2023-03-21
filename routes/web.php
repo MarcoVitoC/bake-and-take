@@ -18,19 +18,39 @@ Route::get('/', function () {
 });
 
 Route::get('/otp', function () {
-    return view('otp');
+    return view('otp', [
+        "title" => "OTP"
+    ]);
 });
 
 Route::get('/transaction', function () {
-    return view('transaction');
+    return view('transaction', [
+        "title" => "Transaction"
+    ]);
 });
 
 Route::get('/transaction/konfirmasi-pembayaran', function(){
-    return view('konfirmasi-pembayaran');
+    return view('konfirmasi-pembayaran',  [
+        "title" => "Konfirmasi Pembayaran"
+    ]);
 });
 
 Route::get('/transaction/pembayaran-berhasil', function(){
-    return view('pembayaran-berhasil');
+    return view('pembayaran-berhasil',  [
+        "title" => "Pembayaran Berhasil"
+    ]);
+});
+
+Route::get('/fav', function(){
+    return view('fav',  [
+        "title" => "Favorit"
+    ]);
+});
+
+Route::get('/notif', function(){
+    return view('notif',  [
+        "title" => "Notifikasi & History"
+    ]);
 });
 
 Route::get('/login', function(){

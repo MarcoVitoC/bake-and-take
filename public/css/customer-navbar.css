@@ -2,6 +2,7 @@
     margin: 0px;
     padding: 0px;
     text-decoration: none;
+    font-family: 'Poppins';
 }
 
 nav{
@@ -12,6 +13,8 @@ nav{
     align-items: center;
     justify-content: space-between;
     padding: 7px 0px;
+    z-index: 100;
+    font-weight: 500;
 }
 
 .logo img{
@@ -33,14 +36,20 @@ nav{
     flex-direction: row;
     font-size: 16px;
     margin-right: 32px;
+    align-items: center;
 }
 
 .nama-user-container{
     display: flex;
     flex-direction: column;
     margin-left: 15px;
+    align-items: center;
 }
 
 .gambar-user:hover, .nama-user:hover{
     cursor: pointer;
+}
+
+.nav-welcome-user{
+    color: white;
 }

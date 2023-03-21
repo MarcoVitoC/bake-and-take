@@ -5,10 +5,6 @@
     font-family: 'Poppins';
 }
 
-.nav-welcome-user{
-    color: white;
-}
-
 .main-container{
     display: flex;
     flex-direction: column;
@@ -154,5 +150,6 @@
 .proteksi-info:hover, .quantity-button:hover, .share-button, .show-dropdown:hover{
     cursor: pointer;
 }
+
 
 

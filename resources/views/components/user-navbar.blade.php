@@ -8,6 +8,8 @@
     </div>
 
     <div class="nav-welcome-user">
+        <img src="{{ asset('assets/Icon/heart-nav.jpg') }}" alt="Gambar Hati" width="24px" height="21px" class="gambar-hati">
+        <img src="{{ asset('assets/Icon/email.png') }}" alt="Gambar Mail" width="27px" height="21px" class="gambar-mail">
         <img src="{{ asset('assets/Transaction/user.png') }}" alt="Gambar User" width="39px" height="40px" class="gambar-user">
         <div class="nama-user-container">
             <div>Welcome,</div>
