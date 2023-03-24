@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="{{ asset('css/register.css') }}">
+  <title>Bake & Take | {{ $title }}</title>
+</head>
+<body>
+  <div class="register-box">REGISTER</div>
+  <div class="register-form">
+    <form action="/register" method="post">
+      @csrf
+      <div class="form-bar">
+        <input type="text" name="fullname" placeholder="Full Name" value="{{ old('fullname') }}">
+        @error('fullname')
+          <div class="invalid-msg">{{ $message }}</div>
+        @enderror
+      </div>
+      <div class="form-bar">
+        <input type="email" name="email" placeholder="Email" value="{{ old('email') }}">
+        @error('email')
+          <div class="invalid-msg">{{ $message }}</div>
+        @enderror
+      </div>
+      <div class="form-bar">
+        <input type="password" name="password" placeholder="Password">
+        @error('password')
+          <div class="invalid-msg">{{ $message }}</div>
+        @enderror
+      </div>
+      <div class="form-bar">
+        <input type="password" name="confirmPassword" placeholder="Confirm Password">
+        @error('confirmPassword')
+          <div class="invalid-msg">{{ $message }}</div>
+        @enderror
+      </div>
+      <div class="register-gender">
+        <div class="male">
+          <input type="radio" id="male" name="gender" value="Male" checked>
+          <label for="male">Male</label>
+        </div>
+        <div class="female">
+          <input type="radio" id="female" name="gender" value="Female">
+          <label for="female">Female</label>
+        </div>
+      </div>
+      <div class="form-bar">
+        <input type="text" name="dob" placeholder="Date of Birth" onfocus="this.type='date'" onblur="this.type='text'" value="{{ old('dob') }}">
+        @error('dob')
+          <div class="invalid-msg">{{ $message }}</div>
+        @enderror
+      </div>
+      <div class="form-bar">
+        <input type="text" name="address" placeholder="Address" value="{{ old('address') }}">
+        @error('address')
+          <div class="invalid-msg">{{ $message }}</div>
+        @enderror
+      </div>
+      <div class="form-bar">
+        <input type="tel" name="phoneNumber" placeholder="Phone Number" pattern="[0-9]{12}" value="{{ old('phoneNumber') }}">
+        @error('phoneNumber')
+          <div class="invalid-msg">{{ $message }}</div>
+        @enderror
+      </div>
+      <div class="terms-conditions">
+        <input type="checkbox" id="terms-conditions" name="terms-conditions">
+        <label for="terms-conditions">I agree with terms and conditions</label>
+        @error('terms-conditions')
+          <div class="invalid-msg">{{ $message }}</div>
+        @enderror
+      </div>
+      <div class="register-btn">
+        <button type="submit">REGISTER</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

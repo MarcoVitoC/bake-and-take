@@ -85,4 +85,13 @@ $('document').ready(function() {
     $('.cake-year2020-img').hide()
     $('.cake-year2019-img').show()
   })
+
+  $('#dismiss-btn').on('click', () => {
+    $('.success-msg').hide()
+    $('.error-msg').hide()
+  })
+
+  $('.user').on('click', () => {
+    $('.dropdown').toggle()
+  })
 })

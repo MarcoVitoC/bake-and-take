@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GuestController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 
@@ -17,15 +18,19 @@ use App\Http\Controllers\RegisterController;
 |
 */
 
-Route::get('/', [GuestController::class, 'index']);
+Route::get('/', [GuestController::class, 'index'])->middleware('guest');
+Route::post('/', [LoginController::class, 'logout']);
 
-Route::get('/login', [LoginController::class, 'index']);
+Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'authentication']);
 
-Route::get('/register', [RegisterController::class, 'index']);
+Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
 Route::post('/register', [RegisterController::class, 'register']);
 
-Route::get('/user', [UserController::class, 'index']);
+Route::get('/user', [UserController::class, 'index'])->middleware('auth');
+Route::get('/admin', [AdminController::class, 'index'])->middleware('auth');
+
+Route::post('/admin/add-cake', [AdminController::class, 'addCake']);
 
 Route::get('/otp', function () {
     return view('otp');

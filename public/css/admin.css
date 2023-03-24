@@ -1,0 +1,57 @@
+.table {
+  padding-top: 120px;
+}
+
+.transaction-table {
+  border-collapse: collapse;
+  text-align: center;
+  margin: auto;
+}
+
+.transaction-table th, 
+.transaction-table td {
+  padding: 10px 20px;
+  border-bottom: 2px solid black;
+}
+
+.transaction-table td {
+  color: #888888;
+}
+
+tbody td button {
+  background-color: #4ECB71;
+  border: none;
+  padding: 5px 25px;
+  border-radius: 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+tbody td button:hover {
+  background-color: #46B665;
+}
+
+.add-cake {
+  display: flex;
+  justify-content: center;
+  margin-top: 80px;
+}
+
+.add-cake h2 {
+  margin-right: 370px;
+}
+
+.add-cake button {
+  margin-left: 370px;
+  padding: 10px;
+  background-color: #211E18;
+  color: #FFFFFF;
+  font-weight: 500;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.add-cake button:hover {
+  background-color: #37342F;
+}

@@ -11,7 +11,8 @@
   <link rel="stylesheet" href="{{ asset('/css/guest.css') }}">
   <link rel="stylesheet" href="{{ asset('/css/footer.css') }}">
   <link rel="stylesheet" href="{{ asset('css/loginstyle.css') }}">
-  <link rel="stylesheet" href="{{ asset('css/home.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/user.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
   <link rel="stylesheet" href="{{ asset('css/forget-password.css') }}">
   <link rel="stylesheet" href="{{ asset('css/request-password.css') }}">
   <link rel="stylesheet" href="{{ asset('css/reset-password.css') }}">

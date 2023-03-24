@@ -115,6 +115,41 @@
 	transition-duration: 0.3s;
 }
 
+.success-msg,
 .error-msg {
-	color: red;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: -15px 14% 20px 14%;
+	border-radius: 5px;
+}
+
+.success-msg {
+	color: #008C38;
+	background-color: #99E9B9;
+}
+
+.error-msg {
+	color: #9A2530;
+	background-color: #F1AEB4;
+}
+
+.success-msg h3,
+.error-msg h3 {
+	font-size: 13px;
+	padding-right: 30px;
+}
+
+.success-msg button,
+.error-msg button {
+	border: none;
+	background: none;
+	cursor: pointer;
+	font-weight: bold;
+}
+
+.invalid-msg {
+  color: red;
+  font-size: 13px;
+	margin: -5px 0px 10px 65px;
 }

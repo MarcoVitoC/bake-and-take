@@ -1,0 +1,45 @@
+.empty-space {
+  padding-top: 65px;
+}
+
+.dropdown {
+  display: none;
+  width: fit-content;
+  height: fit-content;
+  border: 2px solid black;
+  position: relative;
+  z-index: 1;
+  margin-left: 88%;
+  background-color: white;
+}
+
+.my-profile,
+.logout {
+  padding: 1px 13px;
+}
+
+.my-profile button,
+.logout button {
+  background: none;
+  border: none;
+  font-size: 17px;
+  display: flex;
+  align-items: center;
+  margin: 10px 0px;
+  color: black;
+  cursor: pointer;
+}
+
+.my-profile:hover,
+.logout:hover {
+  background: #f0f1f2;
+}
+
+.my-profile img {
+  padding-right: 10px;
+}
+
+.logout img {
+  padding-right: 15px;
+}
+
