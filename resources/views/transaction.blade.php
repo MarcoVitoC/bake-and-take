@@ -36,7 +36,7 @@
                             <div class="quantity-text">1</div>
                             <button class="quantity-button">+</button>
                         </div>
-                        <div class="buy-button">Beli Sekarang</div>
+                        <div class="buy-button"><a href="transaction/konfirmasi-pembayaran">Beli Sekarang</a></div>
                     </div>
                 </div>
             </div>
