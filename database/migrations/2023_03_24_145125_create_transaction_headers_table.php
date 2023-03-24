@@ -11,10 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('sales', function (Blueprint $table) {
-            $table->foreignId('transaction_id');
-            $table->foreignId('product_id');
-            $table->integer('quantity');
+        Schema::create('transaction_headers', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('status_id');
+            $table->foreignId('user_id');
+            $table->dateTime('date');
         });
     }
 
@@ -23,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('sales');
+        Schema::dropIfExists('transaction_headers');
     }
 };

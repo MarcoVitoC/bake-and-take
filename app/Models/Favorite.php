@@ -5,22 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Transaction extends Model
+class Favorite extends Model
 {
     use HasFactory;
-
-    public function sale()
-    {
-        return $this->hasMany(Sale::class);
-    }
 
     public function user()
     {
         return $this->belongsTo(User::class);
     }
 
-    public function status()
+    public function product()
     {
-        return $this->belongsTo(Status::class);
+        return $this->belongsTo(Product::class);
     }
 }

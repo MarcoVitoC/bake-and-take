@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Sale extends Model
+class TransactionDetail extends Model
 {
     use HasFactory;
 
@@ -14,8 +14,8 @@ class Sale extends Model
         return $this->belongsTo(Product::class);
     }
 
-    public function transaction()
+    public function transaction_header()
     {
-        return $this->belongsTo(Transaction::class);
+        return $this->belongsTo(TransactionHeader::class);
     }
 }

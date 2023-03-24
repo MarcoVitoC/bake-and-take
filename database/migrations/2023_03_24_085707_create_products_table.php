@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->foreignId('category_id');
             $table->string('name');
-            $table->integer('quantity');
             $table->text('description'); //takutny gamuat klo pake string jdi pake text aj ya
             $table->integer('price');
             $table->string('img');
