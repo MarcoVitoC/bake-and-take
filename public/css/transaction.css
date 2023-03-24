@@ -5,10 +5,6 @@
     font-family: 'Poppins';
 }
 
-.nav-welcome-user{
-    color: white;
-}
-
 .main-container{
     display: flex;
     flex-direction: column;
@@ -62,7 +58,7 @@
     background-color: white;
     font-weight: 300;
     color: rgba(0, 0, 0, 0.65);
-    border: solid 1px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(0, 0, 0, 0.2);
     border-radius: 10px;
     padding: 2px;
     margin-right: 12px;
@@ -81,12 +77,9 @@
     margin-right: 5px;
 }
 
-.buy-fav-button, .fav-button{
+.fav-button{
     display: flex;
     align-items: center;
-}
-
-.fav-button{
     padding: 9px 37px;
     border: solid 1px rgba(0, 0, 0, 0.5);
     margin-top: 2px;
@@ -105,6 +98,7 @@
     font-size: 18px;
     font-weight: 600;
     background-color: #F364FF;
+    color: black;
 }
 
 .proteksi-info{
@@ -154,5 +148,6 @@
 .proteksi-info:hover, .quantity-button:hover, .share-button, .show-dropdown:hover{
     cursor: pointer;
 }
+
 
 

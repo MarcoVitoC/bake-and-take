@@ -28,19 +28,39 @@ Route::post('/register', [RegisterController::class, 'register']);
 Route::get('/user', [UserController::class, 'index']);
 
 Route::get('/otp', function () {
-    return view('otp');
+    return view('otp', [
+        "title" => "OTP"
+    ]);
 });
 
 Route::get('/transaction', function () {
-    return view('transaction');
+    return view('transaction', [
+        "title" => "Transaction"
+    ]);
 });
 
 Route::get('/transaction/konfirmasi-pembayaran', function(){
-    return view('konfirmasi-pembayaran');
+    return view('konfirmasi-pembayaran',  [
+        "title" => "Konfirmasi Pembayaran"
+    ]);
 });
 
 Route::get('/transaction/pembayaran-berhasil', function(){
-    return view('pembayaran-berhasil');
+    return view('pembayaran-berhasil',  [
+        "title" => "Pembayaran Berhasil"
+    ]);
+});
+
+Route::get('/favorite', function(){
+    return view('favorite',  [
+        "title" => "Favorit"
+    ]);
+});
+
+Route::get('/notif', function(){
+    return view('notif',  [
+        "title" => "Notifikasi & History"
+    ]);
 });
 
 Route::get('/login/forget-password', function(){
