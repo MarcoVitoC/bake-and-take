@@ -17,7 +17,7 @@
   <div>
     @yield('container')
   </div>
-  @include('components.footer')
+  {{-- @include('components.footer') --}}
 </body>
 <script src="{{ asset('jquery.js') }}"></script>
 <script src="{{ asset('js/script.js') }}"></script>
