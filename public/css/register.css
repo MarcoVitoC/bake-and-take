@@ -1,0 +1,76 @@
+* {
+	font-family: "Poppins", sans-serif;
+}
+
+.register-box,
+.register-form,
+.register-gender,
+.register-btn {
+  display: flex;
+  justify-content: center;
+}
+
+.register-box {
+  margin: 50px 45% 20px 45%;
+  padding: 10px;
+	border: solid 2px black;
+	border-radius: 50px;
+	font-weight: bold;
+  background-color: white;
+  position: relative;
+  z-index: 1;
+}
+
+.register-form {
+  margin-top: -40px;
+  margin-left: 25%;
+  margin-right: 25%;
+  margin-bottom: 30px;
+  padding: 40px 0px;
+	border: solid 2px black;
+	border-radius: 50px;
+}
+
+.form-bar input {
+  width: 650px;
+  margin: 8px 0px;
+  padding: 5px;
+  text-align: center;
+}
+
+.form-bar input:focus {
+  text-align: center;
+}
+
+.form-bar input::placeholder {
+  color: #999999;
+  font-weight: 500;
+  text-align: center;
+}
+
+.invalid-msg {
+  color: red;
+  font-size: 13px;
+}
+
+.register-gender .male,
+.register-gender .female {
+  margin: 0px 20px;
+}
+
+.terms-conditions {
+  text-align: center;
+  margin: 20px 0px;
+}
+
+.register-btn button {
+  padding: 8px 40px;
+  border: none;
+  background-color: #F364FF;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.register-btn button:hover {
+  background-color: #CB3BD9;
+}

@@ -4,15 +4,17 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class UserController extends Controller
+class AdminController extends Controller
 {
     public function index() {
-        if (auth()->user()->role_id !== 0) {
+        if (auth()->user()->role_id !== 1) {
             return back();
         }
 
-        return view('user', [
-            'title' => 'User'
+        return view('admin', [
+            'title' => 'Admin'
         ]);
     }
+
+
 }
