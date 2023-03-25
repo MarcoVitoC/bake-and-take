@@ -20,11 +20,11 @@ class RegisterController extends Controller
             'fullname' => ['required', 'min:3', 'max:255', 'alpha'],
             'email' => ['required', 'email:strict', 'unique:users'],
             'password' => ['required', 'min:5', 'max:255'],
-            'confirmPassword' => ['required', 'same:password'],
+            'confirm_password' => ['required', 'same:password'],
             'gender' => ['required'],
             'dob' => ['required'],
             'address' => ['required', 'min:5', 'max:255'],
-            'phoneNumber' => ['required', 'min:12', 'unique:users', 'numeric'],
+            'phone_number' => ['required', 'digits:12', 'unique:users', 'numeric'],
             'terms-conditions' => ['required']
         ]);
 

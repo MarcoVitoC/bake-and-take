@@ -18,13 +18,14 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
+        'role_id',
         'fullname',
+        'dob',
+        'phone_number',
+        'gender',
         'email',
         'password',
-        'gender',
-        'dob',
-        'address',
-        'phoneNumber'
+        'address' 
     ];
 
     /**
@@ -45,4 +46,20 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+    public function transaction()
+    {
+        return $this->hasMany(Transaction::class);
+    }
+
+    public function favorit()
+    {
+        return $this->hasMany(Favorit::class);
+    }
+
+    public function peran()
+    {
+        return $this->belongsTo(Peran::class);
+    }
 }

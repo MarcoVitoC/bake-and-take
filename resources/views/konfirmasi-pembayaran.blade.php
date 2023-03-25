@@ -8,8 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap"/>
-
-    <title>Konfirmasi Pembayaran</title>
+    <title>Bake & Take | {{ $title }}</title>
 </head>
 <body>
     <div class="main-container">

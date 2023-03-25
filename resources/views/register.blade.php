@@ -31,8 +31,8 @@
         @enderror
       </div>
       <div class="form-bar">
-        <input type="password" name="confirmPassword" placeholder="Confirm Password">
-        @error('confirmPassword')
+        <input type="password" name="confirm_password" placeholder="Confirm Password">
+        @error('confirm_password')
           <div class="invalid-msg">{{ $message }}</div>
         @enderror
       </div>
@@ -59,8 +59,8 @@
         @enderror
       </div>
       <div class="form-bar">
-        <input type="tel" name="phoneNumber" placeholder="Phone Number" pattern="[0-9]{12}" value="{{ old('phoneNumber') }}">
-        @error('phoneNumber')
+        <input type="text" name="phone_number" placeholder="Phone Number" value="{{ old('phone_number') }}">
+        @error('phone_number')
           <div class="invalid-msg">{{ $message }}</div>
         @enderror
       </div>

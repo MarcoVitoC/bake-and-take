@@ -18,6 +18,8 @@ use App\Http\Controllers\RegisterController;
 |
 */
 
+// role:0 UNTUK USER, role:1 UNTUK ADMIN
+
 Route::get('/', [GuestController::class, 'index'])->middleware('guest');
 Route::post('/', [LoginController::class, 'logout']);
 
@@ -27,25 +29,45 @@ Route::post('/login', [LoginController::class, 'authentication']);
 Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
 Route::post('/register', [RegisterController::class, 'register']);
 
-Route::get('/user', [UserController::class, 'index'])->middleware('auth');
-Route::get('/admin', [AdminController::class, 'index'])->middleware('auth');
+Route::get('/user', [UserController::class, 'index'])->middleware(`'role:0'`);
+Route::get('/admin', [AdminController::class, 'index'])->middleware(`'role:1'`);
 
-Route::post('/admin/add-cake', [AdminController::class, 'addCake']);
+Route::post('/admin/add-cake', [AdminController::class, 'addCake'])->middleware(`'role:1'`);
 
 Route::get('/otp', function () {
-    return view('otp');
+    return view('otp', [
+        "title" => "OTP"
+    ]);
 });
 
 Route::get('/transaction', function () {
-    return view('transaction');
+    return view('transaction', [
+        "title" => "Transaction"
+    ]);
 });
 
 Route::get('/transaction/konfirmasi-pembayaran', function(){
-    return view('konfirmasi-pembayaran');
+    return view('konfirmasi-pembayaran',  [
+        "title" => "Konfirmasi Pembayaran"
+    ]);
 });
 
 Route::get('/transaction/pembayaran-berhasil', function(){
-    return view('pembayaran-berhasil');
+    return view('pembayaran-berhasil',  [
+        "title" => "Pembayaran Berhasil"
+    ]);
+});
+
+Route::get('/favorite', function(){
+    return view('favorite',  [
+        "title" => "Favorit"
+    ]);
+});
+
+Route::get('/notif', function(){
+    return view('notif',  [
+        "title" => "Notifikasi & History"
+    ]);
 });
 
 Route::get('/login/forget-password', function(){

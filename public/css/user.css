@@ -7,7 +7,7 @@
   width: fit-content;
   height: fit-content;
   border: 2px solid black;
-  position: relative;
+  position: absolute;
   z-index: 1;
   margin-left: 88%;
   background-color: white;

@@ -2,6 +2,15 @@
 
 @section('container')
   @include('components.admin-navbar')
+  <div class="empty-space"></div>
+  <div class="dropdown">
+    <div class="logout">
+      <form action="/" method="post">
+        @csrf
+        <button type="submit"><img src="{{ asset('assets/User/logout.png') }}" alt="Log Out" width="25px" height="25px"> Log Out</button>
+      </form>
+    </div>
+  </div>
   <div class="table">
     <table class="transaction-table">
       <thead>
@@ -16,6 +25,7 @@
         </tr>
       </thead>
       <tbody>
+        {{-- nanti data di tabel ambil dari database --}}
         <tr>
           <td>1</td>
           <td>User</td>

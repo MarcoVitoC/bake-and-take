@@ -21,7 +21,12 @@ class LoginController extends Controller
         
         if (Auth::attempt($validatedUser)) {
             $request->session()->regenerate();
-            return redirect()->intended('/user');
+            if (auth()->user()->role_id === 0) {
+                return redirect()->intended('/user');
+            }
+            if (auth()->user()->role_id === 1) {
+                return redirect()->intended('/admin');
+            }
         }
 
         return back()->with('loginError', 'Login Failed! Please recheck your input.');

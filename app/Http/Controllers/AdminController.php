@@ -7,12 +7,14 @@ use Illuminate\Http\Request;
 class AdminController extends Controller
 {
     public function index() {
-        // if (auth()->user()->email !== 'admin@gmail.com' && auth()->user()->password !== 'admin')
+        if (auth()->user()->role_id !== 1) {
+            return back();
+        }
 
         return view('admin', [
             'title' => 'Admin'
         ]);
     }
 
-    
+
 }
