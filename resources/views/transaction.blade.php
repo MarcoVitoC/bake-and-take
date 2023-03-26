@@ -32,11 +32,11 @@
                         <div class="alamat-pengiriman">Pengiriman Menuju Alamat_Pembeli</div>
                         <div>Transfer</div>
                         <div class="quantity">
-                            <button class="quantity-button">-</button>
+                            <button class="quantity-button" id="decrease">-</button>
                             <div class="quantity-text">1</div>
-                            <button class="quantity-button">+</button>
+                            <button class="quantity-button" id="increase">+</button>
                         </div>
-                        <div class="buy-button"><a href="transaction/konfirmasi-pembayaran">Beli Sekarang</a></div>
+                        <a href="transaction/konfirmasi-pembayaran"><div class="buy-button">Beli Sekarang</div></a>
                     </div>
                 </div>
             </div>

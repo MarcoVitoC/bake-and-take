@@ -1,0 +1,88 @@
+*{
+    box-sizing: border-box;
+}
+
+.main-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 110px;
+}
+
+.product-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.img-kue{
+    object-fit: cover;    
+}
+
+.nama-kue{
+    font-family: 'Poppins';
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 45px;
+    margin: 12px 0px;
+}
+
+.harga-kue{
+    font-family: 'Poppins';
+    font-size: 36px;
+    font-weight: 400;
+    line-height: 54px;
+    color:rgba(203, 28, 218, 1);
+    margin-bottom: 33px;
+}
+
+.category-container{
+    display: flex;
+    column-gap: 90px;
+}
+
+.teks-category, .category-kue{
+    font-size: 16px;
+    font-family: 'Poppins';
+    font-weight: 300;
+}
+
+.teks-category{
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.deskripsi-produk{
+    font-family: 'Poppins';
+    font-weight: 400;
+    margin-top: 53px;
+}
+
+.teks-deskripsi{
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.5);
+    font-weight: 500;
+    margin-bottom: 14px;
+}
+
+.deskripsi-bahan{
+    max-width: 1060px;
+}
+
+.paragraf-deskripsi{
+    margin-top: 24px;
+    margin-bottom: 50px;
+    max-width: 1300px;
+}
+
+.edit-button{
+    padding: 13px 90px;
+    background-color: rgba(243, 100, 255, 1);
+    font-family: 'Poppins';
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 48px;
+    border-radius: 30px;
+    cursor: pointer;
+    margin-bottom: 60px;
+    color: black;
+}

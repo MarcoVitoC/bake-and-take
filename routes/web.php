@@ -79,3 +79,9 @@ Route::get('/reset-password/req-send', function(){
     return view('request-password');
 });
 
+Route::get('/admin/product', function(){
+    return view('admin-product',  [
+        "title" => "View Product"
+    ]);
+});
+

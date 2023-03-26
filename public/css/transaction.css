@@ -144,7 +144,7 @@
     border: none;
 }
 
-.lihat-toko:hover, .fav-button:hover, .buy-button:hover, .button-ukuran:hover,
+.fav-button:hover, .buy-button:hover, .button-ukuran:hover,
 .proteksi-info:hover, .quantity-button:hover, .share-button, .show-dropdown:hover{
     cursor: pointer;
 }
