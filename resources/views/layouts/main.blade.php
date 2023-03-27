@@ -16,6 +16,7 @@
   <link rel="stylesheet" href="{{ asset('css/request-password.css') }}">
   <link rel="stylesheet" href="{{ asset('css/reset-password.css') }}">
   <link rel="stylesheet" href="{{ asset('css/ubah-password.css') }}">
+  
   <title>Bake & Take | {{ $title }}</title>
 </head>
 <body>

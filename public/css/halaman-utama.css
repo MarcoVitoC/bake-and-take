@@ -1,0 +1,257 @@
+/* .swiper-container{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}*/
+*{
+  font-family: 'Lora';
+}
+
+.body-halaman-utama{
+    padding-top: 100px;
+    margin: 0px 100px 0px 100px;
+    
+}
+.gambar{
+    width: 1241px;
+    height: 568px;
+
+}
+
+* {box-sizing:border-box}
+
+/* Slideshow container */
+.slideshow-container {
+
+  max-width: 1241px;
+  
+  margin: auto;
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+.category-halaman-utama{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+    font-weight: bolder;
+}
+
+.button-category{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+
+}
+
+.button-chocolate,
+.button-cheese,
+.button-strawberry{
+  width: 142px;
+  height: 69px;
+  border-radius: 25px;
+  margin: 20px;
+  font-weight: bold;
+  border-style: none;
+  cursor: pointer;
+}
+
+.button-chocolate:focus,
+.button-cheese:focus,
+.button-strawberry:focus{
+  color: white;
+  background-color: #F364FF;
+}
+
+
+/* Center website */
+.main {
+  max-width: 1000px;
+  margin: auto;
+}
+
+
+.row {
+  margin: 8px -16px;
+}
+
+/* Add padding BETWEEN each column (if you want) */
+.row,
+.row > .column {
+  padding: 8px;
+}
+
+/* Create three equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 33.33%;
+  display: none; /* Hide columns by default */
+}
+
+/* Clear floats after rows */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Content */
+.content {
+  background-color: white;
+  padding: 10px;
+}
+
+/* The "show" class is added to the filtered elements */
+.show {
+  display: block;
+}
+
+/* Category-img */
+
+.chocolate-img,
+.cheese-img,
+.strawberry-img,
+.bake-and-take-img
+{
+  display: grid;
+  justify-content: center;
+  grid-template-columns: 250px 250px 250px;
+  gap: 30px 80px;
+}
+
+/* text */
+
+.love-and-passion{
+  margin-top: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 50px;
+  font-weight: bolder;
+  
+}
+
+.bake-and-take{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 70px;
+  font-size:26px;
+  
+}
+
+/* tentang-toko */
+.tentang-toko{
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  font-weight: 600;
+  font-size: 30px;
+  margin-top: 150px;
+  margin-bottom: 50px;
+}
+.row-tentang-toko{
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 50px;
+}
+
+.column-tentang-toko{
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.prev-slide, 
+.next-slide {
+  cursor: pointer;
+  width: auto;
+  font-weight: bold;
+  font-size: 40px;
+  transition: 0.6s ease;
+  margin: 180px 10px 0px 10px;
+  user-select: none;
+}
+
+.deskripsi-toko{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 25px;
+  padding: 0px 100px 0px 100px;
+}

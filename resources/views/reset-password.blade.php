@@ -1,9 +1,7 @@
 @extends('layouts.main')
 
 @section('container')
-    <div class="icon-back">
-        <i class="fa fa-chevron-left fa-lg">  Back</i>
-    </div>
+
     <form action="" method="post">
         <div class="body-container">
             <div class="reset-container"></div>
@@ -30,13 +28,13 @@
                 </div>
                 <button class="reset-button" type="submit">RESET</button>
             </div>
-            <div style="height: 10px;"></div>
+            {{-- <div style="height: 10px;"></div>
             <div class="box">
-                <div class="icon"><i class="fa fa-key fa-lg" ></i></div>
-                <input class="text" type="text" placeholder="Confirm Password" >
+                <div class="icon-key"><i class="fa fa-key fa-lg" ></i></div>
+                <input class="text-reset-password" type="text" placeholder="Confirm Password" >
             </div>
                 
-            <div class="box"><div class="button-reset">RESET</div></div>
+            <div class="box"><div class="button-reset">RESET</div></div> --}}
             
             
         </div>

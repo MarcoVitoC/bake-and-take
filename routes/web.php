@@ -32,7 +32,9 @@ Route::get('/otp', function () {
 });
 
 Route::get('/transaction', function () {
-    return view('transaction');
+    return view('transaction',[
+        "title" => 'Transaction'
+    ]);
 });
 
 Route::get('/transaction/konfirmasi-pembayaran', function(){
@@ -48,7 +50,7 @@ Route::get('/login/forget-password', function(){
         "title" => "Forget Password"
     ]);
 });
-Route::get('reset-password', function(){
+Route::get('/reset-password', function(){
     return view('reset-password',[
         "title" => "Reset Password"
     ]);
@@ -66,3 +68,9 @@ Route::get('/reset-password/req-send', function(){
     return view('request-password');
 });
 
+Route::get('/halaman-utama', function(){
+    return view('halaman-utama',[
+        "title" => 'Halaman Utama'
+    ]);
+    
+});

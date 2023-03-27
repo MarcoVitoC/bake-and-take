@@ -9,7 +9,8 @@
   <link rel="stylesheet" href="{{ asset('/css/user-navbar.css') }}">
   <link rel="stylesheet" href="{{ asset('/css/transaction.css') }}">
   <link rel="stylesheet" href="{{ asset('/css/footer.css') }}">
-  <title>Bake & Take | Transaction</title>
+  <link rel="stylesheet" href="{{ asset('css/halaman-utama.css') }}">
+  <title>Bake & Take | {{ $title }}</title>
 </head>
 <body>
   @include('components.user-navbar')
@@ -20,4 +21,5 @@
 </body>
 <script src="{{ asset('jquery.js') }}"></script>
 <script src="{{ asset('js/script.js') }}"></script>
+<script src="{{ asset('js/halaman-utama.js') }}"></script>
 </html>
