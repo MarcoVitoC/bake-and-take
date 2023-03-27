@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.main')
 
 @section('container')
   @include('components.admin-navbar')
@@ -89,5 +89,5 @@
     </div>
   </div>
   
-  {{-- @include('components.footer') --}}
+  @include('components.footer')
 @endsection
