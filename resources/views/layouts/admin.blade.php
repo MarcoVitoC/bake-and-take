@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap"/>
   <link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{ asset('/css/navbar.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/admin-home.css') }}">
   <link rel="stylesheet" href="{{ asset('/css/admin-products.css') }}">
   <link rel="stylesheet" href="{{ asset('/css/footer.css') }}">
   <title>Bake & Take | {{ $title }}</title>
