@@ -41,13 +41,8 @@ Route::get('/otp', function () {
 });
 
 Route::get('/transaction', function () {
-<<<<<<< HEAD
-    return view('transaction',[
-        "title" => 'Transaction'
-=======
     return view('transaction', [
         "title" => "Transaction"
->>>>>>> 9f1c0a7cf993db72c8730f15b97ae81506cf6795
     ]);
 });
 
