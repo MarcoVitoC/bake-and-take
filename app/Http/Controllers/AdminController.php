@@ -7,11 +7,11 @@ use Illuminate\Http\Request;
 class AdminController extends Controller
 {
     public function index() {
-        // if (auth()->user()->role_id !== 1) {
-        //     return back();
-        // }
+        if (auth()->user()->role_id !== 1) {
+            return back();
+        }
 
-        return view('admin', [
+        return view('admin-home', [
             'title' => 'Admin'
         ]);
     }
