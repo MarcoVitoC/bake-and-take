@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GuestController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 
@@ -17,32 +18,61 @@ use App\Http\Controllers\RegisterController;
 |
 */
 
-Route::get('/', [GuestController::class, 'index']);
+// role:0 UNTUK USER, role:1 UNTUK ADMIN
 
-Route::get('/login', [LoginController::class, 'index']);
+Route::get('/', [GuestController::class, 'index'])->middleware('guest');
+Route::post('/', [LoginController::class, 'logout']);
+
+Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'authentication']);
 
-Route::get('/register', [RegisterController::class, 'index']);
+Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
 Route::post('/register', [RegisterController::class, 'register']);
 
-Route::get('/user', [UserController::class, 'index']);
+Route::get('/user', [UserController::class, 'index'])->middleware(`'role:0'`);
+Route::get('/admin', [AdminController::class, 'index'])->middleware(`'role:1'`);
+
+Route::post('/admin/add-cake', [AdminController::class, 'addCake'])->middleware(`'role:1'`);
 
 Route::get('/otp', function () {
-    return view('otp');
+    return view('otp', [
+        "title" => "OTP"
+    ]);
 });
 
 Route::get('/transaction', function () {
+<<<<<<< HEAD
     return view('transaction',[
         "title" => 'Transaction'
+=======
+    return view('transaction', [
+        "title" => "Transaction"
+>>>>>>> 9f1c0a7cf993db72c8730f15b97ae81506cf6795
     ]);
 });
 
 Route::get('/transaction/konfirmasi-pembayaran', function(){
-    return view('konfirmasi-pembayaran');
+    return view('konfirmasi-pembayaran',  [
+        "title" => "Konfirmasi Pembayaran"
+    ]);
 });
 
 Route::get('/transaction/pembayaran-berhasil', function(){
-    return view('pembayaran-berhasil');
+    return view('pembayaran-berhasil',  [
+        "title" => "Pembayaran Berhasil"
+    ]);
+});
+
+Route::get('/favorite', function(){
+    return view('favorite',  [
+        "title" => "Favorit"
+    ]);
+});
+
+Route::get('/notif', function(){
+    return view('notif',  [
+        "title" => "Notifikasi & History"
+    ]);
 });
 
 Route::get('/login/forget-password', function(){
