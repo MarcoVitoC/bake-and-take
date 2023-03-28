@@ -1,4 +1,4 @@
-@extends('layouts.transaction')
+@extends('layouts.user')
 
 @section('container')
 <div class="body-halaman-utama">

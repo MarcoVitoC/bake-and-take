@@ -10,6 +10,8 @@
   <link rel="stylesheet" href="{{ asset('/css/user.css') }}">
   <link rel="stylesheet" href="{{ asset('/css/transaction.css') }}">
   <link rel="stylesheet" href="{{ asset('/css/footer.css') }}">
+  <link rel="stylesheet" href="{{ asset('/css/halaman-utama.css') }}">
+  <link rel="stylesheet" href="{{ asset('/css/checker-delete-list.css') }}">
   <title>Bake & Take | {{ $title }}</title>
 </head>
 <body>
@@ -21,4 +23,5 @@
 </body>
 <script src="{{ asset('jquery.js') }}"></script>
 <script src="{{ asset('js/script.js') }}"></script>
+<script src="{{ asset('js/halaman-utama.js') }}"></script>
 </html>

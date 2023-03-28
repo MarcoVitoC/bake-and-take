@@ -95,7 +95,13 @@ Route::get('/reset-password/req-send', function(){
 
 Route::get('/halaman-utama', function(){
     return view('halaman-utama',[
-        "title" => 'Halaman Utama'
+        "title" => "Halaman Utama"
     ]);
     
+});
+
+Route::get('/checker-delete-list', function(){
+    return view('checker-delete-list',[
+        "title" => "checker"
+    ]);
 });
