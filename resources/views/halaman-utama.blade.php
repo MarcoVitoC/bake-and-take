@@ -41,28 +41,136 @@
     <button class="button-strawberry">Strawberry</button>
   </div>
   <div class="chocolate-img">
-    <img class="cake1" src="{{ asset('assets/Cakes2022/download(1).jpeg') }}" alt="kue1" width="300px" height="250px">
-    <img class="cake2" src="{{ asset('assets/Cakes2022/download(2).jpeg') }}" alt="kue2" width="300px" height="250px">
-    <img class="cake3" src="{{ asset('assets/Cakes2022/images(1).jpeg') }}" alt="kue3" width="300px" height="250px">
-    <img class="cake4" src="{{ asset('assets/Cakes2022/images.jpeg') }}" alt="kue4" width="300px" height="280px">
-    <img class="cake5" src="{{ asset('assets/Cakes2022/images(2).jpeg') }}" alt="kue5" width="300px" height="280px">
-    <img class="cake6" src="{{ asset('assets/Cakes2020/images(1).jpeg') }}" alt="kue6" width="300px" height="280px">
+    <div class="card">
+      <img class="cake1" src="{{ asset('assets/Cakes2022/download(1).jpeg') }}" alt="kue1" width="200px" height="150px">
+      <div class="img-desc">
+        <h4 style="margin: 10px 0px 40px 0px; text-align: center;"><b>Gambar</b></h4>
+        <p>Kue Ini  dibuat dengan cinta kasih dan juga  kasih sayang dengan bahan bahan berkualitas dan dijaga aman di kulkas tertutup tampa ada kotoran yang masuk.</p>
+      </div>
+    </div>
+    <div class="card">
+      <img class="cake2" src="{{ asset('assets/Cakes2022/download(1).jpeg') }}" alt="kue1" width="200px" height="150px">
+      <div class="img-desc">
+        <h4 style="margin: 10px 0px 40px 0px; text-align: center;"><b>Gambar</b></h4>
+        <p>Warna pink merupakan warna cinta yang disertai dengan kasih sayang sama seperti cara kita membuat dan memperlakukan bahan bahan kami dengan baik.</p>
+      </div>
+    </div>
+        <div class="card">
+      <img class="cake3" src="{{ asset('assets/Cakes2022/download(1).jpeg') }}" alt="kue1" width="200px" height="150px">
+      <div class="img-desc">
+        <h4 style="margin: 10px 0px 40px 0px; text-align: center;"><b>Gambar</b></h4>
+        <p>Architect & Enginee Lorem, ipsum. x  </p>
+      </div>
+    </div>
+        <div class="card">
+      <img class="cake4" src="{{ asset('assets/Cakes2022/download(1).jpeg') }}" alt="kue1" width="200px" height="150px">
+      <div class="img-desc">
+        <h4 style="margin: 10px 0px 40px 0px; text-align: center;"><b>Gambar</b></h4>
+        <p>Architect & Enginee Lorem, ipsum. x  </p>
+      </div>
+    </div>
+        <div class="card">
+      <img class="cake5" src="{{ asset('assets/Cakes2022/download(1).jpeg') }}" alt="kue1" width="200px" height="150px">
+      <div class="img-desc">
+        <h4 style="margin: 10px 0px 40px 0px; text-align: center;"><b>Gambar</b></h4>
+        <p>Architect & Enginee Lorem, ipsum. x  </p>
+      </div>
+    </div>
+        <div class="card">
+      <img class="cake6" src="{{ asset('assets/Cakes2022/download(1).jpeg') }}" alt="kue1" width="200px" height="150px">
+      <div class="img-desc">
+        <h4 style="margin: 10px 0px 40px 0px; text-align: center;"><b>Gambar</b></h4>
+        <p>Architect & Enginee Lorem, ipsum. x  </p>
+      </div>
+    </div>
   </div>
   <div class="cheese-img">
-    <img class="cake1" src="{{ asset('assets/Cakes2021/download(1).jpeg') }}" alt="kue1" width="300px" height="250px">
-    <img class="cake2" src="{{ asset('assets/Cakes2021/download(3).jpeg') }}" alt="kue2" width="300px" height="250px">
-    <img class="cake3" src="{{ asset('assets/Cakes2021/download.jpeg') }}" alt="kue3" width="300px" height="250px">
-    <img class="cake4" src="{{ asset('assets/Cakes2021/download(4).jpeg') }}" alt="kue4" width="300px" height="280px">
-    <img class="cake5" src="{{ asset('assets/Cakes2021/download(5).jpeg') }}" alt="kue5" width="300px" height="280px">
-    <img class="cake6" src="{{ asset('assets/Cakes2021/download(2).jpeg') }}" alt="kue6" width="300px" height="280px">
+        <div class="card">
+      <img class="cake1" src="{{ asset('assets/Cakes2022/download(1).jpeg') }}" alt="kue1" width="200px" height="150px">
+      <div class="img-desc">
+        <h4 style="margin: 10px 0px 40px 0px; text-align: center;"><b>Gambar</b></h4>
+        <p>Architect & Enginee Lorem, ipsum. x  </p>
+      </div>
+    </div>
+        <div class="card">
+      <img class="cake2" src="{{ asset('assets/Cakes2022/download(1).jpeg') }}" alt="kue1" width="200px" height="150px">
+      <div class="img-desc">
+        <h4 style="margin: 10px 0px 40px 0px; text-align: center;"><b>Gambar</b></h4>
+        <p>Architect & Enginee Lorem, ipsum. x  </p>
+      </div>
+    </div>
+        <div class="card">
+      <img class="cake3" src="{{ asset('assets/Cakes2022/download(1).jpeg') }}" alt="kue1" width="200px" height="150px">
+      <div class="img-desc">
+        <h4 style="margin: 10px 0px 40px 0px; text-align: center;"><b>Gambar</b></h4>
+        <p>Architect & Enginee Lorem, ipsum. x  </p>
+      </div>
+    </div>
+        <div class="card">
+      <img class="cake4" src="{{ asset('assets/Cakes2022/download(1).jpeg') }}" alt="kue1" width="200px" height="150px">
+      <div class="img-desc">
+        <h4 style="margin: 10px 0px 40px 0px; text-align: center;"><b>Gambar</b></h4>
+        <p>Architect & Enginee Lorem, ipsum. r</p>
+      </div>
+    </div>
+        <div class="card">
+      <img class="cake5" src="{{ asset('assets/Cakes2022/download(1).jpeg') }}" alt="kue1" width="200px" height="150px">
+      <div class="img-desc">
+        <h4 style="margin: 10px 0px 40px 0px; text-align: center;"><b>Gambar</b></h4>
+        <p>Architect & Enginee Lorem, ipsum. r</p>
+      </div>
+    </div>
+        <div class="card">
+      <img class="cake6" src="{{ asset('assets/Cakes2022/download(1).jpeg') }}" alt="kue1" width="200px" height="150px">
+      <div class="img-desc">
+        <h4 style="margin: 10px 0px 40px 0px; text-align: center;"><b>Gambar</b></h4>
+        <p>Architect & Enginee Lorem, ipsum. r</p>
+      </div>
+    </div>
   </div>
   <div class="strawberry-img">
-    <img class="cake1" src="{{ asset('assets/Cakes2020/images(1).jpeg') }}" alt="kue1" width="300px" height="250px">
-    <img class="cake2" src="{{ asset('assets/Cakes2020/images(2).jpeg') }}" alt="kue2" width="300px" height="250px">
-    <img class="cake3" src="{{ asset('assets/Cakes2020/images(3).jpeg') }}" alt="kue3" width="300px" height="250px">
-    <img class="cake4" src="{{ asset('assets/Cakes2020/images(4).jpeg') }}" alt="kue4" width="300px" height="280px">
-    <img class="cake5" src="{{ asset('assets/Cakes2020/images.jpeg') }}" alt="kue5" width="300px" height="280px">
-    <img class="cake6" src="{{ asset('assets/Cakes2020/images(5).jpeg') }}" alt="kue6" width="300px" height="280px">
+        <div class="card">
+      <img class="cake1" src="{{ asset('assets/Cakes2022/download(1).jpeg') }}" alt="kue1" width="200px" height="150px">
+      <div class="img-desc">
+        <h4 style="margin: 10px 0px 40px 0px; text-align: center;"><b>Gambar</b></h4>
+        <p>Architect & Enginee Lorem, ipsum. r</p>
+      </div>
+    </div>
+        <div class="card">
+      <img class="cake2" src="{{ asset('assets/Cakes2022/download(1).jpeg') }}" alt="kue1" width="200px" height="150px">
+      <div class="img-desc">
+        <h4 style="margin: 10px 0px 40px 0px; text-align: center;"><b>Gambar</b></h4>
+        <p>Architect & Enginee Lorem, ipsum. r</p>
+      </div>
+    </div>
+        <div class="card">
+      <img class="cake3" src="{{ asset('assets/Cakes2022/download(1).jpeg') }}" alt="kue1" width="200px" height="150px">
+      <div class="img-desc">
+        <h4 style="margin: 10px 0px 40px 0px; text-align: center;"><b>Gambar</b></h4>
+        <p>Architect & Enginee Lorem, ipsum. r</p>
+      </div>
+    </div>
+        <div class="card">
+      <img class="cake4" src="{{ asset('assets/Cakes2022/download(1).jpeg') }}" alt="kue1" width="200px" height="150px">
+      <div class="img-desc">
+        <h4 style="margin: 10px 0px 40px 0px; text-align: center;"><b>Gambar</b></h4>
+        <p>Architect & Enginee Lorem, ipsum. r</p>
+      </div>
+    </div>
+        <div class="card">
+      <img class="cake5" src="{{ asset('assets/Cakes2022/download(1).jpeg') }}" alt="kue1" width="200px" height="150px">
+      <div class="img-desc">
+        <h4 style="margin: 10px 0px 40px 0px; text-align: center;"><b>Gambar</b></h4>
+        <p>Architect & Enginee Lorem, ipsum. r</p>
+      </div>
+    </div>
+        <div class="card">
+      <img class="cake6" src="{{ asset('assets/Cakes2022/download(1).jpeg') }}" alt="kue1" width="200px" height="150px">
+      <div class="img-desc">
+        <h4 style="margin: 10px 0px 40px 0px; text-align: center;"><b>Gambar</b></h4>
+        <p>Architect & Enginee Lorem, ipsum. r</p>
+      </div>
+    </div>
   </div>
 
   
