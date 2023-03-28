@@ -14,10 +14,11 @@ return new class extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->foreignId('category_id');
-            $table->string('name');
-            $table->text('description'); //takutny gamuat klo pake string jdi pake text aj ya
-            $table->integer('price');
-            $table->string('img');
+            $table->string('cake_name');
+            $table->text('cake_ingredients');
+            $table->text('cake_description');
+            $table->integer('cake_price');
+            $table->string('cake_photo');
         });
     }
 

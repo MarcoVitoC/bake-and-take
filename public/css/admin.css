@@ -93,3 +93,74 @@ tbody td button:hover {
 .add-cake button:hover {
   background-color: #37342F;
 }
+
+.add-cake-form {
+  display: flex;
+  justify-content: center;
+  margin-top: 130px;
+}
+
+.form-bar input {
+  width: 650px;
+  margin: 8px 0px;
+  padding: 5px;
+  text-align: center;
+}
+
+.form-bar select {
+  width: 663px;
+  margin: 8px 0px;
+  padding: 5px;
+  text-align: center;
+}
+
+
+.form-bar input:focus {
+  text-align: center;
+}
+
+.form-bar input::placeholder {
+  color: #999999;
+  font-weight: 500;
+  text-align: center;
+}
+
+.form-bar label {
+  text-align: center;
+}
+
+.form-bar input[type="file"] {
+  padding: 5px;
+  border: 1px solid black;
+  border-radius: 2px;
+  color: #999999;
+  font-weight: 500;
+  font-size: 14px;
+  cursor: pointer;
+  text-align-last: center;
+}
+
+.add-btn {
+  display: flex;
+  justify-content: center;
+}
+
+.add-btn button {
+  margin-top: 30px;
+  padding: 8px 40px;
+  border: none;
+  border-radius: 15px;
+  background-color: #F364FF;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.add-btn button:hover {
+  background-color: #CB3BD9;
+  transition-duration: 0.3s;
+}
+
+.invalid-msg {
+  color: red;
+  font-size: 13px;
+}

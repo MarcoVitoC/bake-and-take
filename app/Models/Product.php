@@ -9,9 +9,11 @@ class Product extends Model
 {
     use HasFactory;
 
+    protected $guarded = ['id'];
+
     public function category()
     {
-        return $this->belongsTo(Category::class); // belongsTo berarti 1 post hanya memiliki 1 category
+        return $this->belongsTo(Category::class);
     }
 
     public function favorit()
@@ -19,8 +21,8 @@ class Product extends Model
         return $this->hasMany(Favorit::class);
     }
 
-    public function sale()
+    public function transaction_detail()
     {
-        return $this->hasMany(Sale::class);
+        return $this->hasMany(TransactionDetail::class);
     }
 }

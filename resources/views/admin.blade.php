@@ -41,7 +41,7 @@
   <div>
     <div class="add-cake">
       <h2>My Cakes:</h2>
-      <button type="button" href="/">+ Add Cake</button>
+      <a href="/admin/add-cake"><button>+ Add Cake</button></a>
     </div>
   </div>
   {{-- @include('components.footer') --}}

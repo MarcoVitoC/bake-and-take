@@ -9,8 +9,8 @@ class Status extends Model
 {
     use HasFactory;
 
-    public function transaction()
+    public function transaction_header()
     {
-        return $this->hasMany(Transaction::class);
+        return $this->hasMany(TransactionHeader::class);
     }
 }
