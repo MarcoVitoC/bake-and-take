@@ -18,7 +18,7 @@
   <link rel="stylesheet" href="{{ asset('css/request-password.css') }}">
   <link rel="stylesheet" href="{{ asset('css/reset-password.css') }}">
   <link rel="stylesheet" href="{{ asset('css/ubah-password.css') }}">
-  <link rel="stylesheet" href="{{ asset('css/admin-home.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
   <link rel="stylesheet" href="{{ asset('/css/admin-product.css') }}">
   <title>Bake & Take | {{ $title }}</title>
 </head>

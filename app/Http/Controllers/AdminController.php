@@ -11,7 +11,7 @@ class AdminController extends Controller
             return back();
         }
 
-        return view('admin-home', [
+        return view('admin', [
             'title' => 'Admin'
         ]);
     }
