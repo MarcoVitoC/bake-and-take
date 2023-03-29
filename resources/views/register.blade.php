@@ -27,7 +27,7 @@
       <div class="form-bar">
         <input type="password" name="password" placeholder="Password">
         @error('password')
-          <div class="invalid-msg">{{ $message }}</div>
+          <div class="invalid-msg">{{ $message }}</div> 
         @enderror
       </div>
       <div class="form-bar">

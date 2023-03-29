@@ -12,6 +12,6 @@
   </div>
   <button class="user" type="button">
     <img src="{{ asset('assets/User/user.png') }}" alt="User" width="35px" height="35px">
-    {{-- <h4>Welcome, {{ auth()->user()->fullname }} &#x25BC;</h4> --}}
+    <h4>Welcome, {{ auth()->user()->fullname }} &#x25BC;</h4>
   </button>
 </nav>
