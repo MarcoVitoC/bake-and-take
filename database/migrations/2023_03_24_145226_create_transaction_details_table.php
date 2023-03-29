@@ -15,6 +15,7 @@ return new class extends Migration
             $table->foreignId('transaction_header_id');
             $table->foreignId('cake_id');
             $table->integer('quantity');
+            $table->timestamps();
         });
     }
 

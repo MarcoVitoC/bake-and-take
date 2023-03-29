@@ -21,6 +21,7 @@ return new class extends Migration
             $table->text('cake_description');
             $table->integer('cake_price');
             $table->string('cake_photo');
+            $table->timestamps();
         });
     }
 

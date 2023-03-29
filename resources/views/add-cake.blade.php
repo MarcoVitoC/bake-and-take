@@ -29,17 +29,17 @@
       @enderror
     </div>
     <div class="form-bar">
-      <select name="category" required>
+      <select name="category_id" required>
         <option value="" disabled selected>Cake Categories...</option>
         @foreach ($categories as $category)
-          @if (old('category') == $category->id)
+          @if (old('category_id') == $category->id)
             <option value="{{ $category->id }}" selected>{{ $category->category_name }}</option>
           @else
             <option value="{{ $category->id }}">{{ $category->category_name }}</option>
           @endif
         @endforeach
       </select>
-      @error('category')
+      @error('category_id')
         <div class="invalid-msg">{{ $message }}</div>
       @enderror
     </div>

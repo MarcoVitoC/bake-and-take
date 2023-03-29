@@ -16,6 +16,7 @@ return new class extends Migration
             $table->foreignId('status_id');
             $table->foreignId('user_id');
             $table->dateTime('transaction_date');
+            $table->timestamps();
         });
     }
 
