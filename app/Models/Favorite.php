@@ -14,8 +14,8 @@ class Favorite extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function product()
+    public function cake()
     {
-        return $this->belongsTo(Product::class);
+        return $this->belongsTo(Cake::class);
     }
 }

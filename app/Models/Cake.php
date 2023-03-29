@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Product extends Model
+class Cake extends Model
 {
     use HasFactory;
 
@@ -16,9 +16,9 @@ class Product extends Model
         return $this->belongsTo(Category::class);
     }
 
-    public function favorit()
+    public function favorite()
     {
-        return $this->hasMany(Favorit::class);
+        return $this->hasMany(Favorite::class);
     }
 
     public function transaction_detail()

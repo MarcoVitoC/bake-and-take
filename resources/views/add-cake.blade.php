@@ -29,7 +29,7 @@
       @enderror
     </div>
     <div class="form-bar">
-      <select name="category">
+      <select name="category" required>
         <option value="" disabled selected>Cake Categories...</option>
         @foreach ($categories as $category)
           @if (old('category') == $category->id)
@@ -45,7 +45,7 @@
     </div>
     <div class="form-bar">
       <label for="cake_photo">Upload Cake Photo </label>
-      <input type="file" name="cake_photo" id="cake_photo">
+      <input type="file" name="cake_photo" id="cake_photo" required>
       @error('cake_photo')
         <div class="invalid-msg">{{ $message }}</div>
       @enderror

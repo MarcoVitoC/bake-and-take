@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('transaction_details', function (Blueprint $table) {
             $table->foreignId('transaction_header_id');
-            $table->foreignId('product_id');
+            $table->foreignId('cake_id');
             $table->integer('quantity');
         });
     }

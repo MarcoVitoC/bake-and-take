@@ -9,9 +9,9 @@ class TransactionDetail extends Model
 {
     use HasFactory;
 
-    public function product()
+    public function cake()
     {
-        return $this->belongsTo(Product::class);
+        return $this->belongsTo(Cake::class);
     }
 
     public function transaction_header()

@@ -34,6 +34,7 @@ Route::get('/admin', [AdminController::class, 'index'])->middleware(`'role:1'`);
 
 Route::get('/admin/add-cake', [AdminController::class, 'addCake'])->middleware(`'role:1'`);
 Route::post('/admin/add-cake', [AdminController::class, 'createCake'])->middleware(`'role:1'`);
+Route::get('/admin/add-cake/add-cake-success', [AdminController::class, 'addCakeSuccess'])->middleware(`'role:1'`);
 
 Route::get('/otp', function () {
     return view('otp', [
