@@ -1,14 +1,11 @@
-.empty-space {
-  padding-top: 65px;
-}
-
 .dropdown {
   display: none;
   width: fit-content;
   height: fit-content;
   border: 2px solid black;
   position: absolute;
-  z-index: 1;
+  z-index: 2;
+  margin-top: 100px;
   margin-left: 88%;
   background-color: white;
 }
@@ -73,14 +70,14 @@ tbody td button:hover {
   display: flex;
   justify-content: center;
   margin-top: 80px;
+  margin-bottom: 10px;
 }
 
 .add-cake h2 {
-  margin-right: 370px;
+  margin-right: 730px;
 }
 
 .add-cake button {
-  margin-left: 370px;
   padding: 10px;
   background-color: #211E18;
   color: #FFFFFF;
@@ -94,73 +91,70 @@ tbody td button:hover {
   background-color: #37342F;
 }
 
-.add-cake-form {
-  display: flex;
+
+
+.add-cake-products {
+  margin: 0px 118px;
+}
+
+.all-products-container{
+  display: inline-flex;
+  align-items: center;
   justify-content: center;
-  margin-top: 130px;
+  column-gap: 30px;
+  padding: 20px;
+  flex-wrap: wrap;
 }
 
-.form-bar input {
-  width: 650px;
-  margin: 8px 0px;
-  padding: 5px;
-  text-align: center;
-}
-
-.form-bar select {
-  width: 663px;
-  margin: 8px 0px;
-  padding: 5px;
-  text-align: center;
-}
-
-
-.form-bar input:focus {
-  text-align: center;
-}
-
-.form-bar input::placeholder {
-  color: #999999;
-  font-weight: 500;
-  text-align: center;
-}
-
-.form-bar label {
-  text-align: center;
-}
-
-.form-bar input[type="file"] {
-  padding: 5px;
-  border: 1px solid black;
-  border-radius: 2px;
-  color: #999999;
-  font-weight: 500;
-  font-size: 14px;
-  cursor: pointer;
-  text-align-last: center;
-}
-
-.add-btn {
+.single-product-container{
+  box-sizing: border-box;
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+  max-width: 394px;
+  max-height: 466px;
+  width: 100%;
+  height: 100%;
+  margin-bottom: 30px;
+  padding: 16px 12px 18px 12px;
+  position: relative;
+  z-index: 1;
+  color: black;
 }
 
-.add-btn button {
-  margin-top: 30px;
-  padding: 8px 40px;
-  border: none;
-  border-radius: 15px;
-  background-color: #F364FF;
+.img-single-cake{
+  object-fit: cover;
+}
+
+.single-product-name {
   font-weight: 500;
-  cursor: pointer;
+  font-size: 26px;
+  line-height: 39px;
+  margin-bottom: 30px;
 }
 
-.add-btn button:hover {
-  background-color: #CB3BD9;
-  transition-duration: 0.3s;
-}
-
-.invalid-msg {
-  color: red;
+.single-product-desc {
   font-size: 13px;
+  font-weight: 300;
+  line-height: 19.5px;
+  text-align: justify;
+}
+
+.delete-product {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 17px;
+  right: 8px;
+  padding: 5px 4px;
+  background-color: red;
+  border-radius: 2px;
+  border: none;
+  cursor: pointer;
+}
+
+.delete-product:hover {
+  background-color: #FF4D4D;
 }

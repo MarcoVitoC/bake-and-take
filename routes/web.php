@@ -42,27 +42,28 @@ Route::middleware(['role:1'])->group(function() {
     Route::get('/admin/add-cake', [AdminController::class, 'addCake']);
     Route::post('/admin/add-cake', [AdminController::class, 'createCake']);
     Route::get('/admin/add-cake/add-cake-success', [AdminController::class, 'addCakeSuccess']);
+    Route::get('/admin/edit-cake/{id}', [AdminController::class, 'editCake']);
+    Route::get('/admin/update-cake/{id}', [AdminController::class, 'changeCake']);
+    Route::put('/admin/update-cake/{cake}', [AdminController::class, 'updateCake']);
+    Route::get('/admin/update-cake-success', [AdminController::class, 'updateCakeSuccess']);
+    Route::get('/admin/delete-cake/{id}', [AdminController::class, 'deleteCakeConfirmation']);
+    Route::delete('/admin/delete-cake/{cake}', [AdminController::class, 'deleteCake']);
+    Route::get('/admin/delete-cake-success', [AdminController::class, 'deleteCakeSuccess']);
 });
 
-Route::get('/otp', function () {
-    return view('otp', [
-        "title" => "OTP"
+Route::get('/product-detail', function () {
+    return view('product-detail', [
+        "title" => "Product Detail"
     ]);
 });
 
-Route::get('/transaction', function () {
-    return view('transaction', [
-        "title" => "Transaction"
-    ]);
-});
-
-Route::get('/transaction/konfirmasi-pembayaran', function(){
+Route::get('/product-detail/konfirmasi-pembayaran', function(){
     return view('konfirmasi-pembayaran',  [
         "title" => "Konfirmasi Pembayaran"
     ]);
 });
 
-Route::get('/transaction/pembayaran-berhasil', function(){
+Route::get('/product-detail/pembayaran-berhasil', function(){
     return view('pembayaran-berhasil',  [
         "title" => "Pembayaran Berhasil"
     ]);
@@ -74,25 +75,30 @@ Route::get('/favorite', function(){
     ]);
 });
 
-Route::get('/notif', function(){
+Route::get('/transaction', function(){
     return view('notif',  [
-        "title" => "Notifikasi & History"
+        "title" => "Transaction"
     ]);
 });
 
-Route::get('/login/forget-password', function(){
-    return view('forget-password');
-});
+// Route::get('/login/forget-password', function(){
+//     return view('forget-password');
+// });
 
-Route::get('/reset-password', function(){
-    return view('reset-password');
-});
+// Route::get('/reset-password', function(){
+//     return view('reset-password');
+// });
 
-Route::get('/reset-password/berhasil', function(){
-    return view('ubah-password');
-});
+// Route::get('/reset-password/berhasil', function(){
+//     return view('ubah-password');
+// });
 
-Route::get('/reset-password/req-send', function(){
-    return view('request-password');
-});
+// Route::get('/reset-password/req-send', function(){
+//     return view('request-password');
+// });
 
+// Route::get('/otp', function () {
+//     return view('otp', [
+//         "title" => "OTP"
+//     ]);
+// });

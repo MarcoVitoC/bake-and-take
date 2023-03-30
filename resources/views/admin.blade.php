@@ -2,15 +2,6 @@
 
 @section('container')
   @include('components.admin-navbar')
-  <div class="empty-space"></div>
-  <div class="dropdown">
-    <div class="logout">
-      <form action="/" method="post">
-        @csrf
-        <button type="submit"><img src="{{ asset('assets/User/logout.png') }}" alt="Log Out" width="25px" height="25px"> Log Out</button>
-      </form>
-    </div>
-  </div>
   <div class="table">
     <table class="transaction-table">
       <thead>
@@ -38,11 +29,21 @@
       </tbody>
     </table>
   </div>
-  <div>
-    <div class="add-cake">
-      <h2>My Cakes:</h2>
-      <a href="/admin/add-cake"><button>+ Add Cake</button></a>
+  <div class="add-cake">
+    <h2>My Cakes:</h2>
+    <a href="/admin/add-cake"><button>+ Add Cake</button></a>
+  </div>
+  <div class="add-cake-products">
+    <div class="all-products-container">
+      @foreach ($cakes as $cake)
+          <div class="single-product-container">
+            <a href="/admin/edit-cake/{{ $cake->id }}"><img src="{{ asset('storage/' . $cake->cake_photo) }}" alt="gambar kue" width="307px" height="257px" class="img-single-cake"></a>
+            <div class="single-product-name">{{ $cake->cake_name }}</div>
+            <div class="single-product-desc">{{ $cake->excerpt }}</div>
+            <a href="/admin/delete-cake/{{ $cake->id }}" class="delete-product"><img src="{{ asset('assets/Icon/Delete.png') }}" alt="Delete Cake" width="18px" height="18px"></a>
+          </div>
+      @endforeach
     </div>
   </div>
-  {{-- @include('components.footer') --}}
+  @include('components.footer')
 @endsection

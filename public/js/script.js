@@ -95,3 +95,14 @@ $('document').ready(function() {
     $('.dropdown').toggle()
   })
 })
+
+const previewImage = () => {
+  const cakeImg = document.querySelector('#cake_photo')
+  const cakeImgPreview = document.querySelector('.cake-img-preview')
+
+  const oFReader = new FileReader()
+  oFReader.readAsDataURL(cakeImg.files[0])
+  oFReader.onload = function(oFREvent) {
+    cakeImgPreview.src = oFREvent.target.result
+  }
+}
