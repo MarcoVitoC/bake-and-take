@@ -1,0 +1,91 @@
+* {
+  box-sizing: border-box;
+}
+
+.empty-space {
+  padding-top: 150px;
+}
+
+.main-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.product-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.img-kue{
+  object-fit: cover;    
+}
+
+.nama-kue {
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 45px;
+  margin: 12px 0px;
+}
+
+.harga-kue {
+  font-size: 36px;
+  font-weight: 400;
+  line-height: 54px;
+  color:rgba(203, 28, 218, 1);
+  margin-bottom: 33px;
+}
+
+.category-container {
+  display: flex;
+  column-gap: 90px;
+}
+
+.teks-category, .category-kue {
+  font-size: 16px;
+  font-weight: 300;
+}
+
+.teks-category {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.deskripsi-produk {
+  font-weight: 400;
+  margin-top: 53px;
+}
+
+.teks-deskripsi {
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.5);
+  font-weight: 500;
+  margin-bottom: 14px;
+}
+
+.deskripsi-bahan {
+  max-width: 1060px;
+}
+
+.paragraf-deskripsi {
+  margin-top: 24px;
+  margin-bottom: 50px;
+  max-width: 1300px;
+}
+
+.edit-button {
+  padding: 5px 60px;
+  background-color: rgba(243, 100, 255, 1);
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 48px;
+  border-radius: 30px;
+  cursor: pointer;
+  margin-bottom: 60px;
+  color: black;
+}
+
+.edit-button:hover {
+  background-color: #CB3BD9;
+  transition-duration: 0.3s;
+}

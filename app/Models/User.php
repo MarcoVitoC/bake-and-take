@@ -17,16 +17,17 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
-    protected $fillable = [
-        'role_id',
-        'fullname',
-        'dob',
-        'phone_number',
-        'gender',
-        'email',
-        'password',
-        'address' 
-    ];
+    // protected $fillable = [
+    //     'role_id',
+    //     'fullname',
+    //     'dob',
+    //     'phone_number',
+    //     'gender',
+    //     'email',
+    //     'password',
+    //     'address' 
+    // ];
+    protected $guarded = ['id'];
 
     /**
      * The attributes that should be hidden for serialization.
@@ -48,18 +49,18 @@ class User extends Authenticatable
     ];
 
 
-    public function transaction()
+    public function transaction_header()
     {
-        return $this->hasMany(Transaction::class);
+        return $this->hasMany(TransactionHeader::class);
     }
 
-    public function favorit()
+    public function favorite()
     {
-        return $this->hasMany(Favorit::class);
+        return $this->hasMany(Favorite::class);
     }
 
-    public function peran()
+    public function role()
     {
-        return $this->belongsTo(Peran::class);
+        return $this->belongsTo(Role::class);
     }
 }

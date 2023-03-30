@@ -15,13 +15,14 @@ class RoleMiddleware
      * @param  \Closure(\Illuminate\Http\Request): (\Illuminate\Http\Response|\Illuminate\Http\RedirectResponse)  $next
      * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
      */
-    public function handle(Request $request, Closure $next, $role_id)
+    public function handle(Request $request, Closure $next, ...$roles)
     {
-        $role = explode(':', $role_id)[1];
-        if (auth()->guest() || auth()->user()->role_id !== $role) {
+        if (!Auth::check()) {
             return redirect('/login');
         }
 
-        return $next($request);
+        foreach($roles as $role) {
+            return (auth()->user()->role_id != $role) ? back() : $next($request);
+        }
     }
 }

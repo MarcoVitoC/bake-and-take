@@ -1,0 +1,44 @@
+.empty-space {
+  padding-top: 100px;
+}
+
+.product-container h1 {
+  margin: 20px 0px;
+  color: red;
+}
+
+.delete-confirmation {
+  margin: auto;
+  padding: 20px 0px;
+}
+
+.deleteTxt {
+  color: #FF0000;
+}
+
+.productTxt {
+  color: #F364FF;
+}
+
+.confirmBtn {
+  display: flex;
+  justify-content: center;
+  margin: 14px 0px;
+}
+
+.confirmBtn button {
+  border: none;
+  margin: 0px 70px;
+  padding: 10px 60px;
+  background-color: rgba(243, 100, 255, 1);
+  font-weight: bold;
+  font-size: 16px;
+  border-radius: 15px;
+  cursor: pointer;
+  color: black;
+}
+
+.confirmBtn button:hover {
+  background-color: #CB3BD9;
+  transition-duration: 0.3s;
+}

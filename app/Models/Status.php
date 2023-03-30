@@ -9,8 +9,10 @@ class Status extends Model
 {
     use HasFactory;
 
-    public function transaction()
+    protected $guarded = ['id'];
+
+    public function transaction_header()
     {
-        return $this->hasMany(Transaction::class);
+        return $this->hasMany(TransactionHeader::class);
     }
 }

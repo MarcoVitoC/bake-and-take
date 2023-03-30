@@ -9,9 +9,11 @@ class TransactionDetail extends Model
 {
     use HasFactory;
 
-    public function product()
+    protected $guarded = ['id'];
+
+    public function cake()
     {
-        return $this->belongsTo(Product::class);
+        return $this->belongsTo(Cake::class);
     }
 
     public function transaction_header()

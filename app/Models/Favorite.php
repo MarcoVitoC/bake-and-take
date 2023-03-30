@@ -9,13 +9,15 @@ class Favorite extends Model
 {
     use HasFactory;
 
+    protected $guarded = ['id'];
+
     public function user()
     {
         return $this->belongsTo(User::class);
     }
 
-    public function product()
+    public function cake()
     {
-        return $this->belongsTo(Product::class);
+        return $this->belongsTo(Cake::class);
     }
 }

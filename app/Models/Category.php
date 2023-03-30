@@ -9,8 +9,10 @@ class Category extends Model
 {
     use HasFactory;
 
-    public function product()
+    protected $guarded = ['id'];
+
+    public function Cake()
     {
-        return $this->hasMany(Product::class);
+        return $this->hasMany(Cake::class);
     }
 }

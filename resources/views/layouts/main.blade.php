@@ -13,6 +13,10 @@
   <link rel="stylesheet" href="{{ asset('css/loginstyle.css') }}">
   <link rel="stylesheet" href="{{ asset('css/user.css') }}">
   <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/add-cake.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/edit-cake.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/update-cake.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/delete-cake.css') }}">
   <link rel="stylesheet" href="{{ asset('css/forget-password.css') }}">
   <link rel="stylesheet" href="{{ asset('css/request-password.css') }}">
   <link rel="stylesheet" href="{{ asset('css/reset-password.css') }}">
