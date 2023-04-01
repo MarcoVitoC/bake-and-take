@@ -1,8 +1,8 @@
 .empty-space {
-  padding-top: 65px;
+  padding-top: 150px;
 }
 
-.dropdown {
+.user-dropdown {
   display: none;
   width: fit-content;
   height: fit-content;
@@ -44,3 +44,109 @@
   padding-right: 15px;
 }
 
+/* .welcome {
+  display: flex;
+  justify-content: center;
+  font-size: 24px;
+} */
+
+.gambar{
+  width: 1241px;
+  height: 568px;
+}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1241px;
+  margin: auto;
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+.view-category {
+  padding-top: 120px;
+}
+
+.view-category-title,
+.about-us-title {
+  text-align: center;
+  padding-bottom: 30px;
+  font-size: 20px;
+}
+
+.view-categoryBtn-container {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 30px;
+}
+
+.view-categoryBtn-container button {
+  border: none;
+  /* background-color: #D9D9D9; */
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 20px;
+  margin: 0px 40px;
+  padding: 15px 18px;
+  border-radius: 20px;
+}
+
+.view-all-product-title {
+  text-align: center;
+  margin-top: 80px;
+  margin-bottom: 50px;
+  font-size: 20px;
+}
+
+.row-tentang-toko{
+  display: flex;
+  margin: 15px 40px;
+  padding-bottom: 50px;
+}
+
+.column-tentang-toko{
+  display: flex;
+}
+
+.prev-slide, 
+.next-slide {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  margin: 0px 12px;
+  font-weight: bold;
+  font-size: 40px;
+  transition: 0.6s ease;
+}
+
+.deskripsi-toko{
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+  padding: 30px;
+}

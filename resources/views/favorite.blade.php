@@ -1,9 +1,9 @@
-@extends('layouts.fav-notif')
+@extends('layouts.main')
 
 @section('container')
+    @include('components.user-navbar')
     <div class="fav-main-container">
         <div class="fav-top-container">
-            <img src="{{ asset('assets/Icon/open-mail.jpg') }}" alt="Gambar Mail" width="16px" height="16px">
             <img src="{{ asset('assets/Icon/heart.jpg') }}" alt="Gambar Hati" width="80px" height="68px">
             <div class="fav-fav-text">Favorite</div>
         </div>

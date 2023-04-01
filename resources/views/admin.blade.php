@@ -16,18 +16,39 @@
         </tr>
       </thead>
       <tbody>
-        {{-- nanti data di tabel ambil dari database --}}
-        <tr>
-          <td>1</td>
-          <td>User</td>
-          <td>Cake</td>
-          <td>1</td>
-          <td>20 Agustus 2022</td>
-          <td>On Going</td>
-          <td><button>Update</button></td>
-        </tr>
+        @foreach ($transactions as $transaction)
+          <tr>
+            <td>{{ $transaction->id }}</td>
+            <td>{{ $transaction->fullname }}</td>
+            <td>{{ $transaction->cake_name }}</td>
+            <td>{{ $transaction->quantity }}</td>
+            <td>{{ date('d M Y', strtotime($transaction->transaction_date)) }}</td>
+            @if ($transaction->status_name === 'Ongoing')
+              <td id="ongoing">{{ $transaction->status_name }}</td>
+            @elseif ($transaction->status_name === 'Delivered')
+              <td id="delivered">{{ $transaction->status_name }}</td>
+            @else
+              <td id="finished">{{ $transaction->status_name }}</td>
+            @endif
+            @if ($transaction->status_name === 'Ongoing')
+            <td>
+              <form action="/admin" method="post">
+                @method('put')
+                @csrf
+                <input type="hidden" name="transactionId" value="{{ $transaction->id }}">
+                <button type="submit">Update</button>
+              </form>
+            </td>
+            @else
+              <td><button style="display: none;">Update</button></td>
+            @endif
+          </tr>
+        @endforeach
       </tbody>
     </table>
+    @if (count($transactions) === 0)
+      <h4 class="no-order-text">No Order Available</h4>
+    @endif
   </div>
   <div class="add-cake">
     <h2>My Cakes:</h2>

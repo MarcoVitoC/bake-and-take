@@ -4,13 +4,13 @@
     box-sizing: border-box;
 }
 
-body{
+body {
     font-family: 'Lora', serif;
     line-height: 25.6px;
     font-size: 16px;
 }
 
-a{
+a {
     text-decoration: none;
     color: black;
 }
@@ -35,7 +35,7 @@ a{
     font-family: 'Poppins';
     border: 1px solid;
     padding: 13px 20px;
-    font-weight: 300;
+    font-weight: bold;
     border-radius: 40px;
     margin-bottom: 21px;
     position: relative;
@@ -44,7 +44,7 @@ a{
 
 .inner-container{
     display: flex;
-    flex-direction: row;
+    align-items: center;
     column-gap: 53px;
     border: 2px solid black;
     margin-top: -5.3%;
@@ -60,8 +60,7 @@ a{
 .payment-detail{
     display: flex;
     flex-direction: column;
-    row-gap: 18px;
-    margin-top: 48px;
+    row-gap: 5px;
 }
 
 .display-kanan, .total-harga, .metode-pembayaran, .btn-konfirmasi{
@@ -73,7 +72,7 @@ a{
 
 .total-harga{
     margin-top: 50px;
-    font-size: 25px;
+    font-size: 17px;
     font-weight: 700;
     line-height: 37px;
 }
@@ -89,13 +88,21 @@ a{
     justify-content: center;
 }
 
-.btn-konfirmasi{
+.btn-konfirmasi button {
     display: flex;
+    border: none;
     justify-content: center;
-    font-weight: 700;
-    margin-top: 80px;
-    padding: 8px 40px;
+    font-size: 15px;
+    font-weight: bold;
+    margin: 60px 40px 60px 40px;
+    padding: 12px 40px;
     border-radius: 20px;
     background-color: #F364FF;
     margin-bottom: 30px;
+    cursor: pointer;
+}
+
+.btn-konfirmasi button:hover {
+    background-color: #CB3BD9;
+    transition-duration: 0.3s;
 }

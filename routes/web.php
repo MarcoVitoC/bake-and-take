@@ -7,19 +7,6 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
-// role:0 UNTUK USER, role:1 UNTUK ADMIN
-
 Route::post('/', [LoginController::class, 'logout']);
 
 // GUEST
@@ -34,11 +21,21 @@ Route::middleware(['guest'])->group(function() {
 // USER
 Route::middleware(['role:0'])->group(function() {
     Route::get('/user', [UserController::class, 'index']);
+    Route::get('/user/product-detail/{id}', [UserController::class, 'showProductDetail'])->name('productDetail');
+    Route::post('/user/product-detail/{id}', [UserController::class, 'orderCake']);
+    Route::get('/user/payment-confirmation/{id}', [UserController::class, 'paymentConfirmation'])->name('paymentConfirmation');
+    Route::delete('/user/payment-confirmation/{transactionDetail}', [UserController::class, 'cancelTransaction']);
+    Route::get('/user/payment-success', [UserController::class, 'paymentSuccess']);
+    Route::get('/user/favorite', [UserController::class, 'showFavorite']);
+    Route::get('/user/transaction', [UserController::class, 'showTransaction']);
+    Route::put('/user/transaction', [UserController::class, 'updateTransactionStatus']);
+    Route::get('/user/transaction/transaction-detail/{id}', [UserController::class, 'showTransactionDetail']);
 });
 
 // ADMIN
 Route::middleware(['role:1'])->group(function() {
     Route::get('/admin', [AdminController::class, 'index']);
+    Route::put('/admin', [AdminController::class, 'updateTransactionStatus']);
     Route::get('/admin/add-cake', [AdminController::class, 'addCake']);
     Route::post('/admin/add-cake', [AdminController::class, 'createCake']);
     Route::get('/admin/add-cake/add-cake-success', [AdminController::class, 'addCakeSuccess']);
@@ -49,36 +46,6 @@ Route::middleware(['role:1'])->group(function() {
     Route::get('/admin/delete-cake/{id}', [AdminController::class, 'deleteCakeConfirmation']);
     Route::delete('/admin/delete-cake/{cake}', [AdminController::class, 'deleteCake']);
     Route::get('/admin/delete-cake-success', [AdminController::class, 'deleteCakeSuccess']);
-});
-
-Route::get('/product-detail', function () {
-    return view('product-detail', [
-        "title" => "Product Detail"
-    ]);
-});
-
-Route::get('/product-detail/konfirmasi-pembayaran', function(){
-    return view('konfirmasi-pembayaran',  [
-        "title" => "Konfirmasi Pembayaran"
-    ]);
-});
-
-Route::get('/product-detail/pembayaran-berhasil', function(){
-    return view('pembayaran-berhasil',  [
-        "title" => "Pembayaran Berhasil"
-    ]);
-});
-
-Route::get('/favorite', function(){
-    return view('favorite',  [
-        "title" => "Favorit"
-    ]);
-});
-
-Route::get('/transaction', function(){
-    return view('notif',  [
-        "title" => "Transaction"
-    ]);
 });
 
 // Route::get('/login/forget-password', function(){

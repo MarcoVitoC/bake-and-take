@@ -50,7 +50,8 @@
 }
 
 .transaction-table td {
-  color: #888888;
+  color: #AEAEAE;
+  font-weight: 500;
 }
 
 tbody td button {
@@ -64,6 +65,28 @@ tbody td button {
 
 tbody td button:hover {
   background-color: #46B665;
+}
+
+tbody td#ongoing {
+  color: red;
+  font-weight: bold;
+}
+
+tbody td#delivered {
+  color: #FFBB33;
+  font-weight: bold;
+}
+
+tbody td#finished {
+  color: #4ECB71;
+  font-weight: bold;
+}
+
+.no-order-text {
+  text-align: center;
+  margin: 10px;
+  color: #AEAEAE;
+  font-weight: bold;
 }
 
 .add-cake {
@@ -90,8 +113,6 @@ tbody td button:hover {
 .add-cake button:hover {
   background-color: #37342F;
 }
-
-
 
 .add-cake-products {
   margin: 0px 118px;

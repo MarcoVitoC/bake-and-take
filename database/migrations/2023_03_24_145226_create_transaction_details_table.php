@@ -12,6 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('transaction_details', function (Blueprint $table) {
+            $table->id();
             $table->foreignId('transaction_header_id');
             $table->foreignId('cake_id');
             $table->integer('quantity');
