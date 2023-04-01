@@ -6,17 +6,40 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Validation\Rule;
 use App\Models\Cake;
 use App\Models\Category;
+use App\Models\TransactionHeader;
 
 class AdminController extends Controller
 {
     public function index() {
+        $transactions = DB::table('transaction_details')
+                        ->join('cakes', 'transaction_details.cake_id', '=', 'cakes.id')
+                        ->join('transaction_headers', 'transaction_details.transaction_header_id', '=', 'transaction_headers.id')
+                        ->join('statuses', 'transaction_headers.status_id', '=', 'statuses.id')
+                        ->join('users', 'transaction_headers.user_id', '=', 'users.id')
+                        ->select(
+                            'transaction_headers.id',
+                            'users.fullname',
+                            'cakes.cake_name',
+                            'transaction_details.quantity',
+                            'transaction_headers.transaction_date',
+                            'statuses.status_name'
+                        )->orderBy('transaction_headers.status_id', 'asc')->get();
+
         return view('admin', [
             'title' => 'Admin',
+            'transactions' => $transactions,
             'cakes' => Cake::all()
         ]);
+    }
+
+    public function updateTransactionStatus(Request $request) {
+        $transactionHeaders = TransactionHeader::all();
+        $transactionHeader = $transactionHeaders->find($request->transactionId);
+
+        $transactionHeader->update(['status_id' => 2]);
+        return redirect('/admin');
     }
 
     public function addCake() {

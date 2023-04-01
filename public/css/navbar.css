@@ -52,8 +52,12 @@ nav {
   align-items: center;
 }
 
-.fav-transaction {
+.home-fav-transaction {
   margin-right: -250px;
+}
+
+.fav-transaction {
+  margin-right: -1090px;
 }
 
 .favorite-btn,

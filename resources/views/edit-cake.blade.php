@@ -15,9 +15,9 @@
         </div>
 
         <div class="deskripsi-produk">
-            <div class="teks-deskripsi">Description: </div>
             <div>Ingredients: </div>
             <div class="deskripsi-bahan">{{ $cake->cake_ingredients }}</div>
+            <div class="teks-deskripsi">Description: </div>
             <div class="paragraf-deskripsi">{{ $cake->cake_description }}</div>
         </div>
 

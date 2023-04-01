@@ -1,6 +1,12 @@
 <nav>
   <div class="logo"><a href="/home"><img src="{{ asset('assets/Logo.jpg') }}" alt="Bake & Take" width="60px" height="60px"></a></div>
-  <div class="fav-transaction">
+  <div class="navbar-menu">
+    <a class="menu home" href="#home">Home</a>
+    <a class="menu category" href="#category">Category</a>
+    <a class="menu menu" href="#menu">Menu</a>
+    <a class="menu user-about-us" href="#user-about-us">About Us</a>
+  </div>
+  <div class="home-fav-transaction">
     <a href="/user/favorite"><button class="favorite-btn"><img src="{{ asset('assets/User/favorite.png') }}" alt="Favorite" width="30px" height="30px"></button></a>
     <a href="/user/transaction"><button class="transaction-btn"><img src="{{ asset('assets/User/transaction.png') }}" alt="Transaction" width="30px" height="30px"></button></a>
   </div>

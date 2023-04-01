@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('transaction_headers', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('status_id');
             $table->foreignId('user_id');
-            $table->dateTime('transaction_date');
+            $table->foreignId('status_id')->default('1');
+            $table->dateTime('transaction_date')->default(now());
             $table->timestamps();
         });
     }
