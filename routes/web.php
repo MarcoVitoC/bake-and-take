@@ -27,6 +27,9 @@ Route::middleware(['role:0'])->group(function() {
     Route::delete('/user/payment-confirmation/{transactionDetail}', [UserController::class, 'cancelTransaction']);
     Route::get('/user/payment-success', [UserController::class, 'paymentSuccess']);
     Route::get('/user/favorite', [UserController::class, 'showFavorite']);
+    Route::post('/user/product-detail/{id}', [UserController::class, 'addFavorite']);
+    Route::delete('/user/product-detail/{id}', [UserController::class, 'removeFavorite']);
+    Route::delete('/user/favorite', [UserController::class, 'deleteFavorite']);
     Route::get('/user/transaction', [UserController::class, 'showTransaction']);
     Route::put('/user/transaction', [UserController::class, 'updateTransactionStatus']);
     Route::get('/user/transaction/transaction-detail/{id}', [UserController::class, 'showTransactionDetail']);

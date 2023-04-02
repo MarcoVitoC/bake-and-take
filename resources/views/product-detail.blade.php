@@ -17,13 +17,24 @@
                         <div class="list-pengiriman">Pengiriman</div>
                         <div>Tipe Pembayaran</div>
                         <div>Quantity</div>
-                        <form action="/user/product-detail/{{ $cake->id }}" method="post">
-                            @csrf
-                            <button type="submit" class="fav-button">
-                                <img src="{{ asset('assets/Transaction/favorit.jpg') }}" alt="Gambar Hati" width="25px" height="20px">
-                                <div class="fav-text">Favorite</div>
-                            </button>
-                        </form>
+                        @if ($favorite != null)
+                            <form action="/user/product-detail/{{ $cake->id }}" method="post">
+                                @method('delete')
+                                @csrf
+                                <button type="submit" class="added-fav-button">
+                                    <img src="{{ asset('assets/Transaction/added-favorite.png') }}" alt="Gambar Hati" width="28px" height="28px">
+                                    <div class="fav-text" id="addedFavorite">Favorite</div>
+                                </button>
+                            </form>
+                        @else
+                            <form action="/user/product-detail/{{ $cake->id }}" method="post">
+                                @csrf
+                                <button type="submit" class="fav-button">
+                                    <img src="{{ asset('assets/Transaction/add-favorite-default.png') }}" alt="Gambar Hati" width="28px" height="28px">
+                                    <div class="fav-text">Favorite</div>
+                                </button>
+                            </form>
+                        @endif
                     </div>
 
                     <div class="detail-isi">

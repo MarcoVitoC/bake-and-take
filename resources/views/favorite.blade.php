@@ -8,17 +8,26 @@
             <div class="fav-fav-text">Favorite</div>
         </div>
         <div class="fav-inner-container">
-            <div class="display-fav-container">
-                <img src="{{ asset('assets/Transaction/gambar_kue.jpg') }}" alt="Gambar Kue" width="206px" height="203px">
-                <div class="fav-detail-container">
-                    <div class="fav-nama-kue">Uni Cake</div>
-                    <div class="fav-harga">Rp130.000</div>
-                    <div class="fav-lihat-toko"><a href="">Lihat Toko</a></div>
+            @foreach ($favorites as $favorite)
+                <div class="display-fav-container">
+                    <img src="{{ asset('storage/' . $favorite->cake_photo) }}" alt="Gambar Kue" width="206px" height="203px">
+                    <div class="fav-detail-container">
+                        <div class="fav-nama-kue">{{ $favorite->cake_name }}</div>
+                        <div class="fav-harga">Rp.{{ $favorite->cake_price }}</div>
+                        <a href="/user/product-detail/{{ $favorite->cake_id }}" class="see-details">See Details</a>
+                    </div>
+                    <div class="details-fav-btn">
+                        <form action="/user/favorite" method="post">
+                            @method('delete')
+                            @csrf
+                            <input type="hidden" name="favoriteId" value="{{ $favorite->id }}">
+                            <button type="submit" class="remove-favorite-btn">
+                                <img src="{{ asset('assets/Transaction/heart.png') }}" alt="Gambar Kue" width="30px" height="30px" class="delete-fav-img">
+                            </button>
+                        </form>
+                    </div>
                 </div>
-                <div class="delete-fav">
-                    <img src="{{ asset('assets/Icon/delete.jpg') }}" alt="Gambar Kue" width="22px" height="24px" class="delete-fav-img">
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 @endsection

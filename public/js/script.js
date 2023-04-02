@@ -39,62 +39,62 @@ $('document').ready(function() {
     })
   })
 
-  // $('.home').on('click', () => {
-  //   $('.home').css({
-  //     "color": "#CB1CDA"
-  //   })
-  //   $('.category').css({
-  //     "color": "#FFFFFF"
-  //   })
-  //   $('.menu').css({
-  //     "color": "#FFFFFF"
-  //   })
-  //   $('.user-about-us').css({
-  //     "color": "#FFFFFF"
-  //   })
-  // })
-  // $('.category').on('click', () => {
-  //   $('.category').css({
-  //     "color": "#CB1CDA"
-  //   })
-  //   $('.home').css({
-  //     "color": "#FFFFFF"
-  //   })
-  //   $('.menu').css({
-  //     "color": "#FFFFFF"
-  //   })
-  //   $('.user-about-us').css({
-  //     "color": "#FFFFFF"
-  //   })
-  // })
-  // $('.menu').on('click', () => {
-  //   $('.menu').css({
-  //     "color": "#CB1CDA"
-  //   })
-  //   $('.category').css({
-  //     "color": "#FFFFFF"
-  //   })
-  //   $('.home').css({
-  //     "color": "#FFFFFF"
-  //   })
-  //   $('.user-about-us').css({
-  //     "color": "#FFFFFF"
-  //   })
-  // })
-  // $('.user-about-us').on('click', () => {
-  //   $('.user-about-us').css({
-  //     "color": "#CB1CDA"
-  //   })
-  //   $('.category').css({
-  //     "color": "#FFFFFF"
-  //   })
-  //   $('.menu').css({
-  //     "color": "#FFFFFF"
-  //   })
-  //   $('.home').css({
-  //     "color": "#FFFFFF"
-  //   })
-  // })
+  $('.home').on('click', () => {
+    $('.home').css({
+      "color": "#CB1CDA"
+    })
+    $('.category').css({
+      "color": "#FFFFFF"
+    })
+    $('.user-menu').css({
+      "color": "#FFFFFF"
+    })
+    $('.user-about-us').css({
+      "color": "#FFFFFF"
+    })
+  })
+  $('.category').on('click', () => {
+    $('.category').css({
+      "color": "#CB1CDA"
+    })
+    $('.home').css({
+      "color": "#FFFFFF"
+    })
+    $('.user-menu').css({
+      "color": "#FFFFFF"
+    })
+    $('.user-about-us').css({
+      "color": "#FFFFFF"
+    })
+  })
+  $('.user-menu').on('click', () => {
+    $('.user-menu').css({
+      "color": "#CB1CDA"
+    })
+    $('.category').css({
+      "color": "#FFFFFF"
+    })
+    $('.home').css({
+      "color": "#FFFFFF"
+    })
+    $('.user-about-us').css({
+      "color": "#FFFFFF"
+    })
+  })
+  $('.user-about-us').on('click', () => {
+    $('.user-about-us').css({
+      "color": "#CB1CDA"
+    })
+    $('.category').css({
+      "color": "#FFFFFF"
+    })
+    $('.user-menu').css({
+      "color": "#FFFFFF"
+    })
+    $('.home').css({
+      "color": "#FFFFFF"
+    })
+  })
 
   $('.dot2022').show()
   $('.cake-year2022-img').show()

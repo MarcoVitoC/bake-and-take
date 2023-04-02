@@ -10,7 +10,7 @@
   </button>
   <div class="user-dropdown">
     <div class="my-profile">
-      <button type="submit"><img src="{{ asset('assets/User/profile.png') }}" alt="Log Out" width="35px" height="31px"> My Profile</button>
+      <button type="submit"><img src="{{ asset('assets/User/profile.png') }}" alt="Log Out" width="37px" height="31px"> My Profile</button>
     </div>
     <div class="logout">
       <form action="/" method="post">

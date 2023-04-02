@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Cake;
 use App\Models\TransactionHeader;
 use App\Models\TransactionDetail;
+use App\Models\Favorite;
 
 class UserController extends Controller
 {
@@ -26,9 +27,14 @@ class UserController extends Controller
                 ->select('cakes.*', 'categories.category_name')
                 ->where('cakes.id', '=', $id)->first();
 
+        $favorite = DB::table('favorites')
+                    ->join('cakes', 'favorites.cake_id', '=', 'cakes.id')
+                    ->select('favorites.*')->where('cakes.id', '=', $id)->first();
+
         return view('product-detail', [
             'title' => 'Product Details',
-            'cake' => $cake
+            'cake' => $cake,
+            'favorite' => $favorite
         ]);
     }
 
@@ -78,9 +84,48 @@ class UserController extends Controller
     }
 
     public function showFavorite() {
+        $favorites = DB::table('favorites')
+                    ->join('cakes', 'favorites.cake_id', '=', 'cakes.id')
+                    ->select(
+                        'favorites.id',
+                        'favorites.cake_id',
+                        'cakes.cake_name',
+                        'cakes.cake_price',
+                        'cakes.cake_photo'
+                    )->get();
+                    
         return view('favorite',  [
-            'title' => 'Favorite'
+            'title' => 'Favorite',
+            'favorites' => $favorites
         ]);
+    }
+
+    public function addFavorite($id) {
+        $cake = Cake::where('id', $id)->first();
+ 
+        Favorite::create([
+            'cake_id' => $cake->id,
+            'user_id' => auth()->user()->id
+        ]);
+
+        return back();
+    }
+
+    public function removeFavorite($id) {
+        $favorite = DB::table('favorites')
+                    ->join('cakes', 'favorites.cake_id', '=', 'cakes.id')
+                    ->select('favorites.*')->where('cakes.id', '=', $id)->first();
+        
+
+        Favorite::destroy($favorite->id);
+        return back();
+    }
+
+    public function deleteFavorite(Request $request) {
+        $favorite = Favorite::find($request->favoriteId);
+
+        Favorite::destroy($favorite->id);
+        return back();
     }
 
     public function showTransaction() {

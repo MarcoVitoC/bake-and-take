@@ -3,7 +3,7 @@
   <div class="navbar-menu">
     <a class="menu home" href="#home">Home</a>
     <a class="menu category" href="#category">Category</a>
-    <a class="menu menu" href="#menu">Menu</a>
+    <a class="menu user-menu" href="#menu">Menu</a>
     <a class="menu user-about-us" href="#user-about-us">About Us</a>
   </div>
   <div class="home-fav-transaction">
@@ -16,7 +16,7 @@
   </button>
   <div class="user-dropdown">
     <div class="my-profile">
-      <button type="submit"><img src="{{ asset('assets/User/profile.png') }}" alt="Log Out" width="35px" height="31px"> My Profile</button>
+      <button type="submit"><img src="{{ asset('assets/User/profile.png') }}" alt="Log Out" width="37px" height="31px"> My Profile</button>
     </div>
     <div class="logout">
       <form action="/" method="post">

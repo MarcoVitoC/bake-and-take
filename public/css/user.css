@@ -1,7 +1,3 @@
-.empty-space {
-  padding-top: 150px;
-}
-
 .user-dropdown {
   display: none;
   width: fit-content;
@@ -44,12 +40,6 @@
   padding-right: 15px;
 }
 
-/* .welcome {
-  display: flex;
-  justify-content: center;
-  font-size: 24px;
-} */
-
 .gambar{
   width: 1241px;
   height: 568px;
@@ -59,6 +49,7 @@
 .slideshow-container {
   max-width: 1241px;
   margin: auto;
+  padding-top: 110px;
 }
 
 /* Hide the images by default */
@@ -89,7 +80,7 @@
 }
 
 .view-category {
-  padding-top: 120px;
+  padding-top: 100px;
 }
 
 .view-category-title,
@@ -116,11 +107,19 @@
   border-radius: 20px;
 }
 
+.view-all-product {
+  padding-top: 20px;
+}
+
 .view-all-product-title {
   text-align: center;
   margin-top: 80px;
   margin-bottom: 50px;
   font-size: 20px;
+}
+
+.about-us {
+  padding-top: 110px;
 }
 
 .row-tentang-toko{

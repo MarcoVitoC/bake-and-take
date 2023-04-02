@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="{{ asset('css/loginstyle.css') }}">
   <link rel="stylesheet" href="{{ asset('css/user.css') }}">
   <link rel="stylesheet" href="{{ asset('/css/product-detail.css') }}">
-  <link rel="stylesheet" href="{{ asset('/css/fav.css') }}">
+  <link rel="stylesheet" href="{{ asset('/css/favorite.css') }}">
   <link rel="stylesheet" href="{{ asset('/css/transaction.css') }}">
   <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
   <link rel="stylesheet" href="{{ asset('css/add-cake.css') }}">
