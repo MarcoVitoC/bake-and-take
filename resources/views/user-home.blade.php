@@ -2,7 +2,6 @@
 
 @section('container')
   @include('components.user-home-navbar')
-  <div class="empty-space"></div>
   <div class="slideshow-container" id="home">
     <div class="mySlides fade">
       <img src="{{ asset('assets/User/Carousel/Carousel/061499300_1588239901-food-plate-chocolate-dessert-132694.jpg')  }}" class="gambar">

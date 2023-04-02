@@ -33,11 +33,11 @@
     max-width: 1200px;
     padding-top: 35px;
     min-height: 590px;
+    margin-bottom: 90px;
 }
 
-.display-fav-container, .fav-detail-container{
+.display-fav-container {
     display: flex;
-    flex-direction: row;
     column-gap: 30px;
 }
 
@@ -55,9 +55,9 @@
 }
 
 .fav-detail-container{
-    flex: 0.98;
-    justify-content: space-between;
-    align-items: center;
+    display: flex;
+    flex-direction: column;
+    width: 730px;
 }
 
 .fav-nama-kue{
@@ -75,21 +75,39 @@
     color: rgba(203, 28, 218, 1);
 }
 
-.fav-lihat-toko{
-    padding: 3px 23px;
-    font-family: 'Poppins';
-    font-weight: 300;
-    font-size: 16px;
-    background-color: rgba(203, 28, 218, 1);
-    border-radius: 20px;
+.see-details {
+    color: #1E9CD2;
+    margin-top: 25px;
 }
 
-.delete-fav-img{
-    position: absolute;
-    right: 0.6%;
-    bottom: 3%;
+.see-details:hover {
+    text-decoration: underline;
+    transition-duration: 0.5s;
 }
 
-.fav-lihat-toko:hover, .delete-fav:hover{
-    cursor:pointer;
+.details-fav-btn {
+    display: flex;
+    align-items: center;
+}
+
+.details-fav-btn .details-btn {
+    border: none;
+    background-color: #F364FF; 
+    margin-left: 140px;
+    padding: 10px 15px;
+    font-weight: 500;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.details-fav-btn .details-btn:hover {
+    background-color: #CB3BD9;
+    transition-duration: 0.3s;
+}
+
+.details-fav-btn .remove-favorite-btn {
+    cursor: pointer;
+    border: none;
+    background: none;
+    margin: 0px 15px;
 }

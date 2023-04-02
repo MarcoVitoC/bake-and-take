@@ -80,9 +80,14 @@
     display: flex;
     align-items: center;
     padding: 9px 37px;
-    border: solid 1px rgba(0, 0, 0, 0.5);
+    border: solid 1px #7B7B7B;
     margin-top: 2px;
-    background: none;
+    background: white;
+}
+
+.fav-button:hover {
+    background-color: #F2F2F2;
+    transition-duration: 0.4s;
 }
 
 .fav-text{
@@ -90,6 +95,29 @@
     font-size: 18px;
     font-weight: 600;
     color:rgba(123, 123, 123, 1);
+}
+
+.detail-lists .added-fav-button {
+    display: flex;
+    align-items: center;
+    padding: 9px 37px;
+    border: solid 1px red;
+    background-color: red;
+    margin-top: 2px;
+    cursor: pointer;
+}
+
+.added-fav-button:hover {
+    border-color: #CC0000;
+    background-color: #CC0000;
+    transition-duration: 0.4s;
+}
+
+.fav-text#addedFavorite {
+    padding-left: 8px;
+    font-size: 18px;
+    font-weight: 600;
+    color: white;
 }
 
 .buy-button {
