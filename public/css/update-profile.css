@@ -1,0 +1,66 @@
+* {
+	font-family: "Poppins", sans-serif;
+}
+
+.update-box,
+.update-form,
+.update-profile-btn {
+  display: flex;
+  justify-content: center;
+}
+
+.update-box {
+  margin: 50px 45% 20px 45%;
+  padding: 10px;
+	border: solid 2px black;
+	border-radius: 50px;
+	font-weight: bold;
+  background-color: white;
+  position: relative;
+  z-index: 1;
+}
+
+.update-form {
+  margin-top: -40px;
+  margin-left: 25%;
+  margin-right: 25%;
+  margin-bottom: 30px;
+  padding: 40px 0px;
+	border: solid 2px black;
+}
+
+.form-bar input {
+  width: 650px;
+  margin: 10px 0px;
+  padding: 5px;
+  text-align: center;
+}
+
+.form-bar input:focus {
+  text-align: center;
+}
+
+.form-bar input::placeholder {
+  color: #999999;
+  font-weight: 500;
+  text-align: center;
+}
+
+.invalid-msg {
+  color: red;
+  font-size: 13px;
+}
+
+.update-profile-btn button {
+  margin: 20px 0px;
+  padding: 8px 40px;
+  border: none;
+  background-color: #F364FF;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.update-profile-btn button:hover {
+  background-color: #CB3BD9;
+  transition-duration: 0.3s;
+}

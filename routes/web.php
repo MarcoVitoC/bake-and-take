@@ -33,6 +33,13 @@ Route::middleware(['role:0'])->group(function() {
     Route::get('/user/transaction', [UserController::class, 'showTransaction']);
     Route::put('/user/transaction', [UserController::class, 'updateTransactionStatus']);
     Route::get('/user/transaction/transaction-detail/{id}', [UserController::class, 'showTransactionDetail']);
+    Route::get('/user/profile', [UserController::class, 'showUserProfile']);
+    Route::get('/user/profile/update-profile', [UserController::class, 'editProfile']);
+    Route::put('/user/profile/update-profile', [UserController::class, 'updateProfile']);
+    Route::get('/user/profile/update-profile-success', [UserController::class, 'updateProfileSuccess']);
+    Route::get('/user/profile/change-password', [UserController::class, 'changePassword']);
+    Route::put('/user/profile/change-password', [UserController::class, 'updatePassword']);
+    Route::get('/user/profile/change-password-success', [UserController::class, 'updatePasswordSuccess']);
 });
 
 // ADMIN
