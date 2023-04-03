@@ -29,6 +29,7 @@
                         @else
                             <form action="/user/product-detail/{{ $cake->id }}" method="post">
                                 @csrf
+                                <input type="hidden" name="action" value="favorite">
                                 <button type="submit" class="fav-button">
                                     <img src="{{ asset('assets/Transaction/add-favorite-default.png') }}" alt="Gambar Hati" width="28px" height="28px">
                                     <div class="fav-text">Favorite</div>
@@ -41,8 +42,9 @@
                         <div>Proteksi Kerusakan Kue <button class="proteksi-info"><b>?</b></button></div>
                         <div class="alamat-pengiriman">Pengiriman Menuju {{ auth()->user()->address }}</div>
                         <div>Transfer</div>
-                        <form action="/user/product-detail/{{ $cake->id }}" method="post" enctype="multipart/form-data">
+                        <form action="/user/product-detail/{{ $cake->id }}" method="post">
                             @csrf
+                            <input type="hidden" name="action" value="order">
                             <div class="quantity">
                                 <input type="number" id="quantity" name="quantity" min="1" required>
                             </div>

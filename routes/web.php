@@ -22,12 +22,13 @@ Route::middleware(['guest'])->group(function() {
 Route::middleware(['role:0'])->group(function() {
     Route::get('/user', [UserController::class, 'index']);
     Route::get('/user/product-detail/{id}', [UserController::class, 'showProductDetail'])->name('productDetail');
-    Route::post('/user/product-detail/{id}', [UserController::class, 'orderCake']);
+    // Route::post('/user/product-detail/{id}', [UserController::class, 'orderCake']);
+    Route::post('/user/product-detail/{id}', [UserController::class, 'handleUserAction']);
     Route::get('/user/payment-confirmation/{id}', [UserController::class, 'paymentConfirmation'])->name('paymentConfirmation');
     Route::delete('/user/payment-confirmation/{transactionDetail}', [UserController::class, 'cancelTransaction']);
     Route::get('/user/payment-success', [UserController::class, 'paymentSuccess']);
     Route::get('/user/favorite', [UserController::class, 'showFavorite']);
-    Route::post('/user/product-detail/{id}', [UserController::class, 'addFavorite']);
+    // Route::post('/user/product-detail/{id}', [UserController::class, 'addFavorite']);
     Route::delete('/user/product-detail/{id}', [UserController::class, 'removeFavorite']);
     Route::delete('/user/favorite', [UserController::class, 'deleteFavorite']);
     Route::get('/user/transaction', [UserController::class, 'showTransaction']);
