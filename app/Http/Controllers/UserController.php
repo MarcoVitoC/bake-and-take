@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+use App\Models\User;
 use App\Models\Cake;
 use App\Models\TransactionHeader;
 use App\Models\TransactionDetail;
@@ -94,7 +96,7 @@ class UserController extends Controller
                         'cakes.cake_photo'
                     )->get();
                     
-        return view('favorite',  [
+        return view('favorite', [
             'title' => 'Favorite',
             'favorites' => $favorites
         ]);
@@ -184,6 +186,81 @@ class UserController extends Controller
         return view('transaction-detail',  [
             'title' => 'Transaction Detail',
             'transaction' => $transaction
+        ]);
+    }
+
+    public function showUserProfile() {
+        return view('user-profile', [
+            'title' => 'Profile'
+        ]);
+    }
+
+    public function editProfile() {
+        return view('update-profile', [
+            'title' => 'Update Profile'
+        ]);
+    }
+
+    public function updateProfile(Request $request) {
+        $updateUser = $request->validate([
+            'fullname' => ['required', 'min:3', 'max:255'],
+            'email' => ['required', 'email:strict'],
+            'phone_number' => ['required', 'digits:12', 'numeric'],
+            'dob' => ['required'],
+            'address' => ['required', 'min:5', 'max:255'],
+            'confirm_password' => ['required']
+        ]);
+
+        if (!Hash::check($request->confirm_password, $request->user()->password)) {
+            return back()->withErrors([
+                'confirm_password' => ['The provided password does not match our records.']
+            ]);
+        }
+
+        $userId = auth()->user()->id;
+        $user = User::find($userId);
+        $user->update($updateUser);
+
+        return redirect('/user/profile/update-profile-success');
+    }
+
+    public function updateProfileSuccess() {
+        return view('update-profile-success', [
+            'title' => 'Succeed'
+        ]);
+    }
+
+    public function changePassword() {
+        return view('change-password', [
+            'title' => 'Change Password'
+        ]);
+    }
+
+    public function updatePassword(Request $request) {
+        $updatePassword = $request->validate([
+            'new_password' => ['required', 'min:3', 'max:255'],
+            'confirm_new_password' => ['required', 'same:new_password'],
+            'old_password' => ['required']
+        ]);
+
+        if (!Hash::check($request->old_password, $request->user()->password)) {
+            return back()->withErrors([
+                'old_password' => ['The provided password does not match our records.']
+            ]);
+        }
+
+        $updatePassword['new_password'] = Hash::make($updatePassword['new_password']);
+
+        $userId = auth()->user()->id;
+        $user = User::find($userId);
+        $user->update(['password' => $updatePassword['new_password']]);
+
+        return redirect('/user/profile/change-password-success');
+    }
+
+    public function updatePasswordSuccess() {
+        return view('change-password-success', [
+            'title' => 'Succeed'
         ]);
     }
 }
