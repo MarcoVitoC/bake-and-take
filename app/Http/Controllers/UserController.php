@@ -40,6 +40,16 @@ class UserController extends Controller
         ]);
     }
 
+    public function handleUserAction(Request $request, $id) {
+        if ($request->action === 'favorite') {
+            $this->addFavorite($id);
+            return back();
+        }else if ($request->action === 'order') {
+            $transactionDetail = $this->orderCake($request, $id);
+            return redirect()->route('paymentConfirmation', ['id' => $transactionDetail->id]);
+        }
+    }
+
     public function orderCake(Request $request, $id) {
         $transactionHeader = TransactionHeader::create([
             'user_id' => auth()->user()->id
@@ -52,7 +62,7 @@ class UserController extends Controller
             'quantity' => $request->quantity
         ]);
         
-        return redirect()->route('paymentConfirmation', ['id' => $transactionDetail->id]);
+        return $transactionDetail;
     }
 
     public function paymentConfirmation($id) {
