@@ -17,7 +17,7 @@
                         <div class="list-pengiriman">Pengiriman</div>
                         <div>Tipe Pembayaran</div>
                         <div>Quantity</div>
-                        @if ($favorite != null)
+                        @if ($favorite != null && $favorite->user_id == auth()->user()->id)
                             <form action="/user/product-detail/{{ $cake->id }}" method="post">
                                 @method('delete')
                                 @csrf

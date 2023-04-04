@@ -104,7 +104,7 @@ class UserController extends Controller
                         'cakes.cake_name',
                         'cakes.cake_price',
                         'cakes.cake_photo'
-                    )->get();
+                    )->where('favorites.user_id', '=', auth()->user()->id)->get();
                     
         return view('favorite', [
             'title' => 'Favorite',
@@ -152,6 +152,7 @@ class UserController extends Controller
                             'statuses.status_name',
                             'transaction_headers.transaction_date'
                         )
+                        ->where('transaction_headers.user_id', '=', auth()->user()->id)
                         ->whereIn('transaction_headers.status_id', [1, 2])
                         ->latest('transaction_headers.transaction_date')->get();
                             
@@ -166,7 +167,8 @@ class UserController extends Controller
                                     'statuses.status_name',
                                     'transaction_headers.transaction_date'
                                 )
-                                ->where('transaction_headers.status_id', 3)
+                                ->where('transaction_headers.user_id', '=', auth()->user()->id)
+                                ->whereIn('transaction_headers.status_id', [3])
                                 ->latest('transaction_headers.transaction_date')->get();
 
         return view('transaction',  [
