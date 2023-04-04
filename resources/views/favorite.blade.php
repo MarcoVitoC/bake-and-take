@@ -2,6 +2,7 @@
 
 @section('container')
     @include('components.user-navbar')
+    <a class="back" href="/user">&#60; Back</a>
     <div class="fav-main-container">
         <div class="fav-top-container">
             <img src="{{ asset('assets/Icon/heart.jpg') }}" alt="Gambar Hati" width="80px" height="68px">
@@ -14,7 +15,7 @@
                     <div class="fav-detail-container">
                         <div class="fav-nama-kue">{{ $favorite->cake_name }}</div>
                         <div class="fav-harga">Rp.{{ $favorite->cake_price }}</div>
-                        <a href="/user/product-detail/{{ $favorite->cake_id }}" class="see-details">See Details</a>
+                        <a href="/user/product-detail/{{ $favorite->id }}" class="see-details">See Details</a>
                     </div>
                     <div class="details-fav-btn">
                         <form action="/user/favorite" method="post">

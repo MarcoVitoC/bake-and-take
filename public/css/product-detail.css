@@ -5,6 +5,21 @@
     font-family: 'Poppins', sans-serif;
 }
 
+.back{
+    text-decoration: none;
+    color: initial;
+    position: absolute;
+    top: 90px;
+    left: 14px;
+    font-weight: 600;
+    font-size: 22px;
+    transition: 0.45s;
+}
+
+.back:hover{
+    color: rgba(243, 100, 255, 1);
+}
+
 .main-container{
     display: flex;
     flex-direction: column;

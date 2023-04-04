@@ -2,6 +2,7 @@
 
 @section('container')
     @include('components.user-navbar')
+    <a class="back" href="/user">&#60; Back</a>
     <div class="main-container">
         <div class="product-information-container">
             <div class="img-and-share">

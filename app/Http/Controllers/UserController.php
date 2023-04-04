@@ -96,25 +96,33 @@ class UserController extends Controller
     }
 
     public function showFavorite() {
-        $favorites = DB::table('favorites')
-                    ->join('cakes', 'favorites.cake_id', '=', 'cakes.id')
-                    ->select(
-                        'favorites.id',
-                        'favorites.cake_id',
-                        'cakes.cake_name',
-                        'cakes.cake_price',
-                        'cakes.cake_photo'
-                    )->get();
+        // $favorites = DB::table('favorites')
+        //             ->join('cakes', 'favorites.cake_id', '=', 'cakes.id')
+        //             ->select(
+        //                 'favorites.id',
+        //                 'favorites.cake_id',
+        //                 'cakes.cake_name',
+        //                 'cakes.cake_price',
+        //                 'cakes.cake_photo'
+        //             )->get();
                     
+        // return view('favorite', [
+        //     'title' => 'Favorite',
+        //     'favorites' => $favorites
+        // ]);
+
+        $fav = Favorite::where('user_id', auth()->user()->id)->pluck('cake_id');
+        $cakes = Cake::whereIn('id', $fav)->get();
+
         return view('favorite', [
             'title' => 'Favorite',
-            'favorites' => $favorites
+            'favorites' => $cakes
         ]);
     }
 
     public function addFavorite($id) {
         $cake = Cake::where('id', $id)->first();
- 
+
         Favorite::create([
             'cake_id' => $cake->id,
             'user_id' => auth()->user()->id
@@ -124,19 +132,26 @@ class UserController extends Controller
     }
 
     public function removeFavorite($id) {
-        $favorite = DB::table('favorites')
-                    ->join('cakes', 'favorites.cake_id', '=', 'cakes.id')
-                    ->select('favorites.*')->where('cakes.id', '=', $id)->first();
+        // $favorite = DB::table('favorites')
+        //             ->join('cakes', 'favorites.cake_id', '=', 'cakes.id')
+        //             ->select('favorites.*')->where('cakes.id', '=', $id)->first();
         
-
-        Favorite::destroy($favorite->id);
+        // Favorite::destroy($favorite->id);
+        
+        Favorite::where('cake_id', $id)->delete();
         return back();
     }
 
-    public function deleteFavorite(Request $request) {
-        $favorite = Favorite::find($request->favoriteId);
+    public function deleteFavorite(Request $request)
+    {
+        // $favorite = Favorite::where($request->favoriteId, 'cake_id');
+        // Favorite::destroy($favorite->id);
+        // return back();
 
-        Favorite::destroy($favorite->id);
+        // $fav = Favorite::where('cake_id', $request->favoriteId)->delete();
+        // Favorite::destroy($fav);
+
+        Favorite::where('cake_id', $request->favoriteId)->delete();
         return back();
     }
 

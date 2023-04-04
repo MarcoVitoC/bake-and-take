@@ -2,6 +2,7 @@
 
 @section('container')
     @include('components.user-navbar')
+    <a class="back" href="/user">&#60; Back</a>
     <div class="notif-main-container">
         <div class="notif-top-container">
             <img src="{{ asset('assets/Icon/transaction.png') }}" alt="Gambar Transaksi" width="88px" height="78px">
