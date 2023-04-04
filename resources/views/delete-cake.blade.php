@@ -2,7 +2,6 @@
 
 @section('container')
     @include('components.admin-navbar')
-    <div class="empty-space"></div>
     <div class="main-container">
         <div class="product-container">
             <h1>⚠️ Confirm Your Deletion ⚠️</h1>

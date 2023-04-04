@@ -2,10 +2,6 @@
   box-sizing: border-box;
 }
 
-.empty-space {
-  padding-top: 150px;
-}
-
 .main-container{
   display: flex;
   flex-direction: column;

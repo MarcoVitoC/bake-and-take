@@ -42,8 +42,8 @@
                 @enderror
                 <div class="remember-forget">
                     <div class="remember-box">
-                        <input type="checkbox" id="remember" name="remember" value="remember">
-                        <label for="remember" class="remember-text">Remember Me</label>
+                        <input type="hidden" id="remember" name="remember" value="remember">
+                        <label for="remember" class="remember-text"></label>
                     </div>
                     <a href="/login/forgot-password" class="forget-password">Forgot Password?</a>
                 </div>

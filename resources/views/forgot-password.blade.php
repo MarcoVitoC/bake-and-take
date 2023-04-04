@@ -5,7 +5,7 @@
 <div class="forgot-password-form">
     <form action="/login/forgot-password" method="post">
         @csrf
-        <div class="form-bar">
+        <div class="forgot-password-form-bar">
             <label for="email">Email <span style="color: red">*</span></label><br>
             <input type="email" name="email" placeholder="Insert Your Email..." value="{{ old('email') }}">
             @error('email')
