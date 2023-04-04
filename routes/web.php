@@ -14,6 +14,11 @@ Route::middleware(['guest'])->group(function() {
     Route::get('/', [GuestController::class, 'index']);
     Route::get('/login', [LoginController::class, 'index'])->name('login');
     Route::post('/login', [LoginController::class, 'authentication']);
+    Route::get('/login/forgot-password', [LoginController::class, 'showForgotPassword']);
+    Route::post('/login/forgot-password', [LoginController::class, 'forgotPassword']);
+    Route::get('/reset-password/{id}', [LoginController::class, 'showResetPassword'])->name('resetPassword');
+    Route::put('/reset-password/{id}', [LoginController::class, 'resetPassword']);
+    Route::get('/reset-password-success', [LoginController::class, 'resetPasswordSuccess']);
     Route::get('/register', [RegisterController::class, 'index']);
     Route::post('/register', [RegisterController::class, 'register']);
 });
@@ -22,13 +27,11 @@ Route::middleware(['guest'])->group(function() {
 Route::middleware(['role:0'])->group(function() {
     Route::get('/user', [UserController::class, 'index']);
     Route::get('/user/product-detail/{id}', [UserController::class, 'showProductDetail'])->name('productDetail');
-    // Route::post('/user/product-detail/{id}', [UserController::class, 'orderCake']);
     Route::post('/user/product-detail/{id}', [UserController::class, 'handleUserAction']);
     Route::get('/user/payment-confirmation/{id}', [UserController::class, 'paymentConfirmation'])->name('paymentConfirmation');
     Route::delete('/user/payment-confirmation/{transactionDetail}', [UserController::class, 'cancelTransaction']);
     Route::get('/user/payment-success', [UserController::class, 'paymentSuccess']);
     Route::get('/user/favorite', [UserController::class, 'showFavorite']);
-    // Route::post('/user/product-detail/{id}', [UserController::class, 'addFavorite']);
     Route::delete('/user/product-detail/{id}', [UserController::class, 'removeFavorite']);
     Route::delete('/user/favorite', [UserController::class, 'deleteFavorite']);
     Route::get('/user/transaction', [UserController::class, 'showTransaction']);
@@ -59,24 +62,3 @@ Route::middleware(['role:1'])->group(function() {
     Route::get('/admin/delete-cake-success', [AdminController::class, 'deleteCakeSuccess']);
 });
 
-// Route::get('/login/forget-password', function(){
-//     return view('forget-password');
-// });
-
-// Route::get('/reset-password', function(){
-//     return view('reset-password');
-// });
-
-// Route::get('/reset-password/berhasil', function(){
-//     return view('ubah-password');
-// });
-
-// Route::get('/reset-password/req-send', function(){
-//     return view('request-password');
-// });
-
-// Route::get('/otp', function () {
-//     return view('otp', [
-//         "title" => "OTP"
-//     ]);
-// });

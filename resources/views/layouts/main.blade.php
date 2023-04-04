@@ -22,7 +22,7 @@
   <link rel="stylesheet" href="{{ asset('css/edit-cake.css') }}">
   <link rel="stylesheet" href="{{ asset('css/update-cake.css') }}">
   <link rel="stylesheet" href="{{ asset('css/delete-cake.css') }}">
-  <link rel="stylesheet" href="{{ asset('css/forget-password.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/forgot-password.css') }}">
   <link rel="stylesheet" href="{{ asset('css/request-password.css') }}">
   <link rel="stylesheet" href="{{ asset('css/reset-password.css') }}">
   <link rel="stylesheet" href="{{ asset('css/ubah-password.css') }}">
