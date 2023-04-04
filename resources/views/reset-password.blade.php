@@ -1,46 +1,26 @@
 @extends('layouts.main')
 
 @section('container')
-    <div class="icon-back">
-        <i class="fa fa-chevron-left fa-lg">  Back</i>
-    </div>
-    <form action="" method="post">
-        <div class="body-container">
-            <div class="reset-container"></div>
-            <div class="reset-box"></div>
-            <div class="reset-text">Reset Password</div>
-            <div class="inside-reset-box">
-                <div class="form-group">
-                    <div class="password-icon-box">
-                        <div class="password-icon"><i class="fa fa-key fa-lg" ></i></div>
-                    </div>
-                    <div class="password">
-                        <input type="text" class="password-box" placeholder="Password" name="password" value="">
-                        <span class="text-danger">@error('password'){{$message}}@enderror</span>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="confirm-password-icon-box">
-                        <div class="confirm-password-icon"><i class="fa fa-key fa-lg" ></i></div>
-                    </div>
-                    <div class="password">
-                            <input type="confirm-password" class="confirm-password-box" placeholder="Confirm Password" name="email" value="">
-                            <span class="text-danger">@error('confirm-password'){{$message}}@enderror</span>
-                    </div>
-                </div>
-                <button class="reset-button" type="submit">RESET</button>
-            </div>
-            <div style="height: 10px;"></div>
-            <div class="box">
-                <div class="icon"><i class="fa fa-key fa-lg" ></i></div>
-                <input class="text" type="text" placeholder="Confirm Password" >
-            </div>
-                
-            <div class="box"><div class="button-reset">RESET</div></div>
-            
-            
-        </div>
+  <div class="reset-password-box">Change Password</div>
+  <div class="reset-password-form">
+    <form action="/reset-password/{{ $user->id }}" method="post">
+      @method('put')
+      @csrf
+      <div class="form-bar">
+        <input type="password" name="new_password" placeholder="New Password">
+        @error('new_password')
+          <div class="invalid-msg">{{ $message }}</div>
+        @enderror
+      </div>
+      <div class="form-bar">
+        <input type="password" name="confirm_new_password" placeholder="Confirm New Password">
+        @error('confirm_new_password')
+          <div class="invalid-msg">{{ $message }}</div>
+        @enderror
+      </div>
+      <div class="reset-password-btn">
+        <button type="submit">Reset</button>
+      </div>
     </form>
+  </div>
 @endsection
-
-
