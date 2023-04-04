@@ -2,7 +2,6 @@
 
 @section('container')
     @include('components.admin-navbar')
-    <div class="empty-space"></div>
     <div class="main-container">
         <div class="product-container">
             <img src="{{ asset('storage/' . $cake->cake_photo) }}" alt="Gambar Kue" width="350px" height="350px" class="img-kue">

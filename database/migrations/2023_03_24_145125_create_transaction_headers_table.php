@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id');
             $table->foreignId('status_id')->default('1');
-            $table->dateTime('transaction_date')->default(now());
+            $table->timestamp('transaction_date')->useCurrent();
             $table->timestamps();
         });
     }

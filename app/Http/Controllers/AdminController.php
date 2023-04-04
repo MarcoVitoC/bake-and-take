@@ -105,18 +105,21 @@ class AdminController extends Controller
 
     public function updateCake(Request $request, Cake $cake) {
         $updateCake = $request->validate([
-            'cake_name' => ['required', 'min:5', 'max:255', 'unique:cakes'],
+            'cake_name' => ['required', 'min:5', 'max:255'],
             'cake_price' => ['required', 'numeric'],
             'cake_ingredients' => ['required', 'min:5', 'max:255'],
             'cake_description' => ['required', 'min:5', 'max:255'],
             'category_id' => ['required'],
-            'cake_photo' => ['required', 'mimes:jpeg, png, jpg', 'file', 'max:1024']
+            'cake_photo' => ['mimes:jpeg, png, jpg', 'file', 'max:1024']
         ]);
         
-        $updateCake["cake_photo"] = $request->file('cake_photo')->store('uploaded-cake-photo');
         $updateCake["excerpt"] = Str::limit(strip_tags($request->cake_description, 20));
-        
-        Storage::delete($request->oldCakeImage);
+
+        if ($request->file('cake_photo')) {
+            $updateCake["cake_photo"] = $request->file('cake_photo')->store('uploaded-cake-photo');
+            Storage::delete($request->oldCakeImage);
+        }
+
         $cake->update($updateCake);
         
         return redirect('/admin/update-cake-success');
