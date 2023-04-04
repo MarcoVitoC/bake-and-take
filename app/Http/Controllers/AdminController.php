@@ -113,10 +113,10 @@ class AdminController extends Controller
             'cake_photo' => ['mimes:jpeg, png, jpg', 'file', 'max:1024']
         ]);
         
+        $updateCake["excerpt"] = Str::limit(strip_tags($request->cake_description, 20));
+
         if ($request->file('cake_photo')) {
             $updateCake["cake_photo"] = $request->file('cake_photo')->store('uploaded-cake-photo');
-            $updateCake["excerpt"] = Str::limit(strip_tags($request->cake_description, 20));
-        
             Storage::delete($request->oldCakeImage);
         }
 
