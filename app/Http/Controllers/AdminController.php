@@ -27,7 +27,7 @@ class AdminController extends Controller
                             'statuses.status_name'
                         )->orderBy('transaction_headers.status_id', 'asc')->get();
 
-        return view('admin', [
+        return view('admin.home', [
             'title' => 'Admin',
             'transactions' => $transactions,
             'cakes' => Cake::all()
@@ -43,14 +43,14 @@ class AdminController extends Controller
     }
 
     public function addCake() {
-        return view('add-cake', [
+        return view('admin.add-cake', [
             'title' => 'Add Cake',
             'categories' => Category::all()
         ]);
     }
 
     public function addCakeSuccess() {
-        return view('add-cake-success', [
+        return view('admin.add-cake-success', [
             'title' => 'Add Cake Succeed'
         ]);
     }
@@ -61,7 +61,7 @@ class AdminController extends Controller
                 ->select('cakes.*', 'categories.category_name')
                 ->where('cakes.id', '=', $id)->first();
 
-        return view('edit-cake', [
+        return view('admin.edit-cake', [
             'title' => 'Edit Cake',
             'cake' => $cake
         ]);
@@ -73,7 +73,7 @@ class AdminController extends Controller
                 ->select('cakes.*', 'categories.category_name')
                 ->where('cakes.id', '=', $id)->first();
 
-        return view('update-cake', [
+        return view('admin.update-cake', [
             'title' => 'Update Cake',
             'cake' => $cake,
             'categories' => Category::all()
@@ -81,7 +81,7 @@ class AdminController extends Controller
     }
 
     public function updateCakeSuccess() {
-        return view('update-cake-success', [
+        return view('admin.update-cake-success', [
             'title' => 'Update Cake Succeed'
         ]);
     }    
@@ -131,7 +131,7 @@ class AdminController extends Controller
                 ->select('cakes.*', 'categories.category_name')
                 ->where('cakes.id', '=', $id)->first();
 
-        return view('delete-cake', [
+        return view('admin.delete-cake', [
             'title' => 'Delete Cake',
             'cake' => $cake
         ]);
@@ -145,7 +145,7 @@ class AdminController extends Controller
     }
 
     public function deleteCakeSuccess() {
-        return view('delete-cake-success', [
+        return view('admin.delete-cake-success', [
             'title' => 'Delete Cake Succeed'
         ]);
     }

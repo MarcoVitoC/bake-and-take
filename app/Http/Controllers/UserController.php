@@ -14,7 +14,7 @@ use App\Models\Favorite;
 class UserController extends Controller
 {
     public function index() {
-        return view('user-home', [
+        return view('user.home', [
             'title' => 'User',
             'cheeses' => Cake::where('category_id', 1)->get(),
             'strawberrys' => Cake::where('category_id', 2)->get(),
@@ -33,7 +33,7 @@ class UserController extends Controller
                     ->join('cakes', 'favorites.cake_id', '=', 'cakes.id')
                     ->select('favorites.*')->where('cakes.id', '=', $id)->first();
 
-        return view('product-detail', [
+        return view('user.product-detail', [
             'title' => 'Product Details',
             'cake' => $cake,
             'favorite' => $favorite
@@ -71,7 +71,7 @@ class UserController extends Controller
                 ->select('transaction_details.id', 'transaction_details.quantity', 'cakes.cake_name', 'cakes.cake_price', 'cakes.cake_photo')
                 ->where('transaction_details.id', '=', $id)->first();
 
-        return view('payment-confirmation', [
+        return view('user.payment-confirmation', [
             'title' => 'Payment Confirmation',
             'transaction' => $transaction
         ]);
@@ -90,7 +90,7 @@ class UserController extends Controller
     }
 
     public function paymentSuccess() {
-        return view('payment-success', [
+        return view('user.payment-success', [
             'title' => 'Payment Succeed'
         ]);
     }
@@ -106,7 +106,7 @@ class UserController extends Controller
                         'cakes.cake_photo'
                     )->where('favorites.user_id', '=', auth()->user()->id)->get();
                     
-        return view('favorite', [
+        return view('user.favorite', [
             'title' => 'Favorite',
             'favorites' => $favorites
         ]);
@@ -171,7 +171,7 @@ class UserController extends Controller
                                 ->whereIn('transaction_headers.status_id', [3])
                                 ->latest('transaction_headers.transaction_date')->get();
 
-        return view('transaction',  [
+        return view('user.transaction',  [
             'title' => 'Transaction',
             'transactions' => $transactions,
             'succeedTransactions' => $succeedTransactions
@@ -195,20 +195,20 @@ class UserController extends Controller
                             'cakes.cake_photo')
                         ->where('transaction_details.id', '=', $id)->first();
 
-        return view('transaction-detail',  [
+        return view('user.transaction-detail',  [
             'title' => 'Transaction Detail',
             'transaction' => $transaction
         ]);
     }
 
     public function showUserProfile() {
-        return view('user-profile', [
+        return view('user.profile', [
             'title' => 'Profile'
         ]);
     }
 
     public function editProfile() {
-        return view('update-profile', [
+        return view('user.update-profile', [
             'title' => 'Update Profile'
         ]);
     }
@@ -237,13 +237,13 @@ class UserController extends Controller
     }
 
     public function updateProfileSuccess() {
-        return view('update-profile-success', [
+        return view('user.update-profile-success', [
             'title' => 'Succeed'
         ]);
     }
 
     public function changePassword() {
-        return view('change-password', [
+        return view('user.change-password', [
             'title' => 'Change Password'
         ]);
     }
@@ -271,7 +271,7 @@ class UserController extends Controller
     }
 
     public function updatePasswordSuccess() {
-        return view('change-password-success', [
+        return view('user.change-password-success', [
             'title' => 'Succeed'
         ]);
     }

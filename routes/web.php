@@ -24,41 +24,41 @@ Route::middleware(['guest'])->group(function() {
 });
 
 // USER
-Route::middleware(['role:0'])->group(function() {
-    Route::get('/user', [UserController::class, 'index']);
-    Route::get('/user/product-detail/{id}', [UserController::class, 'showProductDetail'])->name('productDetail');
-    Route::post('/user/product-detail/{id}', [UserController::class, 'handleUserAction']);
-    Route::get('/user/payment-confirmation/{id}', [UserController::class, 'paymentConfirmation'])->name('paymentConfirmation');
-    Route::delete('/user/payment-confirmation/{transactionDetail}', [UserController::class, 'cancelTransaction']);
-    Route::get('/user/payment-success', [UserController::class, 'paymentSuccess']);
-    Route::get('/user/favorite', [UserController::class, 'showFavorite']);
-    Route::delete('/user/product-detail/{id}', [UserController::class, 'removeFavorite']);
-    Route::delete('/user/favorite', [UserController::class, 'deleteFavorite']);
-    Route::get('/user/transaction', [UserController::class, 'showTransaction']);
-    Route::put('/user/transaction', [UserController::class, 'updateTransactionStatus']);
-    Route::get('/user/transaction/transaction-detail/{id}', [UserController::class, 'showTransactionDetail']);
-    Route::get('/user/profile', [UserController::class, 'showUserProfile']);
-    Route::get('/user/profile/update-profile', [UserController::class, 'editProfile']);
-    Route::put('/user/profile/update-profile', [UserController::class, 'updateProfile']);
-    Route::get('/user/profile/update-profile-success', [UserController::class, 'updateProfileSuccess']);
-    Route::get('/user/profile/change-password', [UserController::class, 'changePassword']);
-    Route::put('/user/profile/change-password', [UserController::class, 'updatePassword']);
-    Route::get('/user/profile/change-password-success', [UserController::class, 'updatePasswordSuccess']);
+Route::middleware(['role:0'])->prefix('/user')->group(function() {
+    Route::get('/', [UserController::class, 'index']);
+    Route::get('/product-detail/{id}', [UserController::class, 'showProductDetail'])->name('productDetail');
+    Route::post('/product-detail/{id}', [UserController::class, 'handleUserAction']);
+    Route::get('/payment-confirmation/{id}', [UserController::class, 'paymentConfirmation'])->name('paymentConfirmation');
+    Route::delete('/payment-confirmation/{transactionDetail}', [UserController::class, 'cancelTransaction']);
+    Route::get('/payment-success', [UserController::class, 'paymentSuccess']);
+    Route::get('/favorite', [UserController::class, 'showFavorite']);
+    Route::delete('/product-detail/{id}', [UserController::class, 'removeFavorite']);
+    Route::delete('/favorite', [UserController::class, 'deleteFavorite']);
+    Route::get('/transaction', [UserController::class, 'showTransaction']);
+    Route::put('/transaction', [UserController::class, 'updateTransactionStatus']);
+    Route::get('/transaction/transaction-detail/{id}', [UserController::class, 'showTransactionDetail']);
+    Route::get('/profile', [UserController::class, 'showUserProfile']);
+    Route::get('/profile/update-profile', [UserController::class, 'editProfile']);
+    Route::put('/profile/update-profile', [UserController::class, 'updateProfile']);
+    Route::get('/profile/update-profile-success', [UserController::class, 'updateProfileSuccess']);
+    Route::get('/profile/change-password', [UserController::class, 'changePassword']);
+    Route::put('/profile/change-password', [UserController::class, 'updatePassword']);
+    Route::get('/profile/change-password-success', [UserController::class, 'updatePasswordSuccess']);
 });
 
 // ADMIN
-Route::middleware(['role:1'])->group(function() {
-    Route::get('/admin', [AdminController::class, 'index']);
-    Route::put('/admin', [AdminController::class, 'updateTransactionStatus']);
-    Route::get('/admin/add-cake', [AdminController::class, 'addCake']);
-    Route::post('/admin/add-cake', [AdminController::class, 'createCake']);
-    Route::get('/admin/add-cake/add-cake-success', [AdminController::class, 'addCakeSuccess']);
-    Route::get('/admin/edit-cake/{id}', [AdminController::class, 'editCake']);
-    Route::get('/admin/update-cake/{id}', [AdminController::class, 'changeCake']);
-    Route::put('/admin/update-cake/{cake}', [AdminController::class, 'updateCake']);
-    Route::get('/admin/update-cake-success', [AdminController::class, 'updateCakeSuccess']);
-    Route::get('/admin/delete-cake/{id}', [AdminController::class, 'deleteCakeConfirmation']);
-    Route::delete('/admin/delete-cake/{cake}', [AdminController::class, 'deleteCake']);
-    Route::get('/admin/delete-cake-success', [AdminController::class, 'deleteCakeSuccess']);
+Route::middleware(['role:1'])->prefix('admin')->group(function() {
+    Route::get('/', [AdminController::class, 'index']);
+    Route::put('/', [AdminController::class, 'updateTransactionStatus']);
+    Route::get('/add-cake', [AdminController::class, 'addCake']);
+    Route::post('/add-cake', [AdminController::class, 'createCake']);
+    Route::get('/add-cake/add-cake-success', [AdminController::class, 'addCakeSuccess']);
+    Route::get('/edit-cake/{id}', [AdminController::class, 'editCake']);
+    Route::get('/update-cake/{id}', [AdminController::class, 'changeCake']);
+    Route::put('/update-cake/{cake}', [AdminController::class, 'updateCake']);
+    Route::get('/update-cake-success', [AdminController::class, 'updateCakeSuccess']);
+    Route::get('/delete-cake/{id}', [AdminController::class, 'deleteCakeConfirmation']);
+    Route::delete('/delete-cake/{cake}', [AdminController::class, 'deleteCake']);
+    Route::get('/delete-cake-success', [AdminController::class, 'deleteCakeSuccess']);
 });
 
