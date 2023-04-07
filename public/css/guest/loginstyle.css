@@ -34,12 +34,12 @@
 	margin-bottom: 10px;
 }
 
-.icon{
+.login-icon{
 	align-items: center;
 	justify-content: center;
 	display: flex;
-	width: 42px;
-	height: 42px;
+	width: 40px;
+	height: 40px;
 	border-style: groove;
 	background-color: #E9E9E9;
 	border: 0px solid;

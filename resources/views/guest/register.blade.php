@@ -1,13 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="{{ asset('css/register.css') }}">
-  <title>Bake & Take | {{ $title }}</title>
-</head>
-<body>
+@extends('layouts.main')
+
+@section('container')
   <div class="register-box">REGISTER</div>
   <div class="register-form">
     <form action="/register" method="post">
@@ -76,5 +69,4 @@
       </div>
     </form>
   </div>
-</body>
-</html>
+@endsection

@@ -10,24 +10,28 @@
   {{-- <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap"/> --}}
   <link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;700&display=swap" rel="stylesheet"> 
   <link rel="stylesheet" href="{{ asset('/css/navbar.css') }}">
-  <link rel="stylesheet" href="{{ asset('/css/guest.css') }}">
   <link rel="stylesheet" href="{{ asset('/css/footer.css') }}">
-  <link rel="stylesheet" href="{{ asset('css/loginstyle.css') }}">
-  <link rel="stylesheet" href="{{ asset('css/user.css') }}">
-  <link rel="stylesheet" href="{{ asset('/css/product-detail.css') }}">
-  <link rel="stylesheet" href="{{ asset('/css/favorite.css') }}">
-  <link rel="stylesheet" href="{{ asset('/css/transaction.css') }}">
-  <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
-  <link rel="stylesheet" href="{{ asset('css/add-cake.css') }}">
-  <link rel="stylesheet" href="{{ asset('css/edit-cake.css') }}">
-  <link rel="stylesheet" href="{{ asset('css/update-cake.css') }}">
-  <link rel="stylesheet" href="{{ asset('css/delete-cake.css') }}">
-  <link rel="stylesheet" href="{{ asset('css/forgot-password.css') }}">
-  <link rel="stylesheet" href="{{ asset('css/reset-password.css') }}">
-  <link rel="stylesheet" href="{{ asset('css/user-profile.css') }}">
-  <link rel="stylesheet" href="{{ asset('css/update-profile.css') }}">
-  <link rel="stylesheet" href="{{ asset('css/change-password.css') }}">
-  <link rel="stylesheet" href="{{ asset('/css/footer.css') }}">
+
+  <link rel="stylesheet" href="{{ asset('/css/guest/guest.css') }}">
+  <link rel="stylesheet" href="{{ asset('/css/guest/loginstyle.css') }}">
+  <link rel="stylesheet" href="{{ asset('/css/guest/register.css') }}">
+  <link rel="stylesheet" href="{{ asset('/css/guest/forgot-password.css') }}">
+  <link rel="stylesheet" href="{{ asset('/css/guest/reset-password.css') }}">
+
+  <link rel="stylesheet" href="{{ asset('/css/user/user.css') }}">
+  <link rel="stylesheet" href="{{ asset('/css/user/product-detail.css') }}">
+  <link rel="stylesheet" href="{{ asset('/css/user/favorite.css') }}">
+  <link rel="stylesheet" href="{{ asset('/css/user/transaction.css') }}">
+  <link rel="stylesheet" href="{{ asset('/css/user/user-profile.css') }}">
+  <link rel="stylesheet" href="{{ asset('/css/user/update-profile.css') }}">
+  <link rel="stylesheet" href="{{ asset('/css/user/change-password.css') }}">
+
+  <link rel="stylesheet" href="{{ asset('/css/admin/admin.css') }}">
+  <link rel="stylesheet" href="{{ asset('/css/admin/add-cake.css') }}">
+  <link rel="stylesheet" href="{{ asset('/css/admin/edit-cake.css') }}">
+  <link rel="stylesheet" href="{{ asset('/css/admin/update-cake.css') }}">
+  <link rel="stylesheet" href="{{ asset('/css/admin/delete-cake.css') }}">
+
   <title>Bake & Take | {{ $title }}</title>
 </head>
 <body>

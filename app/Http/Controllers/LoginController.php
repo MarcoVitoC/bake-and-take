@@ -11,7 +11,7 @@ use App\Models\User;
 class LoginController extends Controller
 {
     public function index() {
-        return view('login', [
+        return view('guest.login', [
             'title' => 'Login'
         ]);
     }
@@ -43,7 +43,7 @@ class LoginController extends Controller
     }
 
     public function showForgotPassword() {
-        return view('forgot-password', [
+        return view('guest.forgot-password', [
             'title' => 'Forgot Password'
         ]);
     }
@@ -69,7 +69,7 @@ class LoginController extends Controller
     public function showResetPassword($id) {
         $user = User::find($id);
         
-        return view('reset-password', [
+        return view('guest.reset-password', [
             'title' => 'Reset Password',
             'user' => $user
         ]);
@@ -90,7 +90,7 @@ class LoginController extends Controller
     }
 
     public function resetPasswordSuccess() {
-        return view('reset-password-success', [
+        return view('guest.reset-password-success', [
             'title' => 'Succeed'
         ]);
     }
