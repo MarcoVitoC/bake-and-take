@@ -53,9 +53,7 @@ class LoginController extends Controller
          'email' => ['required', 'email:strict']
       ]);
 
-      $user = DB::table('users')
-               ->select('users.*')
-               ->where('users.email' , '=', $forgotPassword['email'])->first();
+      $user = User::where('email' , '=', $forgotPassword['email'])->first();
       
       if ($user != null) {
          return redirect()->route('resetPassword', ['id' => $user->id]);

@@ -41,8 +41,8 @@
         @if (count($succeedTransactions) === 0)
             <div class="cart">
                 <img src="{{ asset('assets/Icon/cart.jpg') }}" alt="Gambar Cart" width="335px" height="289px">
-                <div class="belanja-text">Oops Anda Belum ada Belanjaan nihh</div>
-                <div class="belanja-text">Ayo Belanja !</div>
+                <div class="belanja-text">There is no transaction</div>
+                <div class="belanja-text">Let's Shop!</div>
                 <div class="start">
                     <a href="/user"><button class="start-btn">Let's Start <img src="{{ asset('assets/telegram.png') }}" alt="" width="33px" height="33px"></button></a>
                 </div>

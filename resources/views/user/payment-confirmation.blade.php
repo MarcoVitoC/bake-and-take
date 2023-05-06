@@ -14,13 +14,13 @@
     <div class="main-container">
         <div class="head-text">Payment Confirmation</div>
         <div class="inner-container">
-            <img src="{{ asset('storage/' . $transaction->cake_photo) }}" alt="Gambar Kue" width="303px" height="255px" class="img-kue">
+            <img src="{{ asset('storage/' . $transaction->cake->cake_photo) }}" alt="Gambar Kue" width="303px" height="255px" class="img-kue">
             <div class="payment-detail">
                 <div class="display-kanan">
-                    <div><b>Nama kue: {{ $transaction->cake_name }}</b></div>
+                    <div><b>Nama kue: {{ $transaction->cake->cake_name }}</b></div>
                 </div>
                 <div class="display-kanan">
-                    <div>Subtotal Product: {{ $transaction->quantity * $transaction->cake_price }}</div>
+                    <div>Subtotal Product: {{ $transaction->quantity * $transaction->cake->cake_price }}</div>
                 </div>
                 <div class="display-kanan">
                     <div>Biaya Penanganan: 1.000</div>
@@ -29,7 +29,7 @@
                     <div>Biaya Layanan: 1.500</div>
                 </div>
                 <div class="total-harga">
-                    <div>Total Pesanan: {{ ($transaction->quantity * $transaction->cake_price) + 2500 }}</div>
+                    <div>Total Pesanan: {{ ($transaction->quantity * $transaction->cake->cake_price) + 2500 }}</div>
                 </div>
                 <div class="metode-pembayaran">
                     <div>Metode Pembayaran: Transfer</div>

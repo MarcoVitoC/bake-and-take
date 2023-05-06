@@ -7,12 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Status extends Model
 {
-    use HasFactory;
+   use HasFactory;
 
-    protected $guarded = ['id'];
+   protected $guarded = ['id'];
 
-    public function transaction_header()
-    {
-        return $this->hasMany(TransactionHeader::class);
-    }
+   public function transaction_header()
+   {
+      return $this->hasMany(TransactionHeader::class);
+   }
 }

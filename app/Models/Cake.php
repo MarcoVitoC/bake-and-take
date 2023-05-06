@@ -7,22 +7,22 @@ use Illuminate\Database\Eloquent\Model;
 
 class Cake extends Model
 {
-    use HasFactory;
+   use HasFactory;
 
-    protected $guarded = ['id'];
+   protected $guarded = ['id'];
 
-    public function category()
-    {
-        return $this->belongsTo(Category::class);
-    }
+   public function category()
+   {
+      return $this->belongsTo(Category::class);
+   }
 
-    public function favorite()
-    {
-        return $this->hasMany(Favorite::class);
-    }
+   public function favorite()
+   {
+      return $this->hasMany(Favorite::class);
+   }
 
-    public function transaction_detail()
-    {
-        return $this->hasMany(TransactionDetail::class);
-    }
+   public function transaction_detail()
+   {
+      return $this->hasMany(TransactionDetail::class);
+   }
 }

@@ -13,9 +13,8 @@
                 <div class="harga">Rp.{{ $cake->cake_price }}</div>
                 <div class="detail-container">
                     <div class="detail-lists">
-                        <div>Protection</div>
-                        <div class="list-pengiriman">Pengiriman</div>
-                        <div>Tipe Pembayaran</div>
+                        <div class="list-pengiriman">Shipping Address</div>
+                        <div>Payment Method</div>
                         <div>Quantity</div>
                         @if ($favorite != null && $favorite->user_id == auth()->user()->id)
                             <form action="/user/product-detail/{{ $cake->id }}" method="post">
@@ -39,8 +38,7 @@
                     </div>
 
                     <div class="detail-isi">
-                        <div>Proteksi Kerusakan Kue <button class="proteksi-info"><b>?</b></button></div>
-                        <div class="alamat-pengiriman">Pengiriman Menuju {{ auth()->user()->address }}</div>
+                        <div class="alamat-pengiriman">{{ auth()->user()->address }}</div>
                         <div>Transfer</div>
                         <form action="/user/product-detail/{{ $cake->id }}" method="post">
                             @csrf
