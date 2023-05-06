@@ -54,10 +54,7 @@ class AdminController extends Controller
    }
 
    public function editCake($id) {
-      $cake = DB::table('cakes')
-               ->join('categories', 'cakes.category_id', '=', 'categories.id')
-               ->select('cakes.*', 'categories.category_name')
-               ->where('cakes.id', '=', $id)->first();
+      $cake = Cake::with('category')->where('cakes.id', '=', $id)->first();
 
       return view('admin.edit-cake', [
          'title' => 'Edit Cake',
@@ -66,10 +63,7 @@ class AdminController extends Controller
    }
 
    public function changeCake($id) {
-      $cake = DB::table('cakes')
-               ->join('categories', 'cakes.category_id', '=', 'categories.id')
-               ->select('cakes.*', 'categories.category_name')
-               ->where('cakes.id', '=', $id)->first();
+      $cake = Cake::where('cakes.id', '=', $id)->first();
 
       return view('admin.update-cake', [
          'title' => 'Update Cake',
@@ -124,10 +118,7 @@ class AdminController extends Controller
    }
 
    public function deleteCakeConfirmation($id) {
-      $cake = DB::table('cakes')
-               ->join('categories', 'cakes.category_id', '=', 'categories.id')
-               ->select('cakes.*', 'categories.category_name')
-               ->where('cakes.id', '=', $id)->first();
+      $cake = Cake::where('cakes.id', '=', $id)->first();
 
       return view('admin.delete-cake', [
          'title' => 'Delete Cake',
@@ -137,7 +128,7 @@ class AdminController extends Controller
 
    public function deleteCake(Cake $cake) {
       Storage::delete($cake->cake_photo);
-      $cake->destroy($cake->id);
+      $cake->delete();
       
       return redirect('/admin/delete-cake-success');
    }

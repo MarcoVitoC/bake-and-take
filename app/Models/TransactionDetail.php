@@ -7,17 +7,17 @@ use Illuminate\Database\Eloquent\Model;
 
 class TransactionDetail extends Model
 {
-    use HasFactory;
+   use HasFactory;
 
-    protected $guarded = ['id'];
+   protected $guarded = ['id'];
 
-    public function cake()
-    {
-        return $this->belongsTo(Cake::class);
-    }
+   public function cake()
+   {
+      return $this->belongsTo(Cake::class);
+   }
 
-    public function transaction_header()
-    {
-        return $this->belongsTo(TransactionHeader::class);
-    }
+   public function transaction_header()
+   {
+      return $this->belongsTo(TransactionHeader::class);
+   }
 }

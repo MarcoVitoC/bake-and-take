@@ -9,7 +9,7 @@
             <div class="harga-kue">Rp.{{ $cake->cake_price }}</div>
             <div class="category-container">
                 <div class="teks-category">Category</div>
-                <div class="category-kue">{{ $cake->category_name }}</div>
+                <div class="category-kue">{{ $cake->category->category_name }}</div>
             </div>
         </div>
 

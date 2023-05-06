@@ -28,7 +28,6 @@ class RegisterController extends Controller
          'terms-conditions' => ['required']
       ]);
 
-      // $newUser['id'] = Str::uuid();
       $newUser['password'] = Hash::make($newUser['password']);
       User::create($newUser);
 

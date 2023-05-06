@@ -7,12 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Category extends Model
 {
-    use HasFactory;
+   use HasFactory;
 
-    protected $guarded = ['id'];
+   protected $guarded = ['id'];
 
-    public function Cake()
-    {
-        return $this->hasMany(Cake::class);
-    }
+   public function Cake()
+   {
+      return $this->hasMany(Cake::class);
+   }
 }
