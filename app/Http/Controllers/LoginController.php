@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Hash;
 use App\Models\User;
+use Illuminate\Http\Request;
+use App\Http\Requests\auth\LoginRequest;
+use App\Http\Requests\auth\ResetPasswordRequest;
+use App\Http\Requests\auth\ForgotPasswordRequest;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class LoginController extends Controller
 {
@@ -16,23 +18,19 @@ class LoginController extends Controller
       ]);
    }
 
-   public function authentication(Request $request) {
-      $validatedUser = $request->validate([
-         'email' => ['required', 'email:strict'],
-         'password' => ['required']
-      ]);
+   public function login(LoginRequest $request) {
+      $validatedUser = $request->validated();
       
       if (Auth::attempt($validatedUser)) {
          $request->session()->regenerate();
          if (auth()->user()->role_id === 0) {
-               return redirect()->intended('/user');
-         }
-         if (auth()->user()->role_id === 1) {
-               return redirect()->intended('/admin');
+            return redirect()->intended('/user');
+         }else if (auth()->user()->role_id === 1) {
+            return redirect()->intended('/admin');
          }
       }
 
-      return back()->with('loginError', 'Login Failed! Please recheck your input.');
+      return back()->with('loginError', 'Login Failed! Please check your input.');
    }
 
    public function logout(Request $request) {
@@ -48,10 +46,8 @@ class LoginController extends Controller
       ]);
    }
 
-   public function forgotPassword(Request $request) {
-      $forgotPassword = $request->validate([
-         'email' => ['required', 'email:strict']
-      ]);
+   public function forgotPassword(ForgotPasswordRequest $request) {
+      $forgotPassword = $request->validated();
 
       $user = User::where('email' , '=', $forgotPassword['email'])->first();
       
@@ -73,11 +69,8 @@ class LoginController extends Controller
       ]);
    }
 
-   public function resetPassword(Request $request, $id) {
-      $resetPassword = $request->validate([
-         'new_password' => ['required', 'min:3', 'max:255'],
-         'confirm_new_password' => ['required', 'same:new_password']
-      ]);
+   public function resetPassword(ResetPasswordRequest $request, $id) {
+      $resetPassword = $request->validated();
 
       $resetPassword['new_password'] = Hash::make($resetPassword['new_password']);
 
