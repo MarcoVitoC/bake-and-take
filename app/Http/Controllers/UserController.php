@@ -2,14 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cake;
+use App\Models\User;
+use App\Models\Favorite;
+use App\Models\TransactionDetail;
+use App\Models\TransactionHeader;
 use Illuminate\Http\Request;
+use App\Http\Requests\user\UpdateProfileRequest;
+use App\Http\Requests\user\UpdatePasswordRequest;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
-use App\Models\User;
-use App\Models\Cake;
-use App\Models\TransactionHeader;
-use App\Models\TransactionDetail;
-use App\Models\Favorite;
 
 class UserController extends Controller
 {
@@ -192,15 +194,8 @@ class UserController extends Controller
       ]);
    }
 
-   public function updateProfile(Request $request) {
-      $updateUser = $request->validate([
-         'fullname' => ['required', 'min:3', 'max:255'],
-         'email' => ['required', 'email:strict'],
-         'phone_number' => ['required', 'digits:12', 'numeric'],
-         'dob' => ['required'],
-         'address' => ['required', 'min:5', 'max:255'],
-         'confirm_password' => ['required']
-      ]);
+   public function updateProfile(UpdateProfileRequest $request) {
+      $updateUser = $request->validated();
 
       if (!Hash::check($request->confirm_password, $request->user()->password)) {
          return back()->withErrors([
@@ -227,12 +222,8 @@ class UserController extends Controller
       ]);
    }
 
-   public function updatePassword(Request $request) {
-      $updatePassword = $request->validate([
-         'new_password' => ['required', 'min:3', 'max:255'],
-         'confirm_new_password' => ['required', 'same:new_password'],
-         'old_password' => ['required']
-      ]);
+   public function updatePassword(UpdatePasswordRequest $request) {
+      $updatePassword = $request->validated();
 
       if (!Hash::check($request->old_password, $request->user()->password)) {
          return back()->withErrors([

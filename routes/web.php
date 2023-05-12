@@ -13,7 +13,7 @@ Route::post('/', [LoginController::class, 'logout']);
 Route::middleware(['guest'])->group(function() {
    Route::get('/', [GuestController::class, 'index']);
    Route::get('/login', [LoginController::class, 'index'])->name('login');
-   Route::post('/login', [LoginController::class, 'authentication']);
+   Route::post('/login', [LoginController::class, 'login']);
    Route::get('/login/forgot-password', [LoginController::class, 'showForgotPassword']);
    Route::post('/login/forgot-password', [LoginController::class, 'forgotPassword']);
    Route::get('/reset-password/{id}', [LoginController::class, 'showResetPassword'])->name('resetPassword');

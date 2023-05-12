@@ -2,13 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Str;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Storage;
 use App\Models\Cake;
 use App\Models\Category;
 use App\Models\TransactionHeader;
+use Illuminate\Support\Str;
+use Illuminate\Http\Request;
+use App\Http\Requests\admin\CreateCakeRequest;
+use App\Http\Requests\admin\UpdateCakeRequest;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
+
 
 class AdminController extends Controller
 {
@@ -78,15 +81,8 @@ class AdminController extends Controller
       ]);
    }    
 
-   public function createCake(Request $request) {
-      $newCake = $request->validate([
-         'cake_name' => ['required', 'min:5', 'max:255','unique:cakes'],
-         'cake_price' => ['required', 'numeric'],
-         'cake_ingredients' => ['required', 'min:5', 'max:255'],
-         'cake_description' => ['required', 'min:5', 'max:255'],
-         'category_id' => ['required'],
-         'cake_photo' => ['required', 'mimes:jpeg, png, jpg', 'file', 'max:1024']
-      ]);
+   public function createCake(CreateCakeRequest $request) {
+      $newCake = $request->validated();
       
       $newCake["cake_photo"] = $request->file('cake_photo')->store('uploaded-cake-photo');
       $newCake["excerpt"] = Str::limit(strip_tags($request->cake_description, 20));
@@ -95,15 +91,8 @@ class AdminController extends Controller
       return redirect('/admin/add-cake/add-cake-success');
    }
 
-   public function updateCake(Request $request, Cake $cake) {
-      $updateCake = $request->validate([
-         'cake_name' => ['required', 'min:5', 'max:255'],
-         'cake_price' => ['required', 'numeric'],
-         'cake_ingredients' => ['required', 'min:5', 'max:255'],
-         'cake_description' => ['required', 'min:5', 'max:255'],
-         'category_id' => ['required'],
-         'cake_photo' => ['mimes:jpeg, png, jpg', 'file', 'max:1024']
-      ]);
+   public function updateCake(UpdateCakeRequest $request, Cake $cake) {
+      $updateCake = $request->validated();
       
       $updateCake["excerpt"] = Str::limit(strip_tags($request->cake_description, 20));
 
