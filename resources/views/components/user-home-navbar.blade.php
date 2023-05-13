@@ -1,5 +1,5 @@
 <nav>
-  <div class="logo"><a href="/home"><img src="{{ asset('assets/Logo.jpg') }}" alt="Bake & Take" width="60px" height="60px"></a></div>
+  <div class="logo"><a href="/user"><img src="{{ asset('assets/Logo.jpg') }}" alt="Bake & Take" width="60px" height="60px"></a></div>
   <div class="navbar-menu">
     <a class="menu home" href="#home">Home</a>
     <a class="menu category" href="#category">Category</a>

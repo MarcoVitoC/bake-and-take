@@ -49,7 +49,7 @@ class User extends Authenticatable
     ];
 
 
-    public function transaction_header()
+    public function transactionHeader()
     {
         return $this->hasMany(TransactionHeader::class);
     }

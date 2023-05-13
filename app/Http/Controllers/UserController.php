@@ -78,8 +78,8 @@ class UserController extends Controller
       
       $cake_id = $transactionDetail->cake_id;
 
-      $transactionHeader->destroy($transactionHeader->id);
-      $transactionDetail->destroy($transactionDetail->id);
+      $transactionHeader->delete();
+      $transactionDetail->delete();
 
       return redirect()->route('productDetail', ['id' => $cake_id]);
    }
@@ -130,35 +130,27 @@ class UserController extends Controller
    }
 
    public function showTransaction() {
-      $transactions = DB::table('transaction_details')
-                     ->join('cakes', 'transaction_details.cake_id', '=', 'cakes.id')
-                     ->join('transaction_headers', 'transaction_details.transaction_header_id', '=', 'transaction_headers.id')
-                     ->join('statuses', 'transaction_headers.status_id', '=', 'statuses.id')
-                     ->select(
-                           'transaction_headers.id',
-                           'cakes.cake_name',
-                           'cakes.cake_photo',
-                           'statuses.status_name',
-                           'transaction_headers.transaction_date'
-                     )
-                     ->where('transaction_headers.user_id', '=', auth()->user()->id)
-                     ->whereIn('transaction_headers.status_id', [1, 2])
-                     ->latest('transaction_headers.transaction_date')->get();
-      
-      $succeedTransactions = DB::table('transaction_details')
-                              ->join('cakes', 'transaction_details.cake_id', '=', 'cakes.id')
-                              ->join('transaction_headers', 'transaction_details.transaction_header_id', '=', 'transaction_headers.id')
-                              ->join('statuses', 'transaction_headers.status_id', '=', 'statuses.id')
-                              ->select(
-                                 'transaction_headers.id',
-                                 'cakes.cake_name',
-                                 'cakes.cake_photo',
-                                 'statuses.status_name',
-                                 'transaction_headers.transaction_date'
-                              )
-                              ->where('transaction_headers.user_id', '=', auth()->user()->id)
-                              ->whereIn('transaction_headers.status_id', [3])
-                              ->latest('transaction_headers.transaction_date')->get();
+      $transactions = TransactionDetail::with([
+         'transactionHeader.status', 
+         'cake'
+      ])
+      ->join('transaction_headers', 'transaction_details.transaction_header_id', '=', 'transaction_headers.id')
+      ->has('cake')
+      ->where('transaction_headers.user_id', '=', auth()->user()->id)
+      ->whereIn('transaction_headers.status_id', [1, 2])
+      ->latest('transaction_headers.transaction_date')
+      ->get();
+
+      $succeedTransactions = TransactionDetail::with([
+         'transactionHeader.status', 
+         'cake'
+      ])
+      ->join('transaction_headers', 'transaction_details.transaction_header_id', '=', 'transaction_headers.id')
+      ->has('cake')
+      ->where('transaction_headers.user_id', '=', auth()->user()->id)
+      ->whereIn('transaction_headers.status_id', [3])
+      ->latest('transaction_headers.transaction_date')
+      ->get();
 
       return view('user.transaction',  [
          'title' => 'Transaction',
@@ -199,7 +191,7 @@ class UserController extends Controller
 
       if (!Hash::check($request->confirm_password, $request->user()->password)) {
          return back()->withErrors([
-               'confirm_password' => ['The provided password does not match our records.']
+            'confirm_password' => ['The provided password does not match our records.']
          ]);
       }
 
@@ -207,7 +199,7 @@ class UserController extends Controller
       $user = User::find($userId);
       $user->update($updateUser);
 
-      return redirect('/user/profile/update-profile-success');
+      return redirect()->route('updateProfileSuccess');
    }
 
    public function updateProfileSuccess() {
@@ -227,7 +219,7 @@ class UserController extends Controller
 
       if (!Hash::check($request->old_password, $request->user()->password)) {
          return back()->withErrors([
-               'old_password' => ['The provided password does not match our records.']
+            'old_password' => ['The provided password does not match our records.']
          ]);
       }
 
@@ -237,10 +229,10 @@ class UserController extends Controller
       $user = User::find($userId);
       $user->update(['password' => $updatePassword['new_password']]);
 
-      return redirect('/user/profile/change-password-success');
-      }
+      return redirect()->route('changePasswordSuccess');
+   }
 
-      public function updatePasswordSuccess() {
+   public function updatePasswordSuccess() {
       return view('user.change-password-success', [
          'title' => 'Succeed'
       ]);

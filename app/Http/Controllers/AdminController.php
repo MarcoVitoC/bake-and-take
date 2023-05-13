@@ -9,6 +9,7 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Requests\admin\CreateCakeRequest;
 use App\Http\Requests\admin\UpdateCakeRequest;
+use App\Models\TransactionDetail;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
@@ -16,19 +17,15 @@ use Illuminate\Support\Facades\Storage;
 class AdminController extends Controller
 {
    public function index() {
-      $transactions = DB::table('transaction_details')
-                     ->join('cakes', 'transaction_details.cake_id', '=', 'cakes.id')
-                     ->join('transaction_headers', 'transaction_details.transaction_header_id', '=', 'transaction_headers.id')
-                     ->join('statuses', 'transaction_headers.status_id', '=', 'statuses.id')
-                     ->join('users', 'transaction_headers.user_id', '=', 'users.id')
-                     ->select(
-                           'transaction_headers.id',
-                           'users.fullname',
-                           'cakes.cake_name',
-                           'transaction_details.quantity',
-                           'transaction_headers.transaction_date',
-                           'statuses.status_name'
-                     )->orderBy('transaction_headers.status_id', 'asc')->get();
+      $transactions = TransactionDetail::with([
+         'transactionHeader.user',
+         'transactionHeader.status',
+         'cake'
+      ])
+      ->join('transaction_headers', 'transaction_details.transaction_header_id', '=', 'transaction_headers.id')
+      ->has('cake')
+      ->orderBy('transaction_headers.status_id')
+      ->get();
 
       return view('admin.home', [
          'title' => 'Admin',
@@ -40,7 +37,7 @@ class AdminController extends Controller
    public function updateTransactionStatus(Request $request) {
       $transactionHeader = TransactionHeader::find($request->transactionId);
       $transactionHeader->update(['status_id' => 2]);
-      return redirect('/admin');
+      return redirect()->route('admin');
    }
 
    public function addCake() {
@@ -88,7 +85,7 @@ class AdminController extends Controller
       $newCake["excerpt"] = Str::limit(strip_tags($request->cake_description, 20));
 
       Cake::create($newCake);
-      return redirect('/admin/add-cake/add-cake-success');
+      return redirect()->route('addCakeSuccess');
    }
 
    public function updateCake(UpdateCakeRequest $request, Cake $cake) {
@@ -103,7 +100,7 @@ class AdminController extends Controller
 
       $cake->update($updateCake);
       
-      return redirect('/admin/update-cake-success');
+      return redirect()->route('updateCakeSuccess');
    }
 
    public function deleteCakeConfirmation($id) {
@@ -119,7 +116,7 @@ class AdminController extends Controller
       Storage::delete($cake->cake_photo);
       $cake->delete();
       
-      return redirect('/admin/delete-cake-success');
+      return redirect()->route('deleteCakeSuccess');
    }
 
    public function deleteCakeSuccess() {

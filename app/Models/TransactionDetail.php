@@ -16,7 +16,7 @@ class TransactionDetail extends Model
       return $this->belongsTo(Cake::class);
    }
 
-   public function transaction_header()
+   public function transactionHeader()
    {
       return $this->belongsTo(TransactionHeader::class);
    }

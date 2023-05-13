@@ -11,7 +11,7 @@ class TransactionHeader extends Model
 
    protected $guarded = ['id'];
 
-   public function transaction_detail()
+   public function transactionDetail()
    {
       return $this->hasMany(TransactionDetail::class);
    }
