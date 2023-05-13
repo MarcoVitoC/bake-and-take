@@ -94,7 +94,7 @@
         <a class="next-slide" onclick="push(1)">&#10095;</a>
       </div>
       <div class="deskripsi-toko">
-        Kue Ini dibuat dengan  memanaskan susu cair, mentega dan gula sampai meleleh menggunakan api kecil mencegah bahan-Bahan menjadi gosong dan lengket. lalu di masukan ke dalam wadah lain dengan campuran telur, dan pasta coklat lalu di kocok. kemudian di campurkan ke dalam tepung terigu, coklat bubuk, baking powder dan soda kue diaduk hingga rata dengan pengaduk sehingga tidak ada gelembung dan warna menjadi merata lalu di kukus di dalem oven dengan suhu tinggi diamkan kurang lebih 25 menit sehingga matang sempurna dan mengembang dengan sempurna. dan di hias sedemikian rupa dengan bahan dan kerajingan tangan yang berkualitas.
+         Welcome to our Cake E-commerce store! We are passionate about bringing you the most delicious and beautifully crafted cakes that are perfect for any occasion. Whether you're celebrating a birthday, a wedding, or simply treating yourself to something sweet, our cakes are sure to satisfy your cravings and delight your taste buds. At our store, we use only the finest ingredients to create our cakes, ensuring that each one is not only delicious but also of the highest quality. Our talented bakers and decorators work tirelessly to bring you a wide variety of cakes in different flavors, shapes, and sizes, so you can find the perfect one for your special occasion.
       </div>
     </div>
   </div>

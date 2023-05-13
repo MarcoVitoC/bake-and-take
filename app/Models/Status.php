@@ -11,7 +11,7 @@ class Status extends Model
 
    protected $guarded = ['id'];
 
-   public function transaction_header()
+   public function transactionHeader()
    {
       return $this->hasMany(TransactionHeader::class);
    }

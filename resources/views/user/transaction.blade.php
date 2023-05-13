@@ -11,23 +11,23 @@
             @foreach ($transactions as $transaction)
                 <div class="display-transaction-container">
                     <div class="left-transaction-container">
-                        <img src="{{ asset('storage/' . $transaction->cake_photo) }}" alt="Gambar Kue" width="210px" height="205px">
+                        <img src="{{ asset('storage/' . $transaction->cake->cake_photo) }}" alt="Gambar Kue" width="210px" height="205px">
                         <div class="transaction-detail-container">
-                            <h1 class="notif-main-text">{{ $transaction->cake_name }}</h1>
-                            @if ($transaction->status_name === 'Ongoing')
-                                <h2 class="notif-sub-text" id="ongoing">{{ $transaction->status_name }}</h2>
-                            @elseif ($transaction->status_name === 'Delivered')
-                                <h2 class="notif-sub-text" id="delivered">{{ $transaction->status_name }}</h2>
+                            <h1 class="notif-main-text">{{ $transaction->cake->cake_name }}</h1>
+                            @if ($transaction->transactionHeader->status->status_name === 'Ongoing')
+                                <h2 class="notif-sub-text" id="ongoing">{{ $transaction->transactionHeader->status->status_name }}</h2>
+                            @elseif ($transaction->transactionHeader->status->status_name === 'Delivered')
+                                <h2 class="notif-sub-text" id="delivered">{{ $transaction->transactionHeader->status->status_name }}</h2>
                             @endif
-                            <h4 class="notif-date">{{ date('d M Y', strtotime($transaction->transaction_date)) }}</h4>
-                            <a href="/user/transaction/transaction-detail/{{ $transaction->id }}" class="see-details">See Details</a>
+                            <h4 class="notif-date">{{ date('d M Y', strtotime($transaction->transactionHeader->transaction_date)) }}</h4>
+                            <a href="/user/transaction/transaction-detail/{{ $transaction->transactionHeader->id }}" class="see-details">See Details</a>
                         </div>
-                        @if ($transaction->status_name === 'Delivered')
+                        @if ($transaction->transactionHeader->status->status_name === 'Delivered')
                             <div>
                                 <form action="/user/transaction" method="post">
                                     @method('put')
                                     @csrf
-                                    <input type="hidden" name="transactionId" value="{{ $transaction->id }}">
+                                    <input type="hidden" name="transactionId" value="{{ $transaction->transactionHeader->id }}">
                                     <button type="submit" class="confirm-order-btn">Confirm Order</button>
                                 </form>
                             </div>
@@ -52,12 +52,12 @@
                 @foreach ($succeedTransactions as $succeedTransaction)
                     <div class="display-transaction-container">
                         <div class="left-transaction-container">
-                            <img src="{{ asset('storage/' . $succeedTransaction->cake_photo) }}" alt="Gambar Kue" width="210px" height="205px">
+                            <img src="{{ asset('storage/' . $succeedTransaction->cake->cake_photo) }}" alt="Gambar Kue" width="210px" height="205px">
                             <div class="transaction-detail-container">
-                                <div class="notif-main-text">{{ $succeedTransaction->cake_name }}</div>
-                                <div class="notif-sub-text" id="finished">{{ $succeedTransaction->status_name }}</div>
-                                <div class="notif-date">{{ date('d M Y', strtotime($succeedTransaction->transaction_date)) }}</div>
-                                <a href="/user/transaction/transaction-detail/{{ $succeedTransaction->id }}" class="see-details">See Details</a>
+                                <div class="notif-main-text">{{ $succeedTransaction->cake->cake_name }}</div>
+                                <div class="notif-sub-text" id="finished">{{ $succeedTransaction->transactionHeader->status->status_name }}</div>
+                                <div class="notif-date">{{ date('d M Y', strtotime($succeedTransaction->transactionHeader->transaction_date)) }}</div>
+                                <a href="/user/transaction/transaction-detail/{{ $succeedTransaction->transactionHeader->id }}" class="see-details">See Details</a>
                             </div>
                         </div>
                     </div>

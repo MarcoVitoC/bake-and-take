@@ -18,24 +18,24 @@
       <tbody>
         @foreach ($transactions as $transaction)
           <tr>
-            <td>{{ $transaction->id }}</td>
-            <td>{{ $transaction->fullname }}</td>
-            <td>{{ $transaction->cake_name }}</td>
+            <td>{{ $transaction->transactionHeader->id }}</td>
+            <td>{{ $transaction->transactionHeader->user->fullname }}</td>
+            <td>{{ $transaction->cake->cake_name }}</td>
             <td>{{ $transaction->quantity }}</td>
-            <td>{{ date('d M Y', strtotime($transaction->transaction_date)) }}</td>
-            @if ($transaction->status_name === 'Ongoing')
-              <td id="ongoing">{{ $transaction->status_name }}</td>
-            @elseif ($transaction->status_name === 'Delivered')
-              <td id="delivered">{{ $transaction->status_name }}</td>
+            <td>{{ date('d M Y', strtotime($transaction->transactionHeader->transaction_date)) }}</td>
+            @if ($transaction->transactionHeader->status->status_name === 'Ongoing')
+              <td id="ongoing">{{ $transaction->transactionHeader->status->status_name }}</td>
+            @elseif ($transaction->transactionHeader->status->status_name === 'Delivered')
+              <td id="delivered">{{ $transaction->transactionHeader->status->status_name }}</td>
             @else
-              <td id="finished">{{ $transaction->status_name }}</td>
+              <td id="finished">{{ $transaction->transactionHeader->status->status_name }}</td>
             @endif
-            @if ($transaction->status_name === 'Ongoing')
+            @if ($transaction->transactionHeader->status->status_name === 'Ongoing')
             <td>
               <form action="/admin" method="post">
                 @method('put')
                 @csrf
-                <input type="hidden" name="transactionId" value="{{ $transaction->id }}">
+                <input type="hidden" name="transactionId" value="{{ $transaction->transactionHeader->id }}">
                 <button type="submit">Update</button>
               </form>
             </td>

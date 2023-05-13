@@ -21,7 +21,7 @@ class Cake extends Model
       return $this->hasMany(Favorite::class);
    }
 
-   public function transaction_detail()
+   public function transactionDetail()
    {
       return $this->hasMany(TransactionDetail::class);
    }

@@ -40,25 +40,25 @@ Route::middleware(['role:0'])->prefix('/user')->group(function() {
    Route::get('/profile', [UserController::class, 'showUserProfile']);
    Route::get('/profile/update-profile', [UserController::class, 'editProfile']);
    Route::put('/profile/update-profile', [UserController::class, 'updateProfile']);
-   Route::get('/profile/update-profile-success', [UserController::class, 'updateProfileSuccess']);
+   Route::get('/profile/update-profile-success', [UserController::class, 'updateProfileSuccess'])->name('updateProfileSuccess');
    Route::get('/profile/change-password', [UserController::class, 'changePassword']);
    Route::put('/profile/change-password', [UserController::class, 'updatePassword']);
-   Route::get('/profile/change-password-success', [UserController::class, 'updatePasswordSuccess']);
+   Route::get('/profile/change-password-success', [UserController::class, 'updatePasswordSuccess'])->name('changePasswordSuccess');
 });
 
 // ADMIN
 Route::middleware(['role:1'])->prefix('admin')->group(function() {
-   Route::get('/', [AdminController::class, 'index']);
+   Route::get('/', [AdminController::class, 'index'])->name('admin');
    Route::put('/', [AdminController::class, 'updateTransactionStatus']);
    Route::get('/add-cake', [AdminController::class, 'addCake']);
    Route::post('/add-cake', [AdminController::class, 'createCake']);
-   Route::get('/add-cake/add-cake-success', [AdminController::class, 'addCakeSuccess']);
+   Route::get('/add-cake/add-cake-success', [AdminController::class, 'addCakeSuccess'])->name('addCakeSuccess');
    Route::get('/edit-cake/{id}', [AdminController::class, 'editCake']);
    Route::get('/update-cake/{id}', [AdminController::class, 'changeCake']);
    Route::put('/update-cake/{cake}', [AdminController::class, 'updateCake']);
-   Route::get('/update-cake-success', [AdminController::class, 'updateCakeSuccess']);
+   Route::get('/update-cake-success', [AdminController::class, 'updateCakeSuccess'])->name('updateCakeSuccess');
    Route::get('/delete-cake/{id}', [AdminController::class, 'deleteCakeConfirmation']);
    Route::delete('/delete-cake/{cake}', [AdminController::class, 'deleteCake']);
-   Route::get('/delete-cake-success', [AdminController::class, 'deleteCakeSuccess']);
+   Route::get('/delete-cake-success', [AdminController::class, 'deleteCakeSuccess'])->name('deleteCakeSuccess');
 });
 
