@@ -8,26 +8,26 @@
             <div class="notif-transaction-text">Transaction</div>
         </div>
         <div class="notif-inner-container">
-            @foreach ($transactions as $transaction)
+            @foreach ($ongoingTransactions as $ongoingTransaction)
                 <div class="display-transaction-container">
                     <div class="left-transaction-container">
-                        <img src="{{ asset('storage/' . $transaction->cake->cake_photo) }}" alt="Gambar Kue" width="210px" height="205px">
+                        <img src="{{ asset('storage/' . $ongoingTransaction->cake->cake_photo) }}" alt="Gambar Kue" width="210px" height="205px">
                         <div class="transaction-detail-container">
-                            <h1 class="notif-main-text">{{ $transaction->cake->cake_name }}</h1>
-                            @if ($transaction->transactionHeader->status->status_name === 'Ongoing')
-                                <h2 class="notif-sub-text" id="ongoing">{{ $transaction->transactionHeader->status->status_name }}</h2>
-                            @elseif ($transaction->transactionHeader->status->status_name === 'Delivered')
-                                <h2 class="notif-sub-text" id="delivered">{{ $transaction->transactionHeader->status->status_name }}</h2>
+                            <h1 class="notif-main-text">{{ $ongoingTransaction->cake->cake_name }}</h1>
+                            @if ($ongoingTransaction->transactionHeader->status->status_name === 'Ongoing')
+                                <h2 class="notif-sub-text" id="ongoing">{{ $ongoingTransaction->transactionHeader->status->status_name }}</h2>
+                            @elseif ($ongoingTransaction->transactionHeader->status->status_name === 'Delivered')
+                                <h2 class="notif-sub-text" id="delivered">{{ $ongoingTransaction->transactionHeader->status->status_name }}</h2>
                             @endif
-                            <h4 class="notif-date">{{ date('d M Y', strtotime($transaction->transactionHeader->transaction_date)) }}</h4>
-                            <a href="/user/transaction/transaction-detail/{{ $transaction->transactionHeader->id }}" class="see-details">See Details</a>
+                            <h4 class="notif-date">{{ date('d M Y', strtotime($ongoingTransaction->transactionHeader->transaction_date)) }}</h4>
+                            <a href="/user/transaction/transaction-detail/{{ $ongoingTransaction->transactionHeader->id }}" class="see-details">See Details</a>
                         </div>
-                        @if ($transaction->transactionHeader->status->status_name === 'Delivered')
+                        @if ($ongoingTransaction->transactionHeader->status->status_name === 'Delivered')
                             <div>
                                 <form action="/user/transaction" method="post">
                                     @method('put')
                                     @csrf
-                                    <input type="hidden" name="transactionId" value="{{ $transaction->transactionHeader->id }}">
+                                    <input type="hidden" name="transactionId" value="{{ $ongoingTransaction->transactionHeader->id }}">
                                     <button type="submit" class="confirm-order-btn">Confirm Order</button>
                                 </form>
                             </div>

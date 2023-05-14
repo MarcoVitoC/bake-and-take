@@ -2,30 +2,26 @@
 
 namespace App\Http\Controllers;
 
+use Exception;
 use App\Models\Cake;
 use App\Models\Category;
-use App\Models\TransactionHeader;
-use Illuminate\Support\Str;
 use Illuminate\Http\Request;
-use App\Http\Requests\admin\CreateCakeRequest;
-use App\Http\Requests\admin\UpdateCakeRequest;
-use App\Models\TransactionDetail;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Storage;
-
+use App\Http\Requests\admin\CakeRequest;
+use App\Services\admin\CakeService;
+use App\Services\admin\TransactionService;
 
 class AdminController extends Controller
 {
-   public function index() {
-      $transactions = TransactionDetail::with([
-         'transactionHeader.user',
-         'transactionHeader.status',
-         'cake'
-      ])
-      ->join('transaction_headers', 'transaction_details.transaction_header_id', '=', 'transaction_headers.id')
-      ->has('cake')
-      ->orderBy('transaction_headers.status_id')
-      ->get();
+   private $cakeService;
+   private $transactionService;
+
+   public function __construct() {
+      $this->cakeService = new CakeService();
+      $this->transactionService = new TransactionService();
+   }
+
+   public function showAdminPage() {
+      $transactions = $this->transactionService->showTransactions();
 
       return view('admin.home', [
          'title' => 'Admin',
@@ -35,12 +31,15 @@ class AdminController extends Controller
    }
 
    public function updateTransactionStatus(Request $request) {
-      $transactionHeader = TransactionHeader::find($request->transactionId);
-      $transactionHeader->update(['status_id' => 2]);
-      return redirect()->route('admin');
+      try {
+         $this->transactionService->updateTransactionStatus($request);
+         return to_route('admin');
+      } catch (Exception $e) {
+         return dd($e->getMessage());
+      }
    }
 
-   public function addCake() {
+   public function showAddCakeForm() {
       return view('admin.add-cake', [
          'title' => 'Add Cake',
          'categories' => Category::all()
@@ -53,8 +52,8 @@ class AdminController extends Controller
       ]);
    }
 
-   public function editCake($id) {
-      $cake = Cake::with('category')->where('cakes.id', '=', $id)->first();
+   public function showCakeDetail($id) {
+      $cake = $this->cakeService->getCakeDetailById($id);
 
       return view('admin.edit-cake', [
          'title' => 'Edit Cake',
@@ -62,8 +61,8 @@ class AdminController extends Controller
       ]);
    }
 
-   public function changeCake($id) {
-      $cake = Cake::where('cakes.id', '=', $id)->first();
+   public function showEditCakeForm($id) {
+      $cake = $this->cakeService->getCakeForEditById($id);
 
       return view('admin.update-cake', [
          'title' => 'Update Cake',
@@ -78,33 +77,26 @@ class AdminController extends Controller
       ]);
    }    
 
-   public function createCake(CreateCakeRequest $request) {
-      $newCake = $request->validated();
-      
-      $newCake["cake_photo"] = $request->file('cake_photo')->store('uploaded-cake-photo');
-      $newCake["excerpt"] = Str::limit(strip_tags($request->cake_description, 20));
-
-      Cake::create($newCake);
-      return redirect()->route('addCakeSuccess');
-   }
-
-   public function updateCake(UpdateCakeRequest $request, Cake $cake) {
-      $updateCake = $request->validated();
-      
-      $updateCake["excerpt"] = Str::limit(strip_tags($request->cake_description, 20));
-
-      if ($request->file('cake_photo')) {
-         $updateCake["cake_photo"] = $request->file('cake_photo')->store('uploaded-cake-photo');
-         Storage::delete($request->oldCakeImage);
+   public function createCake(CakeRequest $request) {
+      try {
+         $this->cakeService->createCake($request);
+         return to_route('addCakeSuccess');
+      } catch (Exception $e) {
+         return dd($e->getMessage());
       }
-
-      $cake->update($updateCake);
-      
-      return redirect()->route('updateCakeSuccess');
    }
 
-   public function deleteCakeConfirmation($id) {
-      $cake = Cake::where('cakes.id', '=', $id)->first();
+   public function updateCake(CakeRequest $request, Cake $cake) {
+      try {
+         $this->cakeService->updateCake($request, $cake);
+         return to_route('updateCakeSuccess');
+      } catch (Exception $e) {
+         return dd($e->getMessage());
+      }
+   }
+
+   public function showDeleteCakeConfirmation($id) {
+      $cake = $this->cakeService->findCakeToDelete($id);
 
       return view('admin.delete-cake', [
          'title' => 'Delete Cake',
@@ -113,10 +105,12 @@ class AdminController extends Controller
    }
 
    public function deleteCake(Cake $cake) {
-      Storage::delete($cake->cake_photo);
-      $cake->delete();
-      
-      return redirect()->route('deleteCakeSuccess');
+      try {
+         $this->cakeService->deleteCake($cake);
+         return to_route('deleteCakeSuccess');
+      } catch (Exception $e) {
+         return dd($e->getMessage());
+      }
    }
 
    public function deleteCakeSuccess() {
