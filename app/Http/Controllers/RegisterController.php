@@ -2,25 +2,30 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
-use Illuminate\Http\Request;
+use Exception;
 use App\Http\Requests\auth\RegisterRequest;
-use Illuminate\Support\Facades\Hash;
+use App\Services\auth\RegisterService;
 
 class RegisterController extends Controller
 {
-   public function index() {
+   private $registerService;
+
+   public function __construct() {
+      $this->registerService = new RegisterService();
+   }
+
+   public function showRegisterPage() {
       return view('guest.register', [
          'title' => 'Register'
       ]);
    }
 
    public function register(RegisterRequest $request) {
-      $newUser = $request->validated();
-
-      $newUser['password'] = Hash::make($newUser['password']);
-      User::create($newUser);
-
-      return redirect('/login')->with('success', 'Registration succeed. Please login!');
+      try {
+         $this->registerService->registerUser($request);
+         return redirect('/login')->with('success', 'Registration succeed. Please login!');
+      } catch (Exception $e) {
+         return dd($e->getMessage());
+      }
    }
 }

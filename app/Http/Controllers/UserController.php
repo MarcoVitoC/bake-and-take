@@ -2,20 +2,29 @@
 
 namespace App\Http\Controllers;
 
+use Exception;
 use App\Models\Cake;
-use App\Models\User;
-use App\Models\Favorite;
-use App\Models\TransactionDetail;
-use App\Models\TransactionHeader;
 use Illuminate\Http\Request;
 use App\Http\Requests\user\UpdateProfileRequest;
-use App\Http\Requests\user\UpdatePasswordRequest;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Hash;
+use App\Http\Requests\user\ChangePasswordRequest;
+use App\Models\TransactionDetail;
+use App\Services\user\TransactionService;
+use App\Services\user\FavoriteService;
+use App\Services\user\UserProfileService;
 
 class UserController extends Controller
 {
-   public function index() {
+   private $transactionService;
+   private $favoriteService;
+   private $userProfileService;
+
+   public function __construct() {
+      $this->transactionService = new TransactionService();
+      $this->favoriteService = new FavoriteService();
+      $this->userProfileService = new UserProfileService();
+   }
+
+   public function showUserPage() {
       return view('user.home', [
          'title' => 'User',
          'cheeses' => Cake::where('category_id', 1)->get(),
@@ -26,46 +35,35 @@ class UserController extends Controller
    }
 
    public function showProductDetail($id) {
-      $cake = Cake::where('cakes.id', '=', $id)->first();
-
-      $favorite = Favorite::where('cake_id', '=', $id)
-                  ->where('user_id', '=', auth()->user()->id)
-                  ->first();
+      $productDetail = $this->transactionService->showProductDetail($id);
 
       return view('user.product-detail', [
          'title' => 'Product Details',
-         'cake' => $cake,
-         'favorite' => $favorite
+         'cake' => $productDetail['cake'],
+         'favorite' => $productDetail['favorite']
       ]);
    }
 
    public function handleUserAction(Request $request, $id) {
       if ($request->action === 'favorite') {
-         $this->addFavorite($id);
-         return back();
+         try {
+            $this->favoriteService->addFavorite($id);
+            return back();
+         } catch (Exception $e) {
+            return dd($e->getMessage());
+         }
       }else if ($request->action === 'order') {
-         $transactionDetail = $this->orderCake($request, $id);
-         return redirect()->route('paymentConfirmation', ['id' => $transactionDetail->id]);
+         try {
+            $transactionDetail = $this->transactionService->orderCake($request, $id);
+            return to_route('paymentConfirmation', ['id' => $transactionDetail->id]);
+         } catch (Exception $e) {
+            return dd($e->getMessage());
+         }
       }
    }
 
-   public function orderCake(Request $request, $id) {
-      $transactionHeader = TransactionHeader::create([
-         'user_id' => auth()->user()->id
-      ]);
-
-      $cake = Cake::where('id', $id)->first();
-      $transactionDetail = TransactionDetail::create([
-         'transaction_header_id' => $transactionHeader->id,
-         'cake_id' => $cake->id,
-         'quantity' => $request->quantity
-      ]);
-      
-      return $transactionDetail;
-   }
-
    public function paymentConfirmation($id) {
-      $transaction = TransactionDetail::with('cake')->where('id', '=', $id)->first();
+      $transaction = $this->transactionService->paymentConfirmation($id);
 
       return view('user.payment-confirmation', [
          'title' => 'Payment Confirmation',
@@ -74,14 +72,12 @@ class UserController extends Controller
    }
 
    public function cancelTransaction(TransactionDetail $transactionDetail) {
-      $transactionHeader = TransactionHeader::find($transactionDetail->transaction_header_id);
-      
-      $cake_id = $transactionDetail->cake_id;
-
-      $transactionHeader->delete();
-      $transactionDetail->delete();
-
-      return redirect()->route('productDetail', ['id' => $cake_id]);
+      try {
+         $cakeId = $this->transactionService->cancelTransaction($transactionDetail);
+         return to_route('productDetail', ['id' => $cakeId]);
+      } catch (Exception $e) {
+         return dd($e->getMessage());
+      }
    }
 
    public function paymentSuccess() {
@@ -91,10 +87,7 @@ class UserController extends Controller
    }
 
    public function showFavorite() {
-      $favorites = Favorite::with('cake')
-                  ->where('user_id', '=', auth()->user()->id)
-                  ->has('cake')
-                  ->get();
+      $favorites = $this->favoriteService->showFavorites();
 
       return view('user.favorite', [
          'title' => 'Favorite',
@@ -102,76 +95,51 @@ class UserController extends Controller
       ]);
    }
 
-   public function addFavorite($id) {
-      $cake = Cake::find($id);
-
-      Favorite::firstOrCreate([
-         'cake_id' => $cake->id,
-         'user_id' => auth()->user()->id
-      ]);
+   public function removeFavoriteFromProductDetail($id) {
+      try {
+         $this->favoriteService->removeFavoriteFromProductDetail($id);
+         return back();
+      } catch (Exception $e) {
+         return dd($e->getMessage());
+      }
    }
 
-   public function removeFavorite($id) {
-      $favorite = Favorite::where('cake_id', '=', $id)
-                  ->where('user_id', '=', auth()->user()->id)
-                  ->first();
-      
-      $favorite->delete();
-      return back();
-   }
-
-   public function deleteFavorite(Request $request) {
-      $favorite = Favorite::where('id', '=', $request->favoriteId)
-                  ->where('user_id', '=', auth()->user()->id)
-                  ->first();
-
-      $favorite->delete();
-      return back();
+   public function removeFavoriteFromFavoritePage(Request $request) {
+      try {
+         $this->favoriteService->removeFavoriteFromFavoritePage($request);
+         return back();
+      } catch (Exception $e) {
+         return dd($e->getMessage());
+      }
    }
 
    public function showTransaction() {
-      $transactions = TransactionDetail::with([
-         'transactionHeader.status', 
-         'cake'
-      ])
-      ->join('transaction_headers', 'transaction_details.transaction_header_id', '=', 'transaction_headers.id')
-      ->has('cake')
-      ->where('transaction_headers.user_id', '=', auth()->user()->id)
-      ->whereIn('transaction_headers.status_id', [1, 2])
-      ->latest('transaction_headers.transaction_date')
-      ->get();
-
-      $succeedTransactions = TransactionDetail::with([
-         'transactionHeader.status', 
-         'cake'
-      ])
-      ->join('transaction_headers', 'transaction_details.transaction_header_id', '=', 'transaction_headers.id')
-      ->has('cake')
-      ->where('transaction_headers.user_id', '=', auth()->user()->id)
-      ->whereIn('transaction_headers.status_id', [3])
-      ->latest('transaction_headers.transaction_date')
-      ->get();
+      $ongoingTransactions = $this->transactionService->showOngoingTransactions();
+      $succeedTransactions = $this->transactionService->showSucceedTransactions();
 
       return view('user.transaction',  [
          'title' => 'Transaction',
-         'transactions' => $transactions,
+         'ongoingTransactions' => $ongoingTransactions,
          'succeedTransactions' => $succeedTransactions
       ]);
    }
 
-   public function updateTransactionStatus(Request $request) {
-      $transactionHeader = TransactionHeader::find($request->transactionId);
-      $transactionHeader->update(['status_id' => 3]);
-      return redirect('/user/transaction');
+   public function showTransactionDetail($id) {
+      $transactionDetail = $this->transactionService->showTransactionDetail($id);
+
+      return view('user.transaction-detail', [
+         'title' => 'Transaction Detail',
+         'transactionDetail' => $transactionDetail
+      ]);
    }
 
-   public function showTransactionDetail($id) {
-      $transaction = TransactionDetail::with('cake')->where('transaction_details.id', '=', $id)->first();
-
-      return view('user.transaction-detail',  [
-         'title' => 'Transaction Detail',
-         'transaction' => $transaction
-      ]);
+   public function updateTransactionStatus(Request $request) {
+      try {
+         $this->transactionService->updateTransactionStatus($request);
+         return to_route('userTransaction');
+      } catch (Exception $e) {
+         return dd($e->getMessage());
+      }
    }
 
    public function showUserProfile() {
@@ -187,19 +155,12 @@ class UserController extends Controller
    }
 
    public function updateProfile(UpdateProfileRequest $request) {
-      $updateUser = $request->validated();
-
-      if (!Hash::check($request->confirm_password, $request->user()->password)) {
-         return back()->withErrors([
-            'confirm_password' => ['The provided password does not match our records.']
-         ]);
+      try {
+         $this->userProfileService->updateProfile($request);
+         return to_route('updateProfileSuccess');
+      } catch (Exception $e) {
+         return dd($e->getMessage());
       }
-
-      $userId = auth()->user()->id;
-      $user = User::find($userId);
-      $user->update($updateUser);
-
-      return redirect()->route('updateProfileSuccess');
    }
 
    public function updateProfileSuccess() {
@@ -208,31 +169,27 @@ class UserController extends Controller
       ]);
    }
 
-   public function changePassword() {
+   public function showchangePasswordPage() {
       return view('user.change-password', [
          'title' => 'Change Password'
       ]);
    }
 
-   public function updatePassword(UpdatePasswordRequest $request) {
-      $updatePassword = $request->validated();
-
-      if (!Hash::check($request->old_password, $request->user()->password)) {
-         return back()->withErrors([
-            'old_password' => ['The provided password does not match our records.']
-         ]);
+   public function changePassword(ChangePasswordRequest $request) {
+      try {
+         $changePasswordIsSuccess = $this->userProfileService->changePassword($request);
+         if (!$changePasswordIsSuccess) {
+            return back()->withErrors([
+               'old_password' => ['The provided password does not match our records.']
+            ]);
+         }
+         return to_route('changePasswordSuccess');
+      } catch (Exception $e) {
+         return dd($e->getMessage());
       }
-
-      $updatePassword['new_password'] = Hash::make($updatePassword['new_password']);
-
-      $userId = auth()->user()->id;
-      $user = User::find($userId);
-      $user->update(['password' => $updatePassword['new_password']]);
-
-      return redirect()->route('changePasswordSuccess');
    }
 
-   public function updatePasswordSuccess() {
+   public function changePasswordSuccess() {
       return view('user.change-password-success', [
          'title' => 'Succeed'
       ]);
